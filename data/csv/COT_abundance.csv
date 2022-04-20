@@ -1,0 +1,1225 @@
+Year,Site,Habitat,Transect,COTS
+2005,LTER 1,Backreef,1,0
+2005,LTER 1,Backreef,2,1
+2005,LTER 1,Backreef,3,1
+2005,LTER 1,Backreef,4,0
+2005,LTER 2,Backreef,1,0
+2005,LTER 2,Backreef,2,0
+2005,LTER 2,Backreef,3,0
+2005,LTER 2,Backreef,4,0
+2005,LTER 3,Backreef,1,0
+2005,LTER 3,Backreef,2,0
+2005,LTER 3,Backreef,3,0
+2005,LTER 3,Backreef,4,0
+2005,LTER 4,Backreef,1,0
+2005,LTER 4,Backreef,2,0
+2005,LTER 4,Backreef,3,0
+2005,LTER 4,Backreef,4,0
+2005,LTER 5,Backreef,1,0
+2005,LTER 5,Backreef,2,2
+2005,LTER 5,Backreef,3,1
+2005,LTER 5,Backreef,4,0
+2005,LTER 6,Backreef,1,0
+2005,LTER 6,Backreef,2,0
+2005,LTER 6,Backreef,3,0
+2005,LTER 6,Backreef,4,0
+2005,LTER 1,Forereef,1,0
+2005,LTER 1,Forereef,2,0
+2005,LTER 1,Forereef,3,0
+2005,LTER 1,Forereef,4,0
+2005,LTER 2,Forereef,1,0
+2005,LTER 2,Forereef,2,0
+2005,LTER 2,Forereef,3,0
+2005,LTER 2,Forereef,4,0
+2005,LTER 3,Forereef,1,0
+2005,LTER 3,Forereef,2,0
+2005,LTER 3,Forereef,3,0
+2005,LTER 3,Forereef,4,0
+2005,LTER 4,Forereef,1,0
+2005,LTER 4,Forereef,2,0
+2005,LTER 4,Forereef,3,0
+2005,LTER 4,Forereef,4,0
+2005,LTER 5,Forereef,1,0
+2005,LTER 5,Forereef,2,0
+2005,LTER 5,Forereef,3,0
+2005,LTER 5,Forereef,4,0
+2005,LTER 6,Forereef,1,3
+2005,LTER 6,Forereef,2,2
+2005,LTER 6,Forereef,3,0
+2005,LTER 6,Forereef,4,0
+2005,LTER 1,Fringing Reef,1,0
+2005,LTER 1,Fringing Reef,2,0
+2005,LTER 1,Fringing Reef,3,0
+2005,LTER 1,Fringing Reef,4,0
+2005,LTER 2,Fringing Reef,1,0
+2005,LTER 2,Fringing Reef,2,0
+2005,LTER 2,Fringing Reef,3,0
+2005,LTER 2,Fringing Reef,4,0
+2005,LTER 3,Fringing Reef,1,0
+2005,LTER 3,Fringing Reef,2,0
+2005,LTER 3,Fringing Reef,3,0
+2005,LTER 3,Fringing Reef,4,0
+2005,LTER 4,Fringing Reef,1,0
+2005,LTER 4,Fringing Reef,2,0
+2005,LTER 4,Fringing Reef,3,0
+2005,LTER 4,Fringing Reef,4,0
+2005,LTER 5,Fringing Reef,1,0
+2005,LTER 5,Fringing Reef,2,0
+2005,LTER 5,Fringing Reef,3,0
+2005,LTER 5,Fringing Reef,4,0
+2005,LTER 6,Fringing Reef,1,0
+2005,LTER 6,Fringing Reef,2,0
+2005,LTER 6,Fringing Reef,3,0
+2005,LTER 6,Fringing Reef,4,0
+2006,LTER 1,Backreef,1,0
+2006,LTER 1,Backreef,2,0
+2006,LTER 1,Backreef,3,0
+2006,LTER 1,Backreef,4,0
+2006,LTER 2,Backreef,1,0
+2006,LTER 2,Backreef,2,0
+2006,LTER 2,Backreef,3,0
+2006,LTER 2,Backreef,4,0
+2006,LTER 3,Backreef,1,0
+2006,LTER 3,Backreef,2,1
+2006,LTER 3,Backreef,3,0
+2006,LTER 3,Backreef,4,0
+2006,LTER 4,Backreef,1,0
+2006,LTER 4,Backreef,2,0
+2006,LTER 4,Backreef,3,0
+2006,LTER 4,Backreef,4,1
+2006,LTER 5,Backreef,1,0
+2006,LTER 5,Backreef,2,1
+2006,LTER 5,Backreef,3,0
+2006,LTER 5,Backreef,4,0
+2006,LTER 6,Backreef,1,0
+2006,LTER 6,Backreef,2,0
+2006,LTER 6,Backreef,3,0
+2006,LTER 6,Backreef,4,0
+2006,LTER 1,Forereef,1,0
+2006,LTER 1,Forereef,2,0
+2006,LTER 1,Forereef,3,0
+2006,LTER 1,Forereef,4,0
+2006,LTER 2,Forereef,1,0
+2006,LTER 2,Forereef,2,0
+2006,LTER 2,Forereef,3,0
+2006,LTER 2,Forereef,4,0
+2006,LTER 3,Forereef,1,0
+2006,LTER 3,Forereef,2,0
+2006,LTER 3,Forereef,3,0
+2006,LTER 3,Forereef,4,0
+2006,LTER 4,Forereef,1,0
+2006,LTER 4,Forereef,2,0
+2006,LTER 4,Forereef,3,0
+2006,LTER 4,Forereef,4,0
+2006,LTER 5,Forereef,1,0
+2006,LTER 5,Forereef,2,0
+2006,LTER 5,Forereef,3,0
+2006,LTER 5,Forereef,4,0
+2006,LTER 6,Forereef,1,0
+2006,LTER 6,Forereef,2,0
+2006,LTER 6,Forereef,3,0
+2006,LTER 6,Forereef,4,0
+2006,LTER 1,Fringing Reef,1,0
+2006,LTER 1,Fringing Reef,2,0
+2006,LTER 1,Fringing Reef,3,0
+2006,LTER 1,Fringing Reef,4,0
+2006,LTER 2,Fringing Reef,1,0
+2006,LTER 2,Fringing Reef,2,0
+2006,LTER 2,Fringing Reef,3,0
+2006,LTER 2,Fringing Reef,4,0
+2006,LTER 3,Fringing Reef,1,0
+2006,LTER 3,Fringing Reef,2,0
+2006,LTER 3,Fringing Reef,3,0
+2006,LTER 3,Fringing Reef,4,0
+2006,LTER 4,Fringing Reef,1,0
+2006,LTER 4,Fringing Reef,2,0
+2006,LTER 4,Fringing Reef,3,0
+2006,LTER 4,Fringing Reef,4,0
+2006,LTER 5,Fringing Reef,1,0
+2006,LTER 5,Fringing Reef,2,0
+2006,LTER 5,Fringing Reef,3,0
+2006,LTER 5,Fringing Reef,4,0
+2006,LTER 6,Fringing Reef,1,0
+2006,LTER 6,Fringing Reef,2,0
+2006,LTER 6,Fringing Reef,3,0
+2006,LTER 6,Fringing Reef,4,0
+2007,LTER 1,Backreef,1,1
+2007,LTER 1,Backreef,2,0
+2007,LTER 1,Backreef,3,0
+2007,LTER 1,Backreef,4,0
+2007,LTER 2,Backreef,1,1
+2007,LTER 2,Backreef,2,0
+2007,LTER 2,Backreef,3,0
+2007,LTER 2,Backreef,4,0
+2007,LTER 3,Backreef,1,0
+2007,LTER 3,Backreef,2,0
+2007,LTER 3,Backreef,3,0
+2007,LTER 3,Backreef,4,0
+2007,LTER 4,Backreef,1,0
+2007,LTER 4,Backreef,2,0
+2007,LTER 4,Backreef,3,0
+2007,LTER 4,Backreef,4,0
+2007,LTER 5,Backreef,1,0
+2007,LTER 5,Backreef,2,0
+2007,LTER 5,Backreef,3,0
+2007,LTER 5,Backreef,4,0
+2007,LTER 6,Backreef,1,0
+2007,LTER 6,Backreef,2,0
+2007,LTER 6,Backreef,3,0
+2007,LTER 6,Backreef,4,0
+2007,LTER 1,Forereef,1,3
+2007,LTER 1,Forereef,2,0
+2007,LTER 1,Forereef,3,0
+2007,LTER 1,Forereef,4,0
+2007,LTER 2,Forereef,1,0
+2007,LTER 2,Forereef,2,3
+2007,LTER 2,Forereef,3,0
+2007,LTER 2,Forereef,4,0
+2007,LTER 3,Forereef,1,1
+2007,LTER 3,Forereef,2,0
+2007,LTER 3,Forereef,3,1
+2007,LTER 3,Forereef,4,0
+2007,LTER 4,Forereef,1,1
+2007,LTER 4,Forereef,2,0
+2007,LTER 4,Forereef,3,0
+2007,LTER 4,Forereef,4,0
+2007,LTER 5,Forereef,1,0
+2007,LTER 5,Forereef,2,0
+2007,LTER 5,Forereef,3,0
+2007,LTER 5,Forereef,4,0
+2007,LTER 6,Forereef,1,3
+2007,LTER 6,Forereef,2,0
+2007,LTER 6,Forereef,3,1
+2007,LTER 6,Forereef,4,0
+2007,LTER 1,Fringing Reef,1,0
+2007,LTER 1,Fringing Reef,2,0
+2007,LTER 1,Fringing Reef,3,0
+2007,LTER 1,Fringing Reef,4,0
+2007,LTER 2,Fringing Reef,1,0
+2007,LTER 2,Fringing Reef,2,0
+2007,LTER 2,Fringing Reef,3,0
+2007,LTER 2,Fringing Reef,4,0
+2007,LTER 3,Fringing Reef,1,0
+2007,LTER 3,Fringing Reef,2,0
+2007,LTER 3,Fringing Reef,3,0
+2007,LTER 3,Fringing Reef,4,0
+2007,LTER 4,Fringing Reef,1,0
+2007,LTER 4,Fringing Reef,2,0
+2007,LTER 4,Fringing Reef,3,0
+2007,LTER 4,Fringing Reef,4,0
+2007,LTER 5,Fringing Reef,1,0
+2007,LTER 5,Fringing Reef,2,0
+2007,LTER 5,Fringing Reef,3,0
+2007,LTER 5,Fringing Reef,4,0
+2007,LTER 6,Fringing Reef,1,0
+2007,LTER 6,Fringing Reef,2,0
+2007,LTER 6,Fringing Reef,3,0
+2007,LTER 6,Fringing Reef,4,0
+2008,LTER 1,Backreef,1,0
+2008,LTER 1,Backreef,2,0
+2008,LTER 1,Backreef,3,0
+2008,LTER 1,Backreef,4,0
+2008,LTER 2,Backreef,1,2
+2008,LTER 2,Backreef,2,1
+2008,LTER 2,Backreef,3,2
+2008,LTER 2,Backreef,4,1
+2008,LTER 3,Backreef,1,0
+2008,LTER 3,Backreef,2,0
+2008,LTER 3,Backreef,3,0
+2008,LTER 3,Backreef,4,0
+2008,LTER 4,Backreef,1,0
+2008,LTER 4,Backreef,2,0
+2008,LTER 4,Backreef,3,0
+2008,LTER 4,Backreef,4,0
+2008,LTER 5,Backreef,1,0
+2008,LTER 5,Backreef,2,0
+2008,LTER 5,Backreef,3,0
+2008,LTER 5,Backreef,4,0
+2008,LTER 6,Backreef,1,0
+2008,LTER 6,Backreef,2,0
+2008,LTER 6,Backreef,3,0
+2008,LTER 6,Backreef,4,0
+2008,LTER 1,Forereef,1,3
+2008,LTER 1,Forereef,2,0
+2008,LTER 1,Forereef,3,0
+2008,LTER 1,Forereef,4,6
+2008,LTER 2,Forereef,1,2
+2008,LTER 2,Forereef,2,6
+2008,LTER 2,Forereef,3,1
+2008,LTER 2,Forereef,4,3
+2008,LTER 3,Forereef,1,0
+2008,LTER 3,Forereef,2,4
+2008,LTER 3,Forereef,3,1
+2008,LTER 3,Forereef,4,1
+2008,LTER 4,Forereef,1,12
+2008,LTER 4,Forereef,2,14
+2008,LTER 4,Forereef,3,8
+2008,LTER 4,Forereef,4,7
+2008,LTER 5,Forereef,1,0
+2008,LTER 5,Forereef,2,0
+2008,LTER 5,Forereef,3,0
+2008,LTER 5,Forereef,4,1
+2008,LTER 6,Forereef,1,14
+2008,LTER 6,Forereef,2,12
+2008,LTER 6,Forereef,3,5
+2008,LTER 6,Forereef,4,8
+2008,LTER 1,Fringing Reef,1,0
+2008,LTER 1,Fringing Reef,2,0
+2008,LTER 1,Fringing Reef,3,0
+2008,LTER 1,Fringing Reef,4,0
+2008,LTER 2,Fringing Reef,1,3
+2008,LTER 2,Fringing Reef,2,2
+2008,LTER 2,Fringing Reef,3,7
+2008,LTER 2,Fringing Reef,4,0
+2008,LTER 3,Fringing Reef,1,1
+2008,LTER 3,Fringing Reef,2,0
+2008,LTER 3,Fringing Reef,3,0
+2008,LTER 3,Fringing Reef,4,0
+2008,LTER 4,Fringing Reef,1,0
+2008,LTER 4,Fringing Reef,2,0
+2008,LTER 4,Fringing Reef,3,0
+2008,LTER 4,Fringing Reef,4,0
+2008,LTER 5,Fringing Reef,1,0
+2008,LTER 5,Fringing Reef,2,0
+2008,LTER 5,Fringing Reef,3,0
+2008,LTER 5,Fringing Reef,4,0
+2008,LTER 6,Fringing Reef,1,0
+2008,LTER 6,Fringing Reef,2,0
+2008,LTER 6,Fringing Reef,3,0
+2008,LTER 6,Fringing Reef,4,0
+2009,LTER 1,Backreef,1,0
+2009,LTER 1,Backreef,2,0
+2009,LTER 1,Backreef,3,0
+2009,LTER 1,Backreef,4,0
+2009,LTER 2,Backreef,1,5
+2009,LTER 2,Backreef,2,4
+2009,LTER 2,Backreef,3,3
+2009,LTER 2,Backreef,4,0
+2009,LTER 3,Backreef,1,0
+2009,LTER 3,Backreef,2,0
+2009,LTER 3,Backreef,3,0
+2009,LTER 3,Backreef,4,0
+2009,LTER 4,Backreef,1,0
+2009,LTER 4,Backreef,2,0
+2009,LTER 4,Backreef,3,0
+2009,LTER 4,Backreef,4,0
+2009,LTER 5,Backreef,1,0
+2009,LTER 5,Backreef,2,0
+2009,LTER 5,Backreef,3,0
+2009,LTER 5,Backreef,4,0
+2009,LTER 6,Backreef,1,0
+2009,LTER 6,Backreef,2,0
+2009,LTER 6,Backreef,3,0
+2009,LTER 6,Backreef,4,0
+2009,LTER 1,Forereef,1,1
+2009,LTER 1,Forereef,2,2
+2009,LTER 1,Forereef,3,1
+2009,LTER 1,Forereef,4,1
+2009,LTER 2,Forereef,1,2
+2009,LTER 2,Forereef,2,3
+2009,LTER 2,Forereef,3,6
+2009,LTER 2,Forereef,4,0
+2009,LTER 3,Forereef,1,0
+2009,LTER 3,Forereef,2,1
+2009,LTER 3,Forereef,3,2
+2009,LTER 3,Forereef,4,0
+2009,LTER 4,Forereef,1,7
+2009,LTER 4,Forereef,2,2
+2009,LTER 4,Forereef,3,7
+2009,LTER 4,Forereef,4,4
+2009,LTER 5,Forereef,1,3
+2009,LTER 5,Forereef,2,9
+2009,LTER 5,Forereef,3,5
+2009,LTER 5,Forereef,4,3
+2009,LTER 6,Forereef,1,2
+2009,LTER 6,Forereef,2,3
+2009,LTER 6,Forereef,3,2
+2009,LTER 6,Forereef,4,4
+2009,LTER 1,Fringing Reef,1,0
+2009,LTER 1,Fringing Reef,2,4
+2009,LTER 1,Fringing Reef,3,0
+2009,LTER 1,Fringing Reef,4,0
+2009,LTER 2,Fringing Reef,1,1
+2009,LTER 2,Fringing Reef,2,0
+2009,LTER 2,Fringing Reef,3,2
+2009,LTER 2,Fringing Reef,4,0
+2009,LTER 3,Fringing Reef,1,0
+2009,LTER 3,Fringing Reef,2,0
+2009,LTER 3,Fringing Reef,3,0
+2009,LTER 3,Fringing Reef,4,0
+2009,LTER 4,Fringing Reef,1,0
+2009,LTER 4,Fringing Reef,2,0
+2009,LTER 4,Fringing Reef,3,0
+2009,LTER 4,Fringing Reef,4,0
+2009,LTER 5,Fringing Reef,1,0
+2009,LTER 5,Fringing Reef,2,0
+2009,LTER 5,Fringing Reef,3,0
+2009,LTER 5,Fringing Reef,4,0
+2009,LTER 6,Fringing Reef,1,0
+2009,LTER 6,Fringing Reef,2,0
+2009,LTER 6,Fringing Reef,3,0
+2009,LTER 6,Fringing Reef,4,0
+2010,LTER 1,Backreef,1,1
+2010,LTER 1,Backreef,2,0
+2010,LTER 1,Backreef,3,1
+2010,LTER 1,Backreef,4,0
+2010,LTER 2,Backreef,1,2
+2010,LTER 2,Backreef,2,0
+2010,LTER 2,Backreef,3,0
+2010,LTER 2,Backreef,4,0
+2010,LTER 3,Backreef,1,0
+2010,LTER 3,Backreef,2,0
+2010,LTER 3,Backreef,3,0
+2010,LTER 3,Backreef,4,0
+2010,LTER 4,Backreef,1,0
+2010,LTER 4,Backreef,2,0
+2010,LTER 4,Backreef,3,0
+2010,LTER 4,Backreef,4,0
+2010,LTER 5,Backreef,1,0
+2010,LTER 5,Backreef,2,0
+2010,LTER 5,Backreef,3,0
+2010,LTER 5,Backreef,4,0
+2010,LTER 6,Backreef,1,0
+2010,LTER 6,Backreef,2,1
+2010,LTER 6,Backreef,3,0
+2010,LTER 6,Backreef,4,0
+2010,LTER 1,Forereef,1,0
+2010,LTER 1,Forereef,2,0
+2010,LTER 1,Forereef,3,0
+2010,LTER 1,Forereef,4,0
+2010,LTER 2,Forereef,1,0
+2010,LTER 2,Forereef,2,0
+2010,LTER 2,Forereef,3,0
+2010,LTER 2,Forereef,4,0
+2010,LTER 3,Forereef,1,0
+2010,LTER 3,Forereef,2,0
+2010,LTER 3,Forereef,3,0
+2010,LTER 3,Forereef,4,0
+2010,LTER 4,Forereef,1,0
+2010,LTER 4,Forereef,2,1
+2010,LTER 4,Forereef,3,0
+2010,LTER 4,Forereef,4,2
+2010,LTER 5,Forereef,1,2
+2010,LTER 5,Forereef,2,0
+2010,LTER 5,Forereef,3,0
+2010,LTER 5,Forereef,4,0
+2010,LTER 6,Forereef,1,0
+2010,LTER 6,Forereef,2,0
+2010,LTER 6,Forereef,3,0
+2010,LTER 6,Forereef,4,0
+2010,LTER 1,Fringing Reef,1,0
+2010,LTER 1,Fringing Reef,2,1
+2010,LTER 1,Fringing Reef,3,0
+2010,LTER 1,Fringing Reef,4,0
+2010,LTER 2,Fringing Reef,1,0
+2010,LTER 2,Fringing Reef,2,0
+2010,LTER 2,Fringing Reef,3,0
+2010,LTER 2,Fringing Reef,4,0
+2010,LTER 3,Fringing Reef,1,1
+2010,LTER 3,Fringing Reef,2,2
+2010,LTER 3,Fringing Reef,3,0
+2010,LTER 3,Fringing Reef,4,0
+2010,LTER 4,Fringing Reef,1,0
+2010,LTER 4,Fringing Reef,2,0
+2010,LTER 4,Fringing Reef,3,0
+2010,LTER 4,Fringing Reef,4,0
+2010,LTER 5,Fringing Reef,1,0
+2010,LTER 5,Fringing Reef,2,0
+2010,LTER 5,Fringing Reef,3,0
+2010,LTER 5,Fringing Reef,4,0
+2010,LTER 6,Fringing Reef,1,0
+2010,LTER 6,Fringing Reef,2,0
+2010,LTER 6,Fringing Reef,3,0
+2010,LTER 6,Fringing Reef,4,0
+2011,LTER 1,Backreef,1,0
+2011,LTER 1,Backreef,2,0
+2011,LTER 1,Backreef,3,0
+2011,LTER 1,Backreef,4,0
+2011,LTER 2,Backreef,1,0
+2011,LTER 2,Backreef,2,1
+2011,LTER 2,Backreef,3,1
+2011,LTER 2,Backreef,4,0
+2011,LTER 3,Backreef,1,0
+2011,LTER 3,Backreef,2,0
+2011,LTER 3,Backreef,3,0
+2011,LTER 3,Backreef,4,0
+2011,LTER 4,Backreef,1,0
+2011,LTER 4,Backreef,2,0
+2011,LTER 4,Backreef,3,0
+2011,LTER 4,Backreef,4,0
+2011,LTER 5,Backreef,1,0
+2011,LTER 5,Backreef,2,0
+2011,LTER 5,Backreef,3,0
+2011,LTER 5,Backreef,4,0
+2011,LTER 6,Backreef,1,0
+2011,LTER 6,Backreef,2,0
+2011,LTER 6,Backreef,3,0
+2011,LTER 6,Backreef,4,1
+2011,LTER 1,Forereef,1,0
+2011,LTER 1,Forereef,2,0
+2011,LTER 1,Forereef,3,0
+2011,LTER 1,Forereef,4,0
+2011,LTER 2,Forereef,1,0
+2011,LTER 2,Forereef,2,0
+2011,LTER 2,Forereef,3,0
+2011,LTER 2,Forereef,4,0
+2011,LTER 3,Forereef,1,0
+2011,LTER 3,Forereef,2,0
+2011,LTER 3,Forereef,3,0
+2011,LTER 3,Forereef,4,0
+2011,LTER 4,Forereef,1,0
+2011,LTER 4,Forereef,2,0
+2011,LTER 4,Forereef,3,0
+2011,LTER 4,Forereef,4,0
+2011,LTER 5,Forereef,1,0
+2011,LTER 5,Forereef,2,0
+2011,LTER 5,Forereef,3,0
+2011,LTER 5,Forereef,4,0
+2011,LTER 6,Forereef,1,0
+2011,LTER 6,Forereef,2,0
+2011,LTER 6,Forereef,3,0
+2011,LTER 6,Forereef,4,0
+2011,LTER 1,Fringing Reef,1,0
+2011,LTER 1,Fringing Reef,2,2
+2011,LTER 1,Fringing Reef,3,0
+2011,LTER 1,Fringing Reef,4,0
+2011,LTER 2,Fringing Reef,1,0
+2011,LTER 2,Fringing Reef,2,0
+2011,LTER 2,Fringing Reef,3,0
+2011,LTER 2,Fringing Reef,4,0
+2011,LTER 3,Fringing Reef,1,0
+2011,LTER 3,Fringing Reef,2,2
+2011,LTER 3,Fringing Reef,3,0
+2011,LTER 3,Fringing Reef,4,0
+2011,LTER 4,Fringing Reef,1,1
+2011,LTER 4,Fringing Reef,2,0
+2011,LTER 4,Fringing Reef,3,2
+2011,LTER 4,Fringing Reef,4,0
+2011,LTER 5,Fringing Reef,1,0
+2011,LTER 5,Fringing Reef,2,0
+2011,LTER 5,Fringing Reef,3,0
+2011,LTER 5,Fringing Reef,4,0
+2011,LTER 6,Fringing Reef,1,0
+2011,LTER 6,Fringing Reef,2,0
+2011,LTER 6,Fringing Reef,3,0
+2011,LTER 6,Fringing Reef,4,0
+2012,LTER 1,Backreef,1,0
+2012,LTER 1,Backreef,2,0
+2012,LTER 1,Backreef,3,0
+2012,LTER 1,Backreef,4,0
+2012,LTER 2,Backreef,1,0
+2012,LTER 2,Backreef,2,0
+2012,LTER 2,Backreef,3,0
+2012,LTER 2,Backreef,4,0
+2012,LTER 3,Backreef,1,0
+2012,LTER 3,Backreef,2,0
+2012,LTER 3,Backreef,3,0
+2012,LTER 3,Backreef,4,0
+2012,LTER 4,Backreef,1,0
+2012,LTER 4,Backreef,2,1
+2012,LTER 4,Backreef,3,0
+2012,LTER 4,Backreef,4,0
+2012,LTER 5,Backreef,1,0
+2012,LTER 5,Backreef,2,0
+2012,LTER 5,Backreef,3,0
+2012,LTER 5,Backreef,4,0
+2012,LTER 6,Backreef,1,0
+2012,LTER 6,Backreef,2,0
+2012,LTER 6,Backreef,3,1
+2012,LTER 6,Backreef,4,0
+2012,LTER 1,Forereef,1,0
+2012,LTER 1,Forereef,2,0
+2012,LTER 1,Forereef,3,0
+2012,LTER 1,Forereef,4,0
+2012,LTER 2,Forereef,1,0
+2012,LTER 2,Forereef,2,0
+2012,LTER 2,Forereef,3,0
+2012,LTER 2,Forereef,4,0
+2012,LTER 3,Forereef,1,0
+2012,LTER 3,Forereef,2,0
+2012,LTER 3,Forereef,3,0
+2012,LTER 3,Forereef,4,0
+2012,LTER 4,Forereef,1,0
+2012,LTER 4,Forereef,2,0
+2012,LTER 4,Forereef,3,0
+2012,LTER 4,Forereef,4,0
+2012,LTER 5,Forereef,1,0
+2012,LTER 5,Forereef,2,0
+2012,LTER 5,Forereef,3,0
+2012,LTER 5,Forereef,4,0
+2012,LTER 6,Forereef,1,0
+2012,LTER 6,Forereef,2,0
+2012,LTER 6,Forereef,3,0
+2012,LTER 6,Forereef,4,0
+2012,LTER 1,Fringing Reef,1,0
+2012,LTER 1,Fringing Reef,2,0
+2012,LTER 1,Fringing Reef,3,0
+2012,LTER 1,Fringing Reef,4,1
+2012,LTER 2,Fringing Reef,1,0
+2012,LTER 2,Fringing Reef,2,0
+2012,LTER 2,Fringing Reef,3,0
+2012,LTER 2,Fringing Reef,4,0
+2012,LTER 3,Fringing Reef,1,0
+2012,LTER 3,Fringing Reef,2,0
+2012,LTER 3,Fringing Reef,3,0
+2012,LTER 3,Fringing Reef,4,0
+2012,LTER 4,Fringing Reef,1,0
+2012,LTER 4,Fringing Reef,2,1
+2012,LTER 4,Fringing Reef,3,1
+2012,LTER 4,Fringing Reef,4,0
+2012,LTER 5,Fringing Reef,1,0
+2012,LTER 5,Fringing Reef,2,0
+2012,LTER 5,Fringing Reef,3,0
+2012,LTER 5,Fringing Reef,4,0
+2012,LTER 6,Fringing Reef,1,0
+2012,LTER 6,Fringing Reef,2,0
+2012,LTER 6,Fringing Reef,3,0
+2012,LTER 6,Fringing Reef,4,0
+2013,LTER 1,Backreef,1,0
+2013,LTER 1,Backreef,2,0
+2013,LTER 1,Backreef,3,0
+2013,LTER 1,Backreef,4,0
+2013,LTER 2,Backreef,1,0
+2013,LTER 2,Backreef,2,0
+2013,LTER 2,Backreef,3,0
+2013,LTER 2,Backreef,4,0
+2013,LTER 3,Backreef,1,0
+2013,LTER 3,Backreef,2,0
+2013,LTER 3,Backreef,3,0
+2013,LTER 3,Backreef,4,0
+2013,LTER 4,Backreef,1,0
+2013,LTER 4,Backreef,2,1
+2013,LTER 4,Backreef,3,1
+2013,LTER 4,Backreef,4,0
+2013,LTER 5,Backreef,1,1
+2013,LTER 5,Backreef,2,1
+2013,LTER 5,Backreef,3,1
+2013,LTER 5,Backreef,4,2
+2013,LTER 6,Backreef,1,0
+2013,LTER 6,Backreef,2,0
+2013,LTER 6,Backreef,3,0
+2013,LTER 6,Backreef,4,0
+2013,LTER 1,Forereef,1,0
+2013,LTER 1,Forereef,2,0
+2013,LTER 1,Forereef,3,0
+2013,LTER 1,Forereef,4,0
+2013,LTER 2,Forereef,1,0
+2013,LTER 2,Forereef,2,0
+2013,LTER 2,Forereef,3,0
+2013,LTER 2,Forereef,4,0
+2013,LTER 3,Forereef,1,0
+2013,LTER 3,Forereef,2,0
+2013,LTER 3,Forereef,3,0
+2013,LTER 3,Forereef,4,0
+2013,LTER 4,Forereef,1,0
+2013,LTER 4,Forereef,2,0
+2013,LTER 4,Forereef,3,0
+2013,LTER 4,Forereef,4,0
+2013,LTER 5,Forereef,1,0
+2013,LTER 5,Forereef,2,0
+2013,LTER 5,Forereef,3,0
+2013,LTER 5,Forereef,4,0
+2013,LTER 6,Forereef,1,0
+2013,LTER 6,Forereef,2,0
+2013,LTER 6,Forereef,3,0
+2013,LTER 6,Forereef,4,0
+2013,LTER 1,Fringing Reef,1,0
+2013,LTER 1,Fringing Reef,2,0
+2013,LTER 1,Fringing Reef,3,0
+2013,LTER 1,Fringing Reef,4,0
+2013,LTER 2,Fringing Reef,1,0
+2013,LTER 2,Fringing Reef,2,0
+2013,LTER 2,Fringing Reef,3,0
+2013,LTER 2,Fringing Reef,4,0
+2013,LTER 3,Fringing Reef,1,0
+2013,LTER 3,Fringing Reef,2,0
+2013,LTER 3,Fringing Reef,3,0
+2013,LTER 3,Fringing Reef,4,0
+2013,LTER 4,Fringing Reef,1,0
+2013,LTER 4,Fringing Reef,2,0
+2013,LTER 4,Fringing Reef,3,0
+2013,LTER 4,Fringing Reef,4,0
+2013,LTER 5,Fringing Reef,1,0
+2013,LTER 5,Fringing Reef,2,0
+2013,LTER 5,Fringing Reef,3,1
+2013,LTER 5,Fringing Reef,4,0
+2013,LTER 6,Fringing Reef,1,0
+2013,LTER 6,Fringing Reef,2,0
+2013,LTER 6,Fringing Reef,3,0
+2013,LTER 6,Fringing Reef,4,0
+2014,LTER 1,Backreef,1,0
+2014,LTER 1,Backreef,2,0
+2014,LTER 1,Backreef,3,0
+2014,LTER 1,Backreef,4,0
+2014,LTER 2,Backreef,1,0
+2014,LTER 2,Backreef,2,0
+2014,LTER 2,Backreef,3,0
+2014,LTER 2,Backreef,4,0
+2014,LTER 3,Backreef,1,0
+2014,LTER 3,Backreef,2,0
+2014,LTER 3,Backreef,3,0
+2014,LTER 3,Backreef,4,0
+2014,LTER 4,Backreef,1,0
+2014,LTER 4,Backreef,2,0
+2014,LTER 4,Backreef,3,0
+2014,LTER 4,Backreef,4,0
+2014,LTER 5,Backreef,1,0
+2014,LTER 5,Backreef,2,0
+2014,LTER 5,Backreef,3,0
+2014,LTER 5,Backreef,4,0
+2014,LTER 6,Backreef,1,0
+2014,LTER 6,Backreef,2,0
+2014,LTER 6,Backreef,3,0
+2014,LTER 6,Backreef,4,0
+2014,LTER 1,Forereef,1,0
+2014,LTER 1,Forereef,2,0
+2014,LTER 1,Forereef,3,0
+2014,LTER 1,Forereef,4,0
+2014,LTER 2,Forereef,1,0
+2014,LTER 2,Forereef,2,0
+2014,LTER 2,Forereef,3,0
+2014,LTER 2,Forereef,4,0
+2014,LTER 3,Forereef,1,0
+2014,LTER 3,Forereef,2,0
+2014,LTER 3,Forereef,3,0
+2014,LTER 3,Forereef,4,0
+2014,LTER 4,Forereef,1,0
+2014,LTER 4,Forereef,2,0
+2014,LTER 4,Forereef,3,0
+2014,LTER 4,Forereef,4,0
+2014,LTER 5,Forereef,1,0
+2014,LTER 5,Forereef,2,0
+2014,LTER 5,Forereef,3,0
+2014,LTER 5,Forereef,4,0
+2014,LTER 6,Forereef,1,0
+2014,LTER 6,Forereef,2,0
+2014,LTER 6,Forereef,3,0
+2014,LTER 6,Forereef,4,0
+2014,LTER 1,Fringing Reef,1,0
+2014,LTER 1,Fringing Reef,2,0
+2014,LTER 1,Fringing Reef,3,0
+2014,LTER 1,Fringing Reef,4,0
+2014,LTER 2,Fringing Reef,1,0
+2014,LTER 2,Fringing Reef,2,0
+2014,LTER 2,Fringing Reef,3,0
+2014,LTER 2,Fringing Reef,4,0
+2014,LTER 3,Fringing Reef,1,0
+2014,LTER 3,Fringing Reef,2,0
+2014,LTER 3,Fringing Reef,3,0
+2014,LTER 3,Fringing Reef,4,0
+2014,LTER 4,Fringing Reef,1,0
+2014,LTER 4,Fringing Reef,2,1
+2014,LTER 4,Fringing Reef,3,0
+2014,LTER 4,Fringing Reef,4,0
+2014,LTER 5,Fringing Reef,1,0
+2014,LTER 5,Fringing Reef,2,0
+2014,LTER 5,Fringing Reef,3,0
+2014,LTER 5,Fringing Reef,4,0
+2014,LTER 6,Fringing Reef,1,0
+2014,LTER 6,Fringing Reef,2,0
+2014,LTER 6,Fringing Reef,3,0
+2014,LTER 6,Fringing Reef,4,0
+2015,LTER 1,Backreef,1,0
+2015,LTER 1,Backreef,2,0
+2015,LTER 1,Backreef,3,0
+2015,LTER 1,Backreef,4,0
+2015,LTER 2,Backreef,1,0
+2015,LTER 2,Backreef,2,0
+2015,LTER 2,Backreef,3,0
+2015,LTER 2,Backreef,4,0
+2015,LTER 3,Backreef,1,0
+2015,LTER 3,Backreef,2,0
+2015,LTER 3,Backreef,3,0
+2015,LTER 3,Backreef,4,0
+2015,LTER 4,Backreef,1,0
+2015,LTER 4,Backreef,2,0
+2015,LTER 4,Backreef,3,0
+2015,LTER 4,Backreef,4,0
+2015,LTER 5,Backreef,1,0
+2015,LTER 5,Backreef,2,0
+2015,LTER 5,Backreef,3,0
+2015,LTER 5,Backreef,4,0
+2015,LTER 6,Backreef,1,0
+2015,LTER 6,Backreef,2,0
+2015,LTER 6,Backreef,3,0
+2015,LTER 6,Backreef,4,0
+2015,LTER 1,Forereef,1,0
+2015,LTER 1,Forereef,2,0
+2015,LTER 1,Forereef,3,0
+2015,LTER 1,Forereef,4,0
+2015,LTER 2,Forereef,1,0
+2015,LTER 2,Forereef,2,0
+2015,LTER 2,Forereef,3,0
+2015,LTER 2,Forereef,4,0
+2015,LTER 3,Forereef,1,0
+2015,LTER 3,Forereef,2,0
+2015,LTER 3,Forereef,3,0
+2015,LTER 3,Forereef,4,0
+2015,LTER 4,Forereef,1,0
+2015,LTER 4,Forereef,2,0
+2015,LTER 4,Forereef,3,0
+2015,LTER 4,Forereef,4,0
+2015,LTER 5,Forereef,1,0
+2015,LTER 5,Forereef,2,0
+2015,LTER 5,Forereef,3,0
+2015,LTER 5,Forereef,4,0
+2015,LTER 6,Forereef,1,0
+2015,LTER 6,Forereef,2,0
+2015,LTER 6,Forereef,3,0
+2015,LTER 6,Forereef,4,0
+2015,LTER 1,Fringing Reef,1,0
+2015,LTER 1,Fringing Reef,2,0
+2015,LTER 1,Fringing Reef,3,0
+2015,LTER 1,Fringing Reef,4,0
+2015,LTER 2,Fringing Reef,1,0
+2015,LTER 2,Fringing Reef,2,0
+2015,LTER 2,Fringing Reef,3,0
+2015,LTER 2,Fringing Reef,4,0
+2015,LTER 3,Fringing Reef,1,0
+2015,LTER 3,Fringing Reef,2,0
+2015,LTER 3,Fringing Reef,3,0
+2015,LTER 3,Fringing Reef,4,0
+2015,LTER 4,Fringing Reef,1,0
+2015,LTER 4,Fringing Reef,2,0
+2015,LTER 4,Fringing Reef,3,0
+2015,LTER 4,Fringing Reef,4,0
+2015,LTER 5,Fringing Reef,1,0
+2015,LTER 5,Fringing Reef,2,0
+2015,LTER 5,Fringing Reef,3,0
+2015,LTER 5,Fringing Reef,4,0
+2015,LTER 6,Fringing Reef,1,0
+2015,LTER 6,Fringing Reef,2,0
+2015,LTER 6,Fringing Reef,3,0
+2015,LTER 6,Fringing Reef,4,0
+2016,LTER 1,Backreef,1,0
+2016,LTER 1,Backreef,2,0
+2016,LTER 1,Backreef,3,0
+2016,LTER 1,Backreef,4,0
+2016,LTER 2,Backreef,1,0
+2016,LTER 2,Backreef,2,0
+2016,LTER 2,Backreef,3,0
+2016,LTER 2,Backreef,4,0
+2016,LTER 3,Backreef,1,0
+2016,LTER 3,Backreef,2,0
+2016,LTER 3,Backreef,3,0
+2016,LTER 3,Backreef,4,0
+2016,LTER 4,Backreef,1,0
+2016,LTER 4,Backreef,2,0
+2016,LTER 4,Backreef,3,0
+2016,LTER 4,Backreef,4,0
+2016,LTER 5,Backreef,1,0
+2016,LTER 5,Backreef,2,0
+2016,LTER 5,Backreef,3,0
+2016,LTER 5,Backreef,4,0
+2016,LTER 6,Backreef,1,0
+2016,LTER 6,Backreef,2,0
+2016,LTER 6,Backreef,3,0
+2016,LTER 6,Backreef,4,0
+2016,LTER 1,Forereef,1,0
+2016,LTER 1,Forereef,2,0
+2016,LTER 1,Forereef,3,0
+2016,LTER 1,Forereef,4,0
+2016,LTER 2,Forereef,1,0
+2016,LTER 2,Forereef,2,0
+2016,LTER 2,Forereef,3,0
+2016,LTER 2,Forereef,4,0
+2016,LTER 3,Forereef,1,0
+2016,LTER 3,Forereef,2,0
+2016,LTER 3,Forereef,3,0
+2016,LTER 3,Forereef,4,0
+2016,LTER 4,Forereef,1,0
+2016,LTER 4,Forereef,2,0
+2016,LTER 4,Forereef,3,0
+2016,LTER 4,Forereef,4,0
+2016,LTER 5,Forereef,1,0
+2016,LTER 5,Forereef,2,0
+2016,LTER 5,Forereef,3,0
+2016,LTER 5,Forereef,4,0
+2016,LTER 6,Forereef,1,0
+2016,LTER 6,Forereef,2,0
+2016,LTER 6,Forereef,3,0
+2016,LTER 6,Forereef,4,0
+2016,LTER 1,Fringing Reef,1,0
+2016,LTER 1,Fringing Reef,2,0
+2016,LTER 1,Fringing Reef,3,0
+2016,LTER 1,Fringing Reef,4,0
+2016,LTER 2,Fringing Reef,1,0
+2016,LTER 2,Fringing Reef,2,0
+2016,LTER 2,Fringing Reef,3,0
+2016,LTER 2,Fringing Reef,4,0
+2016,LTER 3,Fringing Reef,1,0
+2016,LTER 3,Fringing Reef,2,0
+2016,LTER 3,Fringing Reef,3,0
+2016,LTER 3,Fringing Reef,4,0
+2016,LTER 4,Fringing Reef,1,0
+2016,LTER 4,Fringing Reef,2,0
+2016,LTER 4,Fringing Reef,3,0
+2016,LTER 4,Fringing Reef,4,0
+2016,LTER 5,Fringing Reef,1,0
+2016,LTER 5,Fringing Reef,2,0
+2016,LTER 5,Fringing Reef,3,0
+2016,LTER 5,Fringing Reef,4,0
+2016,LTER 6,Fringing Reef,1,0
+2016,LTER 6,Fringing Reef,2,0
+2016,LTER 6,Fringing Reef,3,0
+2016,LTER 6,Fringing Reef,4,0
+2017,LTER 1,Backreef,1,0
+2017,LTER 1,Backreef,2,0
+2017,LTER 1,Backreef,3,0
+2017,LTER 1,Backreef,4,0
+2017,LTER 2,Backreef,1,0
+2017,LTER 2,Backreef,2,0
+2017,LTER 2,Backreef,3,0
+2017,LTER 2,Backreef,4,0
+2017,LTER 3,Backreef,1,0
+2017,LTER 3,Backreef,2,0
+2017,LTER 3,Backreef,3,0
+2017,LTER 3,Backreef,4,0
+2017,LTER 4,Backreef,1,0
+2017,LTER 4,Backreef,2,0
+2017,LTER 4,Backreef,3,0
+2017,LTER 4,Backreef,4,0
+2017,LTER 5,Backreef,1,0
+2017,LTER 5,Backreef,2,0
+2017,LTER 5,Backreef,3,0
+2017,LTER 5,Backreef,4,0
+2017,LTER 6,Backreef,1,0
+2017,LTER 6,Backreef,2,0
+2017,LTER 6,Backreef,3,0
+2017,LTER 6,Backreef,4,0
+2017,LTER 1,Forereef,1,0
+2017,LTER 1,Forereef,2,0
+2017,LTER 1,Forereef,3,0
+2017,LTER 1,Forereef,4,0
+2017,LTER 2,Forereef,1,0
+2017,LTER 2,Forereef,2,0
+2017,LTER 2,Forereef,3,0
+2017,LTER 2,Forereef,4,0
+2017,LTER 3,Forereef,1,0
+2017,LTER 3,Forereef,2,0
+2017,LTER 3,Forereef,3,0
+2017,LTER 3,Forereef,4,0
+2017,LTER 4,Forereef,1,0
+2017,LTER 4,Forereef,2,0
+2017,LTER 4,Forereef,3,0
+2017,LTER 4,Forereef,4,0
+2017,LTER 5,Forereef,1,0
+2017,LTER 5,Forereef,2,0
+2017,LTER 5,Forereef,3,0
+2017,LTER 5,Forereef,4,0
+2017,LTER 6,Forereef,1,0
+2017,LTER 6,Forereef,2,0
+2017,LTER 6,Forereef,3,0
+2017,LTER 6,Forereef,4,0
+2017,LTER 1,Fringing Reef,1,0
+2017,LTER 1,Fringing Reef,2,0
+2017,LTER 1,Fringing Reef,3,0
+2017,LTER 1,Fringing Reef,4,0
+2017,LTER 2,Fringing Reef,1,0
+2017,LTER 2,Fringing Reef,2,0
+2017,LTER 2,Fringing Reef,3,0
+2017,LTER 2,Fringing Reef,4,0
+2017,LTER 3,Fringing Reef,1,0
+2017,LTER 3,Fringing Reef,2,0
+2017,LTER 3,Fringing Reef,3,0
+2017,LTER 3,Fringing Reef,4,0
+2017,LTER 4,Fringing Reef,1,0
+2017,LTER 4,Fringing Reef,2,0
+2017,LTER 4,Fringing Reef,3,0
+2017,LTER 4,Fringing Reef,4,0
+2017,LTER 5,Fringing Reef,1,0
+2017,LTER 5,Fringing Reef,2,0
+2017,LTER 5,Fringing Reef,3,0
+2017,LTER 5,Fringing Reef,4,0
+2017,LTER 6,Fringing Reef,1,0
+2017,LTER 6,Fringing Reef,2,0
+2017,LTER 6,Fringing Reef,3,0
+2017,LTER 6,Fringing Reef,4,0
+2018,LTER 1,Backreef,1,0
+2018,LTER 1,Backreef,2,0
+2018,LTER 1,Backreef,3,0
+2018,LTER 1,Backreef,4,0
+2018,LTER 2,Backreef,1,0
+2018,LTER 2,Backreef,2,0
+2018,LTER 2,Backreef,3,0
+2018,LTER 2,Backreef,4,0
+2018,LTER 3,Backreef,1,0
+2018,LTER 3,Backreef,2,0
+2018,LTER 3,Backreef,3,0
+2018,LTER 3,Backreef,4,0
+2018,LTER 4,Backreef,1,0
+2018,LTER 4,Backreef,2,0
+2018,LTER 4,Backreef,3,0
+2018,LTER 4,Backreef,4,0
+2018,LTER 5,Backreef,1,0
+2018,LTER 5,Backreef,2,0
+2018,LTER 5,Backreef,3,0
+2018,LTER 5,Backreef,4,0
+2018,LTER 6,Backreef,1,0
+2018,LTER 6,Backreef,2,0
+2018,LTER 6,Backreef,3,0
+2018,LTER 6,Backreef,4,1
+2018,LTER 1,Forereef,1,0
+2018,LTER 1,Forereef,2,0
+2018,LTER 1,Forereef,3,0
+2018,LTER 1,Forereef,4,0
+2018,LTER 2,Forereef,1,0
+2018,LTER 2,Forereef,2,0
+2018,LTER 2,Forereef,3,0
+2018,LTER 2,Forereef,4,0
+2018,LTER 3,Forereef,1,0
+2018,LTER 3,Forereef,2,0
+2018,LTER 3,Forereef,3,0
+2018,LTER 3,Forereef,4,0
+2018,LTER 4,Forereef,1,0
+2018,LTER 4,Forereef,2,0
+2018,LTER 4,Forereef,3,0
+2018,LTER 4,Forereef,4,0
+2018,LTER 5,Forereef,1,0
+2018,LTER 5,Forereef,2,0
+2018,LTER 5,Forereef,3,0
+2018,LTER 5,Forereef,4,0
+2018,LTER 6,Forereef,1,0
+2018,LTER 6,Forereef,2,0
+2018,LTER 6,Forereef,3,0
+2018,LTER 6,Forereef,4,0
+2018,LTER 1,Fringing Reef,1,0
+2018,LTER 1,Fringing Reef,2,0
+2018,LTER 1,Fringing Reef,3,0
+2018,LTER 1,Fringing Reef,4,0
+2018,LTER 2,Fringing Reef,1,0
+2018,LTER 2,Fringing Reef,2,0
+2018,LTER 2,Fringing Reef,3,0
+2018,LTER 2,Fringing Reef,4,0
+2018,LTER 3,Fringing Reef,1,0
+2018,LTER 3,Fringing Reef,2,0
+2018,LTER 3,Fringing Reef,3,0
+2018,LTER 3,Fringing Reef,4,0
+2018,LTER 4,Fringing Reef,1,0
+2018,LTER 4,Fringing Reef,2,0
+2018,LTER 4,Fringing Reef,3,0
+2018,LTER 4,Fringing Reef,4,0
+2018,LTER 5,Fringing Reef,1,0
+2018,LTER 5,Fringing Reef,2,0
+2018,LTER 5,Fringing Reef,3,0
+2018,LTER 5,Fringing Reef,4,0
+2018,LTER 6,Fringing Reef,1,0
+2018,LTER 6,Fringing Reef,2,0
+2018,LTER 6,Fringing Reef,3,0
+2018,LTER 6,Fringing Reef,4,0
+2019,LTER 1,Backreef,1,0
+2019,LTER 1,Backreef,2,0
+2019,LTER 1,Backreef,3,0
+2019,LTER 1,Backreef,4,0
+2019,LTER 2,Backreef,1,0
+2019,LTER 2,Backreef,2,0
+2019,LTER 2,Backreef,3,0
+2019,LTER 2,Backreef,4,0
+2019,LTER 3,Backreef,1,0
+2019,LTER 3,Backreef,2,0
+2019,LTER 3,Backreef,3,0
+2019,LTER 3,Backreef,4,0
+2019,LTER 4,Backreef,1,0
+2019,LTER 4,Backreef,2,0
+2019,LTER 4,Backreef,3,0
+2019,LTER 4,Backreef,4,0
+2019,LTER 5,Backreef,1,0
+2019,LTER 5,Backreef,2,0
+2019,LTER 5,Backreef,3,0
+2019,LTER 5,Backreef,4,0
+2019,LTER 6,Backreef,1,0
+2019,LTER 6,Backreef,2,0
+2019,LTER 6,Backreef,3,0
+2019,LTER 6,Backreef,4,0
+2019,LTER 1,Forereef,1,0
+2019,LTER 1,Forereef,2,0
+2019,LTER 1,Forereef,3,0
+2019,LTER 1,Forereef,4,0
+2019,LTER 2,Forereef,1,0
+2019,LTER 2,Forereef,2,0
+2019,LTER 2,Forereef,3,0
+2019,LTER 2,Forereef,4,0
+2019,LTER 3,Forereef,1,0
+2019,LTER 3,Forereef,2,0
+2019,LTER 3,Forereef,3,0
+2019,LTER 3,Forereef,4,0
+2019,LTER 4,Forereef,1,0
+2019,LTER 4,Forereef,2,0
+2019,LTER 4,Forereef,3,0
+2019,LTER 4,Forereef,4,0
+2019,LTER 5,Forereef,1,0
+2019,LTER 5,Forereef,2,0
+2019,LTER 5,Forereef,3,0
+2019,LTER 5,Forereef,4,0
+2019,LTER 6,Forereef,1,0
+2019,LTER 6,Forereef,2,0
+2019,LTER 6,Forereef,3,0
+2019,LTER 6,Forereef,4,0
+2019,LTER 1,Fringing Reef,1,0
+2019,LTER 1,Fringing Reef,2,0
+2019,LTER 1,Fringing Reef,3,0
+2019,LTER 1,Fringing Reef,4,0
+2019,LTER 2,Fringing Reef,1,0
+2019,LTER 2,Fringing Reef,2,0
+2019,LTER 2,Fringing Reef,3,0
+2019,LTER 2,Fringing Reef,4,0
+2019,LTER 3,Fringing Reef,1,0
+2019,LTER 3,Fringing Reef,2,0
+2019,LTER 3,Fringing Reef,3,0
+2019,LTER 3,Fringing Reef,4,0
+2019,LTER 4,Fringing Reef,1,0
+2019,LTER 4,Fringing Reef,2,0
+2019,LTER 4,Fringing Reef,3,0
+2019,LTER 4,Fringing Reef,4,0
+2019,LTER 5,Fringing Reef,1,0
+2019,LTER 5,Fringing Reef,2,0
+2019,LTER 5,Fringing Reef,3,0
+2019,LTER 5,Fringing Reef,4,0
+2019,LTER 6,Fringing Reef,1,0
+2019,LTER 6,Fringing Reef,2,0
+2019,LTER 6,Fringing Reef,3,0
+2019,LTER 6,Fringing Reef,4,0
+2020,LTER 1,Backreef,1,0
+2020,LTER 1,Backreef,2,0
+2020,LTER 1,Backreef,3,0
+2020,LTER 1,Backreef,4,0
+2020,LTER 2,Backreef,1,0
+2020,LTER 2,Backreef,2,0
+2020,LTER 2,Backreef,3,0
+2020,LTER 2,Backreef,4,0
+2020,LTER 3,Backreef,1,0
+2020,LTER 3,Backreef,2,0
+2020,LTER 3,Backreef,3,0
+2020,LTER 3,Backreef,4,0
+2020,LTER 4,Backreef,1,0
+2020,LTER 4,Backreef,2,0
+2020,LTER 4,Backreef,3,0
+2020,LTER 4,Backreef,4,0
+2020,LTER 5,Backreef,1,0
+2020,LTER 5,Backreef,2,0
+2020,LTER 5,Backreef,3,0
+2020,LTER 5,Backreef,4,0
+2020,LTER 6,Backreef,1,0
+2020,LTER 6,Backreef,2,0
+2020,LTER 6,Backreef,3,0
+2020,LTER 6,Backreef,4,0
+2020,LTER 1,Forereef,1,0
+2020,LTER 1,Forereef,2,0
+2020,LTER 1,Forereef,3,0
+2020,LTER 1,Forereef,4,0
+2020,LTER 2,Forereef,1,0
+2020,LTER 2,Forereef,2,0
+2020,LTER 2,Forereef,3,0
+2020,LTER 2,Forereef,4,0
+2020,LTER 3,Forereef,1,0
+2020,LTER 3,Forereef,2,0
+2020,LTER 3,Forereef,3,0
+2020,LTER 3,Forereef,4,0
+2020,LTER 4,Forereef,1,0
+2020,LTER 4,Forereef,2,0
+2020,LTER 4,Forereef,3,0
+2020,LTER 4,Forereef,4,0
+2020,LTER 5,Forereef,1,0
+2020,LTER 5,Forereef,2,0
+2020,LTER 5,Forereef,3,0
+2020,LTER 5,Forereef,4,0
+2020,LTER 6,Forereef,1,0
+2020,LTER 6,Forereef,2,0
+2020,LTER 6,Forereef,3,0
+2020,LTER 6,Forereef,4,0
+2020,LTER 1,Fringing Reef,1,0
+2020,LTER 1,Fringing Reef,2,0
+2020,LTER 1,Fringing Reef,3,0
+2020,LTER 1,Fringing Reef,4,0
+2020,LTER 2,Fringing Reef,1,0
+2020,LTER 2,Fringing Reef,2,0
+2020,LTER 2,Fringing Reef,3,0
+2020,LTER 2,Fringing Reef,4,0
+2020,LTER 3,Fringing Reef,1,0
+2020,LTER 3,Fringing Reef,2,0
+2020,LTER 3,Fringing Reef,3,0
+2020,LTER 3,Fringing Reef,4,0
+2020,LTER 4,Fringing Reef,1,0
+2020,LTER 4,Fringing Reef,2,0
+2020,LTER 4,Fringing Reef,3,0
+2020,LTER 4,Fringing Reef,4,0
+2020,LTER 5,Fringing Reef,1,0
+2020,LTER 5,Fringing Reef,2,0
+2020,LTER 5,Fringing Reef,3,0
+2020,LTER 5,Fringing Reef,4,0
+2020,LTER 6,Fringing Reef,1,0
+2020,LTER 6,Fringing Reef,2,0
+2020,LTER 6,Fringing Reef,3,0
+2020,LTER 6,Fringing Reef,4,0
+2021,LTER 1,Backreef,1,0
+2021,LTER 1,Backreef,2,0
+2021,LTER 1,Backreef,3,0
+2021,LTER 1,Backreef,4,0
+2021,LTER 2,Backreef,1,0
+2021,LTER 2,Backreef,2,0
+2021,LTER 2,Backreef,3,0
+2021,LTER 2,Backreef,4,0
+2021,LTER 3,Backreef,1,0
+2021,LTER 3,Backreef,2,0
+2021,LTER 3,Backreef,3,0
+2021,LTER 3,Backreef,4,0
+2021,LTER 4,Backreef,1,0
+2021,LTER 4,Backreef,2,0
+2021,LTER 4,Backreef,3,0
+2021,LTER 4,Backreef,4,0
+2021,LTER 5,Backreef,1,0
+2021,LTER 5,Backreef,2,0
+2021,LTER 5,Backreef,3,0
+2021,LTER 5,Backreef,4,0
+2021,LTER 6,Backreef,1,0
+2021,LTER 6,Backreef,2,0
+2021,LTER 6,Backreef,3,0
+2021,LTER 6,Backreef,4,0
+2021,LTER 1,Forereef,1,0
+2021,LTER 1,Forereef,2,0
+2021,LTER 1,Forereef,3,0
+2021,LTER 1,Forereef,4,0
+2021,LTER 2,Forereef,1,0
+2021,LTER 2,Forereef,2,0
+2021,LTER 2,Forereef,3,0
+2021,LTER 2,Forereef,4,0
+2021,LTER 3,Forereef,1,0
+2021,LTER 3,Forereef,2,0
+2021,LTER 3,Forereef,3,0
+2021,LTER 3,Forereef,4,0
+2021,LTER 4,Forereef,1,0
+2021,LTER 4,Forereef,2,0
+2021,LTER 4,Forereef,3,0
+2021,LTER 4,Forereef,4,0
+2021,LTER 5,Forereef,1,0
+2021,LTER 5,Forereef,2,0
+2021,LTER 5,Forereef,3,0
+2021,LTER 5,Forereef,4,0
+2021,LTER 6,Forereef,1,0
+2021,LTER 6,Forereef,2,0
+2021,LTER 6,Forereef,3,0
+2021,LTER 6,Forereef,4,0
+2021,LTER 1,Fringing Reef,1,0
+2021,LTER 1,Fringing Reef,2,0
+2021,LTER 1,Fringing Reef,3,0
+2021,LTER 1,Fringing Reef,4,0
+2021,LTER 2,Fringing Reef,1,0
+2021,LTER 2,Fringing Reef,2,0
+2021,LTER 2,Fringing Reef,3,0
+2021,LTER 2,Fringing Reef,4,0
+2021,LTER 3,Fringing Reef,1,0
+2021,LTER 3,Fringing Reef,2,0
+2021,LTER 3,Fringing Reef,3,0
+2021,LTER 3,Fringing Reef,4,0
+2021,LTER 4,Fringing Reef,1,0
+2021,LTER 4,Fringing Reef,2,0
+2021,LTER 4,Fringing Reef,3,0
+2021,LTER 4,Fringing Reef,4,0
+2021,LTER 5,Fringing Reef,1,0
+2021,LTER 5,Fringing Reef,2,0
+2021,LTER 5,Fringing Reef,3,0
+2021,LTER 5,Fringing Reef,4,0
+2021,LTER 6,Fringing Reef,1,0
+2021,LTER 6,Fringing Reef,2,0
+2021,LTER 6,Fringing Reef,3,0
+2021,LTER 6,Fringing Reef,4,0
