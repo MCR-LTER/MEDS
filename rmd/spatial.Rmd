@@ -1,0 +1,666 @@
+---
+title: "Spatial"
+author: "Allie Cole, Felicia Cruz, Charles Hendrickson, Jake Eisaguirre"
+date: "1/18/2022"
+output: html_document
+---
+
+This is the code for the Spatial Tab on the Moorea Shiny App. Each chuck has a sentence above it that explains what that chuck does. There are also commented out explanations next to the code, within the chunks.  
+
+# Load Packages 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(tidyverse)
+library(janitor)
+library(raster)
+library(viridis)
+library(sf)
+library(gstat)
+library(sp)
+library(leaflet)
+library(automap)
+library(shiny)
+library(testthat)
+library(htmlwidgets)
+library(ggvoronoi)
+library(car)
+library(dismo)
+library(spatstat)
+library(rgdal)
+library(ncdf4)
+
+```
+
+# Read in Data
+This code chunk loads all of the data we will be using
+```{r}
+#nitrogren data
+nitrogen_data <- read_csv(here("data", "csv", "N_summary_2016.csv")) %>% 
+  clean_names()
+
+#bleaching data
+bleach <- read_csv(here("data", "csv", "percent_bleach_2016.csv")) %>% 
+  clean_names()
+
+#10x10 grid for kriging
+grd_sp <- readRDS(here("data", "krig_grid", "grd_sp"))
+
+#sewage data
+sewage_data <- read.csv(here("data/csv/Predicted_nuts.csv")) %>% 
+  clean_names()
+
+sewage_data <- cbind(nitrogen_data, sewage_data)
+
+
+# lidar data 
+bathy <- read.table(here("data/csv/bathy_LIDAR.xyz")) %>% 
+  as.data.frame()
+
+bathy <- rename(bathy, longitude = V1)
+bathy <- rename(bathy, latitude = V2) 
+bathy <- rename(bathy, depth = V3)
+
+#moorea crs EPSG:2976 
+#this is setting the Coordinate Reference System (crs) as a variable so we can use it later 
+crs <- 2976
+```
+
+# Tidy the Nitrogen Data
+Here we are turning the nitrogen data into standard Tidy format
+```{r}
+#nitrogen data
+n_data <- nitrogen_data %>% 
+  mutate(percent_n_jan = percent_n_jan *100,
+         percent_n_may = percent_n_may *100,
+         percent_n_july = percent_n_july *100) %>% #turning them into %s 
+  pivot_longer(!1:5, names_to = "type", values_to = "percent_n") %>% 
+  separate(type, into = c("method","random", "date"), sep = "_") %>% 
+  dplyr::select(-random)
+
+
+```
+
+# Now we krige each month, for the nitrogen percent data
+
+## Kriging january nitrogen data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-jan data
+## jan_np_data -> January Nitrogen percent data
+jan_np_data <- n_data %>% 
+  filter(date == "jan", method == "percent") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting jan data to sf and changing lat long to UTM
+## sf_jan_np_data -> Simple Feature January Nitrogen percent data
+sf_jan_np_data <- st_as_sf(jan_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+jan_np_vario <- variogram(percent_n~1, as(sf_jan_np_data, "Spatial"))
+
+plot(jan_np_vario)
+
+v_mod_full_jan <- autofitVariogram(percent_n~1, as(sf_jan_np_data, "Spatial"))
+
+v_mod_jan <- v_mod_full_jan$var_model
+
+plot(v_mod_full_jan)
+
+
+#krige 
+jan_krig_p <- krige(percent_n~1, as(sf_jan_np_data, "Spatial"), 
+                  grd_sp, model = v_mod_jan)
+
+#convert kriged data to raster  
+jan_ras <- raster(jan_krig_p)
+
+
+```
+
+
+## Kriging may nitrogen data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-may data
+may_np_data <- n_data %>% 
+  filter(date == "may", method == "percent") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting may data to sf and changing lat long to UTM
+sf_may_np_data <- st_as_sf(may_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+may_np_vario <- variogram(percent_n~1, as(sf_may_np_data, "Spatial"))
+
+plot(may_np_vario)
+
+v_mod_full_may <- autofitVariogram(percent_n~1, as(sf_may_np_data, "Spatial"))
+
+v_mod_may <- v_mod_full_may$var_model
+
+plot(v_mod_full_may)
+
+
+#krige 
+may_krig_p <- krige(percent_n~1, as(sf_may_np_data, "Spatial"), 
+                  grd_sp, model = v_mod_may)
+
+#convert kriged data to raster  
+may_ras <- raster(may_krig_p)
+
+```
+
+
+## Kriging July nitrogen data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-july data
+july_np_data <- n_data %>% 
+  filter(date == "july", method == "percent") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting july data to sf and changing lat long to UTM
+sf_july_np_data <- st_as_sf(july_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+july_np_vario <- variogram(percent_n~1, as(sf_july_np_data, "Spatial"))
+
+plot(july_np_vario)
+
+v_mod_full_july <- autofitVariogram(percent_n~1, as(sf_july_np_data, "Spatial"))
+
+v_mod_july <- v_mod_full_july$var_model
+
+plot(v_mod_full_july)
+
+
+#krige 
+july_krig_p <- krige(percent_n~1, as(sf_july_np_data, "Spatial"), 
+                  grd_sp, model = v_mod_july)
+
+#convert kriged data to raster  
+july_ras <- raster(july_krig_p)
+
+```
+
+
+# Kriging for each month using isotopic nitrogen data
+
+## Kriging january nitrogen isotopic data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-jan data
+## jan_ni_data -> January Nitrogen Isotopic data
+jan_ni_data <- n_data %>% 
+  filter(date == "jan", method == "d15n") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting jan data to sf and changing lat long to UTM
+## jan_ni_data -> Simple Feature January Nitrogen Isotopic data
+sf_jan_ni_data <- st_as_sf(jan_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+jan_ni_vario <- variogram(percent_n~1, as(sf_jan_ni_data, "Spatial"))
+
+plot(jan_ni_vario)
+
+v_mod_full_jan_i <- autofitVariogram(percent_n~1, as(sf_jan_ni_data, "Spatial"))
+
+v_mod_jan_i <- v_mod_full_jan_i$var_model
+
+plot(v_mod_full_jan_i)
+
+
+#krige 
+jan_krig_i <- krige(percent_n~1, as(sf_jan_ni_data, "Spatial"), 
+                  grd_sp, model = v_mod_jan_i)
+
+#convert kriged data to raster  
+jan_ras_i <- raster(jan_krig_i)
+
+```
+
+## Kriging may nitrogen isotopic data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-may data
+may_ni_data <- n_data %>% 
+  filter(date == "may", method == "d15n") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting may data to sf and changing lat long to UTM
+sf_may_ni_data <- st_as_sf(may_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+may_ni_vario <- variogram(percent_n~1, as(sf_may_ni_data, "Spatial"))
+
+plot(may_ni_vario)
+
+v_mod_full_may_i <- autofitVariogram(percent_n~1, as(sf_may_ni_data, "Spatial"))
+
+v_mod_may_i <- v_mod_full_may_i$var_model
+
+plot(v_mod_full_may_i)
+
+
+#krige 
+may_krig_i <- krige(percent_n~1, as(sf_may_ni_data, "Spatial"), 
+                  grd_sp, model = v_mod_may_i)
+
+#convert kriged data to raster  
+may_ras_i <- raster(may_krig_i)
+
+```
+
+
+## Kriging july nitrogen isotopic data for Moorea lagoon/reef boundary
+```{r}
+# selecting n-july data
+july_ni_data <- n_data %>% 
+  filter(date == "july", method == "d15n") %>%
+  dplyr::select(longitude, latitude, percent_n) %>% 
+  na.omit()
+
+
+#converting july data to sf and changing lat long to UTM
+sf_july_ni_data <- st_as_sf(july_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+july_ni_vario <- variogram(percent_n~1, as(sf_july_ni_data, "Spatial"))
+
+plot(july_ni_vario)
+
+v_mod_full_july_i <- autofitVariogram(percent_n~1, as(sf_july_ni_data, "Spatial"))
+
+v_mod_july_i <- v_mod_full_july_i$var_model
+
+plot(v_mod_full_july_i)
+
+
+#krige 
+july_krig_i <- krige(percent_n~1, as(sf_july_ni_data, "Spatial"), 
+                  grd_sp, model = v_mod_july_i)
+
+#convert kriged data to raster  
+july_ras_i <- raster(july_krig_i)
+
+```
+
+#Krige the Percent Bleached
+```{r}
+#Select column
+bleaching_data <- bleach %>%
+  dplyr::select(longitude, latitude, percent_bleached) %>%
+  na.omit() %>% 
+  group_by(longitude, latitude) %>% 
+  summarise(percent_bleached = mean(percent_bleached))
+
+
+#converting bleach data to sf and changing lat long to UTM
+sf_bleached_data <- st_as_sf(bleaching_data, coords = c('longitude', 'latitude'), crs = 4326) %>%
+  cbind(st_coordinates(.)) %>%
+  mutate(geometry = st_transform(geometry,
+                                 "+proj=utm +zone=6 +south +ellps=intl
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs",
+                                 crs = crs))
+
+
+#vario gram and model selection
+bleach_vario <- variogram(percent_bleached~1, as(sf_bleached_data, "Spatial"))
+
+plot(bleach_vario)
+
+v_mod_full_bleach <- autofitVariogram(percent_bleached~1, as(sf_bleached_data, "Spatial"))
+
+v_mod_bleach <- v_mod_full_bleach$var_model
+
+plot(v_mod_full_bleach)
+
+#krige the bleached layer
+bleach_krig <- krige(percent_bleached~1, as(sf_bleached_data, "Spatial"),
+                  grd_sp, model = v_mod_bleach)
+
+bleach_raster <- raster(bleach_krig) 
+
+```
+
+# Kriging Sewage Data  
+```{r}
+# selecting sewage data columns
+sewage_2016 <- sewage_data %>% 
+  dplyr::select(longitude, latitude, urb_nuts) %>% 
+  na.omit()
+
+
+#converting sewage data to sf and changing lat long to UTM
+sf_sewage <- st_as_sf(sewage_2016, coords = c('longitude', 'latitude'), crs = 4326) %>% 
+  cbind(st_coordinates(.)) %>% 
+  mutate(geometry = st_transform(geometry, 
+                                 "+proj=utm +zone=6 +south +ellps=intl 
+                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+                                 crs = crs))
+
+
+#vario gram and model selection 
+sewage_vario <- variogram(urb_nuts~1, as(sf_sewage, "Spatial"))
+
+plot(sewage_vario)
+
+v_mod_full_sewage <- autofitVariogram(urb_nuts~1, as(sf_sewage, "Spatial"))
+
+v_mod_sewage <- v_mod_full_sewage$var_model
+
+plot(v_mod_full_sewage)
+
+
+#krige 
+sewage_krig <- krige(urb_nuts~1, as(sf_sewage, "Spatial"), 
+                  grd_sp, model = v_mod_sewage)
+
+
+#convert kriged data to raster  
+sewage_ras <- raster(sewage_krig)
+
+
+```
+
+
+# Lidar Bathymetery
+We did not krige this layer, but we did turn it into a raster
+```{r}
+# create a matrix from columns X & Y and use project 
+bathy_utm_coord <- project(as.matrix(bathy[,c("longitude","latitude")]), "+proj=utm +zone=6 +south +ellps=intl +towgs84=162,117,154,0,0,0,0 +units=m +no_defs") %>% 
+  as.data.frame() %>% 
+  rename(long = longitude,
+         lat = latitude)
+
+bathy_bind <- cbind(bathy, bathy_utm_coord) %>% 
+  dplyr::select(-c("longitude", "latitude")) 
+  
+bathy_bind <- bathy_bind[, c("long", "lat", "depth")] 
+
+# filter out the negative depths and convert to sf
+bathy_sf_filtered <- st_as_sf(bathy_bind, coords = c("long","lat")) %>% 
+  filter(depth >= 0)
+
+#### Generate a raster layer and rasterize the points to it.
+
+# Convert points to sp
+bathy_points_filtered <- as(bathy_sf_filtered, "Spatial") 
+
+# Generate empty raster layer and rasterize points
+bathy_raster_filtered <- raster(crs = crs, vals = 0, resolution = c(5, 5), ext = extent(jan_ras)) %>% 
+  rasterize(bathy_points_filtered, ., field = bathy_points_filtered$depth) %>% 
+  projectRaster(jan_ras, method = "bilinear", crs = crs)
+
+
+
+```
+
+# Create Raster Brick of Spatial layers
+```{r}
+
+spatial_brick <- brick(jan_ras, may_ras, july_ras, jan_ras_i, may_ras_i, july_ras_i, bleach_raster, sewage_ras, bathy_raster_filtered, crs = crs) 
+
+
+writeRaster(spatial_brick, here("data", "spatial_brick.nc"), format = "CDF", overwrite = T)
+```
+
+
+# Creating the LTER site bounding boxes
+In this code chuck we are creating a bounding box for each LTER site and turning them into data frames so we can graph them later on
+```{r}
+
+latitude <- c(-17.47185366, -17.47185366, -17.48641792, -17.48641792, -17.47185366)
+longitude <- c(-149.8455917, -149.829821, -149.829821, -149.8455917, -149.8455917)
+
+lter_1 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 1)%>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs)%>% 
+  mutate(geometry = st_combine(geometry)) %>% 
+  st_cast("POLYGON")
+
+
+latitude <- c(-17.46576169, -17.46576169, -17.48131958, -17.48131958, -17.46576169)
+longitude <- c(-149.8116849, -149.7961685, -149.7961685, -149.8116849, -149.8116849)
+
+lter_2 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 2)%>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs)%>% 
+  mutate(geometry = st_combine(geometry)) %>% 
+  st_cast("POLYGON")
+
+
+latitude <- c(-17.50382025, -17.50382025, -17.52087158, -17.52087158, -17.50382025)
+longitude <- c(-149.7708619, -149.7519968, -149.7519968, -149.7708619, -149.7708619)
+
+lter_3 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 3)%>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs)%>% 
+  mutate(geometry = st_combine(geometry)) %>% 
+  st_cast("POLYGON")
+
+
+latitude <- c(-17.53305021, -17.53305021, -17.55064263, -17.55064263, -17.53305021)
+longitude <- c(-149.7772857, -149.7566866, -149.7566866, -149.7772857, -149.7772857)
+
+lter_4 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 4)%>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs)%>% 
+  mutate(geometry = st_combine(geometry)) %>% 
+  st_cast("POLYGON")
+
+
+latitude <- c(-17.56818162, -17.56818162, -17.59182383, -17.59182383, -17.56818162)
+longitude <- c(-149.8869755, -149.8561009, -149.8561009, -149.8869755, -149.8869755)
+
+lter_5 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 5)%>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs)%>% 
+  mutate(geometry = st_combine(geometry))%>% 
+  st_cast("POLYGON")
+
+
+latitude <- c(-17.50735955, -17.50735955, -17.52839766, -17.52839766, -17.50735955)
+longitude <- c(-149.934537, -149.9115336, -149.9115336, -149.934537, -149.934537)
+
+lter_6 <- data.frame(longitude, latitude) %>% 
+  mutate(site = 6) %>% 
+  st_as_sf(coords = c('longitude', 'latitude'), crs = crs) %>%
+  mutate(geometry = st_combine(geometry))%>% 
+  st_cast("POLYGON")
+
+site_poly <- rbind(lter_1, lter_2, lter_3, lter_4, lter_5, lter_6)
+
+plot(site_poly)
+
+write_csv(site_poly, here("data", "csv", "site_poly.csv"))
+
+
+
+```
+
+
+# Rasters and Palettes 
+This code chunk creates all of the palettes for the leaflet and allows us to plot the raster on our map by turning them into points and a data frame
+```{r}
+# percent nitrogen 
+jan_data <- as.data.frame(rasterToPoints(jan_ras))
+pal_jan <- colorNumeric(palette = viridis((25), option = "plasma"), domain = jan_data$var1.pred, reverse = TRUE)
+
+may_data <- as.data.frame(rasterToPoints(may_ras))
+pal_may <- colorNumeric(palette = viridis((25), option = "plasma"), domain = may_data$var1.pred, reverse = TRUE)
+
+july_data <- as.data.frame(rasterToPoints(july_ras))
+pal_july <- colorNumeric(palette = viridis((25), option = "plasma"), domain = july_data$var1.pred, reverse = TRUE)
+
+# isotopic nitrogen 
+
+jan_i_data <- as.data.frame(rasterToPoints(jan_ras_i))
+pal_jan_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = jan_i_data$var1.pred, reverse = TRUE)
+
+may_i_data <- as.data.frame(rasterToPoints(may_ras_i))
+pal_may_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = may_i_data$var1.pred, reverse = TRUE)
+
+july_i_data <- as.data.frame(rasterToPoints(july_ras_i))
+pal_july_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = july_i_data$var1.pred, reverse = TRUE)
+
+bleach_data <- as.data.frame(rasterToPoints(bleach_raster))
+pal_bleach <- colorNumeric(palette = viridis((25), option = "plasma"), domain = bleach_data$var1.pred, reverse = TRUE)
+
+# sewage 
+sew_dat <- as.data.frame(rasterToPoints(sewage_ras))
+pal_sewage <- colorNumeric(palette = viridis((25), option = "plasma"), domain = sewage_data$var1.pred, reverse = TRUE)
+
+# lidar 
+bathy_df <- as.data.frame(rasterToPoints(bathy_raster_filtered))
+pal_bathy <- colorNumeric(palette = viridis((25), option = "plasma"), domain = bathy_df$layer, reverse = TRUE)
+```
+
+
+
+# leaflet map 
+This is the code for our leaflet map 
+```{r}
+
+leaflet(crs) %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  addCircleMarkers(lng = n_data$longitude, lat = n_data$latitude,
+                   color = "black", group = "Observations", radius = 1,
+                   popup = paste("Longitude", n_data$longitude, "<br>",
+                           "Latitude:", n_data$latitude, "<br>",
+                           "Percent N Jan:", jan_np_data$percent_n, "<br>",
+                           "Percent N May:", may_np_data$percent_n, "<br>",
+                           "Percent N July:", july_np_data$percent_n, "<br>",
+                           "Isotopic N Jan:", jan_ni_data$percent_n, "<br>",
+                           "Isotopic N May:", may_ni_data$percent_n, "<br>",
+                           "Isotopic N July:", july_ni_data$percent_n, "<br>",
+                           "Percet Bleached:", bleaching_data$percent_bleached, "<br>",
+                           "Predicted Sewage:", sewage_2016$urb_nuts, "<br>")) %>%
+  addRasterImage(jan_ras, colors = "plasma", group = "January N", opacity = 0.7) %>%
+  addRasterImage(may_ras, colors = "plasma", group = "May N", opacity = 0.7) %>%
+  addRasterImage(july_ras, colors = "plasma", group = "July N", opacity = 0.7) %>%
+  addRasterImage(jan_ras_i, colors = "plasma", group = "January N Isotopic", opacity = 0.7) %>%
+  addRasterImage(may_ras_i, colors = "plasma", group = "May N Isotopic", opacity = 0.7) %>%
+  addRasterImage(july_ras_i, colors = "plasma", group = "July N Isotopic", opacity = 0.7) %>%
+  addRasterImage(bleach_raster, colors = "plasma", group = "Percent Bleached", opacity = 0.7) %>%
+  addRasterImage(sewage_ras, colors = "plasma", group = "Predicted Sewage", opacity = 0.7) %>%
+  addRasterImage(bathy_raster_filtered, colors = "plasma", group = "Depth", opacity = 0.7) %>%
+  # addPolygons(lng = lter_1$longitude, lat = lter_1$latitude, group = "LTER Sites",
+  #             popup = "LTER 1") %>%
+  # addPolygons(lng = lter_2$longitude, lat = lter_2$latitude, group = "LTER Sites",
+  #             popup = "LTER 2") %>%
+  # addPolygons(lng = lter_3$longitude, lat = lter_3$latitude, group = "LTER Sites",
+  #             popup = "LTER 3") %>%
+  # addPolygons(lng = lter_4$longitude, lat = lter_4$latitude, group = "LTER Sites",
+  #             popup = "LTER 4") %>%
+  # addPolygons(lng = lter_5$longitude, lat = lter_5$latitude, group = "LTER Sites",
+  #             popup = "LTER 5") %>%
+  # addPolygons(lng = lter_6$longitude, lat = lter_6$latitude, group = "LTER Sites",
+  #             popup = "LTER 6") %>%
+  addLayersControl(
+    baseGroups = c("January N",
+                   "May N",
+                   "July N",
+                   "January N Isotopic",
+                   "May N Isotopic",
+                   "July N Isotopic",
+                   "Percent Bleached",
+                   "Predicted Sewage",
+                   "Depth"),
+    overlayGroups = c("Observations", "LTER Sites"),
+    options = layersControlOptions(collapsed = FALSE))  %>%
+  addLegend(data = jan_data, title = 'January N', pal = pal_jan,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "January N",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  onRender("
+    function(el, x) {
+      var updateLegend = function () {
+          var selectedGroup =       document.querySelectorAll('input:checked')[0].nextSibling.innerText.substr(1);
+
+          document.querySelectorAll('.legend').forEach(a => a.hidden=true);
+          document.querySelectorAll('.legend').forEach(l => {
+            if (l.children[0].children[0].innerText == selectedGroup) l.hidden=false;
+          });
+      };
+      updateLegend();
+      this.on('baselayerchange', e => updateLegend());
+    }") %>%
+  addLegend(data = may_data, title = 'May N', pal = pal_may,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "May N",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = july_data, title = 'July N', pal = pal_july,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "July N",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = jan_i_data, title = 'January N Isotopic', pal = pal_jan_i,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "January N Isotopic",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = may_i_data, title = 'May N Isotopic', pal = pal_may_i,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "May N Isotopic",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = july_i_data, title = 'July N Isotopic', pal = pal_july_i,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "July N Isotopic",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+   addLegend(data = bleach_data, title = 'Percent Bleached', pal = pal_bleach,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "Percent Bleached",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = sew_dat, title = 'Predicted Sewage', pal = pal_sewage,
+            position = "bottomright",
+            values = ~var1.pred, opacity = 1, group = "Predicted Sewage",
+            labFormat = labelFormat(transform = function(var1.pred) sort(var1.pred, decreasing = TRUE))) %>%
+  addLegend(data = bathy_df, title = 'Depth', pal = pal_bathy,
+            position = "bottomright",
+            values = ~layer, opacity = 1, group = 'Depth')
+
+#saveWidget(leaf, file = here("figs", "leaf.html"))
+```
+
