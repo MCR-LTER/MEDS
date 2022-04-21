@@ -17,7 +17,8 @@ ui <- fluidPage(
              
              #home page ----
              tabPanel("Home", icon = icon("info-circle"), 
-                      img(src = "MCR60441.jpg", height = 400, width = 400, align = "right"),
+                      
+                      slickROutput("slickr", width="500px"),
                       
                       p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
                       
@@ -195,17 +196,50 @@ ui <- fluidPage(
                                                            h4("Isotopic Nitrogen"), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually.")
-                                              ),
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("here is the link to download this dataset")),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60441.jpg", height = 400, width = 400))
-                                            )),
-                                   tabPanel("Mean Algae Cover"),
-                                   tabPanel("Mean Fish Biomass"),
-                                   tabPanel("Crown of Thorns Density")
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
                                    
-                                  )))))
+                                   tabPanel("Mean Algae Cover", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("here is the link to download this dataset")),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                   
+                                   tabPanel("Mean Fish Biomass", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("here is the link to download this dataset")),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                   
+                                   tabPanel("Crown of Thorns Density", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("here is the link to download this dataset")),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))))))))
 
 
 
