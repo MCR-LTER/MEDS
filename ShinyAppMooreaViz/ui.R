@@ -5,9 +5,9 @@ ui <- fluidPage(
   
   # Application title ----
   titlePanel("Moorea Coral Reef LTER"),
-  sidebarLayout(
-    sidebarPanel(),
-    mainPanel(img(src = "mcr_logo.png", height = 60, width = 150, align = "right"), 
+  fluidPage(
+    fluidRow(""),
+    fluidRow(img(src = "mcr_logo.png", height = 60, width = 150, align = "right"), 
               img(src = "lter_logo.png", height = 60, width = 70, align = "right"), 
               img(src = "nsf_logo.png", height = 60, width = 60, align = "right"))),
   
@@ -17,28 +17,10 @@ ui <- fluidPage(
              
              #home page ----
              tabPanel("Home", icon = icon("info-circle"), 
-                      fluidPage(
-                        fluidRow(
-                          column(12, 
-                                 12, align="center",
-                                 div(style="display: inline-block;",
-                                     img(src="MCR60441.jpg", 
-                                         height=300, 
-                                         width=300)),
-                                 div(style="display: inline-block;",
-                                     img(src="Moorea Scenery-197.jpg", 
-                                         height=300, 
-                                         width=300)),
-                                 div(style="display: inline-block;",
-                                     img(src="Underwater_Gump_080.jpg", 
-                                         height=300, 
-                                         width=300))),
-                        fluidRow(
-                          column(12, 
                                  p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
                                  
-                                 p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification.")))
-                      )),
+                                 p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification.")),
+                  
              
              
              
