@@ -122,22 +122,66 @@ ui <- fluidPage(
                         
                         
                         tabPanel("Metadata", 
-                            fluidPage(
-                            titlePanel("This is the metadata for spatial"),
-                            sidebarLayout(
-                              sidebarPanel(width = 5, 
-                                           h3("This is the Nitrogen Data"), 
-                                           h4("Isotopic Nitrogen"), 
-                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
-                                           h4("Percent Nitrogen"), 
-                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
-                                           h3("This is Coral Bleaching data"), 
-                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually.")
-                                           ),
-                              
-                              mainPanel(width = 6, 
-                                        img(src = "MCR60441.jpg", height = 400, width = 400))
-                              )))), 
+                                 tabsetPanel(
+                                   tabPanel("Isotopic Nitrogen", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("Here is the link to download this", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
+                                                                    "dataset"))),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                   
+                                   tabPanel("Percent Nitrogen", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("Here is the link to download this", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.8", 
+                                                                    "dataset"))),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                   
+                                   tabPanel("Coral Bleaching", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4(""), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("Here is the link to download this", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.6", 
+                                                                    "dataset"))),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                   
+                                   tabPanel("Predicted Sewage", 
+                                            sidebarLayout(
+                                              sidebarPanel(width = 5, 
+                                                           h3("Background"), 
+                                                           h4("Isotopic Nitrogen"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Data Collection"), 
+                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("Here is the link to download this", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.1039", 
+                                                                    "dataset"))),
+                                              
+                                              mainPanel(width = 6, 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)), ))))), 
              
              #Temporal page ----
              navbarMenu("Temporal", icon = icon("chart-line"),
