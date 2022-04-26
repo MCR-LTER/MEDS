@@ -8,12 +8,12 @@ server <- function(input, output, session) {
   
   #slickR outputs ----
   
-  output$slickr <- renderSlickR({
-    imgs <- list.files(here("ShinyAppMooreaViz", "photos"), 
-                       pattern=".png", 
-                       full.names = TRUE)
-    slickR(imgs)
-  })
+#  output$slickr <- renderSlickR({
+#     imgs <- list.files(here("ShinyAppMooreaViz", "photos"), 
+#                        pattern=".pdf", 
+ #                       full.names = TRUE)
+ #  slickR(imgs)
+  #})
   
   #leaflet outputs ----
   output$leaflet_base <- renderLeaflet({
