@@ -4,7 +4,7 @@ source(here("ShinyAppMooreaViz", "global.R"))
 ui <- fluidPage(
   
   # Application title ----
-  #titlePanel("Moorea Coral Reef LTER"),
+  titlePanel(""),
   fluidPage(
     fluidRow(column(6, 
                     h1("Moorea Coral Reef LTER")),
