@@ -24,16 +24,19 @@ ui <- fluidPage(
                         column(12, align="center",
                       div(style="display: inline-block;",
                           img(src="Moorea Scenery_197.jpg", 
-                              height=200, 
-                              width=200)),
+                              height=300, 
+                              width=300)),
                       div(style="display: inline-block;",
                           img(src="MCR60441.jpg", 
-                              height=200, 
-                              width=200)),
+                              height=300, 
+                              width=300)),
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_080.jpg", 
-                              height=200, 
-                              width=200)))),
+                              height=300, 
+                              width=300)))),
+                      
+                     # fluidRow(
+                      #  column(12, "         ")), #trying to add space between the pictures an dwords
                       
                       fluidRow(
                         column(12, p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
