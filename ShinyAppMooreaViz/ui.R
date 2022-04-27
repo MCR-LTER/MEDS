@@ -3,6 +3,10 @@ source(here("ShinyAppMooreaViz", "global.R"))
 
 ui <- fluidPage(
   
+ # tags$head(
+ #   tags$link(rel = "stylesheet", type = "text/css", href = "theme.css")
+ # ),
+  
   # Application title ----
   titlePanel(""),
   fluidPage(
