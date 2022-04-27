@@ -1,0 +1,39 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit this file and not the README.md file, knit to move changes to the other file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "ShinyAppMooreaViz/www/README-",
+  out.width = "75%",
+  warning = FALSE,
+  message = FALSE,
+  fig.retina = 2,
+  fig.align = 'center'
+)
+```
+
+# Moorea Coral Reef LTER <a href='http://mcr.lternet.edu/'><img src='ShinyAppMooreaViz/www/mcr_logo.png' align="right" height="138.5" /></a>
+
+The goal of this repository is to provide a ......
+
+
+## About the data
+
+### Spatial Data
+
+### Temporal Data
+
+## References
+
+**Data originally published in:**
+
+
+
+
+
+
