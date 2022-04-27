@@ -192,6 +192,11 @@ ui <- fluidPage(
                         
                         #figures by variable panel ----
                         tabPanel("Figures by Variable",
+                                 (pickerInput(inputId = "habitat",
+                                              label = "Select a Habitat",
+                                              choices = c("Fringing Reef" = "Fringing",
+                                                          "Forereef" = "Forereef"),
+                                              multiple = FALSE)),
                                  (pickerInput(inputId = "Temp_Variable",
                                               label = "Select a Variable",
                                               choices = c("Mean Coral Cover" = "mean_coral_cover",
@@ -200,27 +205,20 @@ ui <- fluidPage(
                                                           "COTS Density" = "cots_density"), 
                                               multiple = FALSE)),
                                  plotOutput(outputId = "faceted_plot")),
-                        
-                        #figures by site panel ----        
-                        tabPanel("Figures by Site",
-                                 sidebarPanel(checkboxGroupInput(inputId = "site", 
-                                                                 label = h4("Choose your Site"),
-                                                                 selected = "LTER 1",
-                                                                 choices = list("Site 1" = "LTER 1",
-                                                                                "Site 2" = "LTER 2", 
-                                                                                "Site 3" = "LTER 3", 
-                                                                                "Site 4" = "LTER 4", 
-                                                                                "Site 5" = "LTER 5", 
-                                                                                "Site 6" = "LTER 6"))),
-                                 mainPanel(plotOutput(outputId = "variables_by_site_plot"))),
+
                         
 
                         #figures by site option 2 ----
                         useShinydashboard(),
 
-                        tabPanel("Figures by Site (option 2)",
+                        tabPanel("Figures by Site",
                                  column(width = 4,
-                                        box(checkboxGroupInput(inputId = "site_2",
+                                        box(pickerInput(inputId = "habitat",
+                                                         label = "Select a Habitat",
+                                                         choices = c("Fringing Reef" = "Fringing",
+                                                                     "Forereef" = "Forereef"),
+                                                         multiple = FALSE),
+                                          checkboxGroupInput(inputId = "site_2",
                                                                label = h4("Choose your Site"),
                                                                selected = "LTER 1",
                                                                choices = list("Site 1" = "LTER 1",
@@ -234,19 +232,19 @@ ui <- fluidPage(
                                  mainPanel(
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Plot 1",
+                                         title = "Percent Coral Cover",
                                          plotOutput(outputId = "test_coral_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Plot 2",
+                                         title = "Percent Algae Cover",
                                          plotOutput(outputId = "test_algae_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Plot 3",
+                                         title = "Crown of Thorns Density",
                                          plotOutput(outputId = "test_cots_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Plot 4",
+                                         title = "Herbivore Biomass",
                                          plotOutput(outputId = "test_biomass_plot"))))
                                    ), 
                         

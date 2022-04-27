@@ -66,52 +66,14 @@ server <- function(input, output, session) {
   })
   
   
-  #figures by site outputs ----
-  temporal_reactive_df <- reactive({validate(
-    need(length(input$site) > 0, "Please select at least one site to visualize.")
-  )
-    temporal_data %>%
-      filter(site %in% input$site)
-  }) 
-  
-  
-  output$variables_by_site_plot <- renderPlot({
-    coral_plot <- ggplot(data = temporal_reactive_df(), aes(x = year, y = mean_coral_cover)) +
-      geom_point(aes(color = site)) +
-      geom_line(aes(group = site, color = site)) +
-      labs(x = "",
-           y = expression(atop("Mean Coral Cover", paste(paste("(% per 0.25 ", m^{2}, ")"))))) 
-    
-    cots_plot <- ggplot(data = temporal_reactive_df(), aes(x = year, y = cots_density)) +
-      geom_point(aes(color = site)) +
-      geom_line(aes(group = site, color = site)) +
-      labs(x = "",
-           y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")")))))
-    
-    biomass_plot <- ggplot(data = temporal_reactive_df(), aes(x = year, y = mean_biomass_p_consumers)) +
-      geom_point(aes(color = site)) +
-      geom_line(aes(group = site, color = site)) +
-      labs(x = "",
-           y = expression(atop("Mean Fish Biomass", paste(paste("(% per 0.25 ", m^{2}, ")")))))
-    
-    algae_plot <- ggplot(data = temporal_reactive_df(), aes(x = year, y = mean_algae_cover)) +
-      geom_point(aes(color = site)) +
-      geom_line(aes(group = site, color = site)) +
-      labs(x = "Year",
-           y = expression(atop("Mean Algae Cover", paste(paste("(% per 0.25 ", m^{2}, ")"))))) 
-      
-    
-    coral_plot/cots_plot/biomass_plot/algae_plot +
-      plot_layout(guides = 'collect') + # combines the legends
-      plot_layout(ncol = 1, heights = c(1, 1, 1, 1))
-  })
   
   # plots for temporal option 2 tab 
   temporal_reactive_df_2 <- reactive({validate(
     need(length(input$site_2) > 0, "Please select at least one site to visualize.")
   )
     temporal_data %>%
-      filter(site %in% input$site_2)
+      filter(habitat %in% input$habitat,
+             site %in% input$site_2)
   }) 
   
   # test_coral_plot
@@ -119,8 +81,10 @@ server <- function(input, output, session) {
     ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_coral_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
+      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
+                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +            
       labs(x = "",
-           y = expression(atop("Mean Coral Cover", paste(paste("(% per 0.25 ", m^{2}, ")"))))) +
+           y = expression("Mean Percent Coral Cover")) +
       ylim(0, NA)
   })
   
@@ -129,9 +93,24 @@ server <- function(input, output, session) {
       ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_algae_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
+      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
+                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
       labs(x = "Year",
-           y = expression(atop("Mean Algae Cover", paste(paste("(% per 0.25 ", m^{2}, ")"))))) +
+           y = expression("Mean Percent Algae Cover")) +
       ylim(0, NA)
+  })
+  
+
+  
+  # test biomass plot 
+  output$test_biomass_plot <- renderPlot({
+    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_biomass_p_consumers)) +
+      geom_point(aes(color = site)) +
+      geom_line(aes(group = site, color = site)) +
+      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
+                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
+      labs(x = "",
+           y = expression(atop("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")")))))
   })
   
   # test_cots_plot
@@ -139,26 +118,13 @@ server <- function(input, output, session) {
     ggplot(data = temporal_reactive_df_2(), aes(x = year, y = cots_density)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
+      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
+                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
       labs(x = "",
            y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")")))))
   })
   
-  # test biomass plot 
-  output$test_biomass_plot <- renderPlot({
-    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_biomass_p_consumers)) +
-      geom_point(aes(color = site)) +
-      geom_line(aes(group = site, color = site)) +
-      labs(x = "",
-           y = expression(atop("Mean Fish Biomass", paste(paste("(% per 0.25 ", m^{2}, ")")))))
-  })
-  
-  
-  # reactive observations and data filtering
-  Observations <- eventReactive(input$Other, {
-    
-    geom_line(aes(group = site, color = site))
-  })
-  
+
   
   # reactive observations and data filtering ----
   Observations <- reactive({
