@@ -12,9 +12,11 @@ source(here("layers.Rmd"))
 ```
 #creating/saving boundary and grid
 ```{r}
-new_reef <- read_csv(here("data", "csv", "new_reef_bound.csv"))
+bound <- read_sf(here("data", "shape_files_UTM", "clipped_reef_bound", "clipped_reef_bound.shp"))
 
 # Prepping shapefiles, boundary, and gridded boundary
+
+plot(new_reef)
 
 #moorea crs EPSG:2976
 crs <- 2976
@@ -22,8 +24,7 @@ crs <- 2976
 #reef bound in UTM
 bound <- new_reef %>%
   st_as_sf(coords = c("Long", "Lat"), crs = 4326) %>%
-  mutate(geometry = st_transform(geometry, "+proj=utm +zone=6 +south +ellps=intl
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs",
+  mutate(geometry = st_transform(geometry,
                                  crs = crs)) %>%
   summarise(geometry = st_combine(geometry)) %>%
   st_cast("POLYGON") %>%
@@ -31,8 +32,7 @@ bound <- new_reef %>%
 
 #Island Bound in UTM
 island_bound_shp <- read_sf(here("island", "bh400kc3500.shp")) %>%
-  mutate(geometry = st_transform(geometry, "+proj=utm +zone=6 +south +ellps=intl
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs",
+  mutate(geometry = st_transform(geometry, 
                                  crs = crs)) %>%
   dplyr::select(geometry)
 
@@ -41,7 +41,7 @@ plot(island_bound_shp)
 #clipping reef boundary
 island_bound <- st_crop(island_bound_shp, bound)
 
-plot(island_bound)
+plot(clipped_bound)
 
 #save clipped reef bound as shape file UTM
 moorea <- st_write(island_bound, here("data", "shape_files_UTM", "moorea", "moorea.shp"), delete_dsn=TRUE)
@@ -60,6 +60,7 @@ grd_sf <- clipped_bound %>%
   st_as_sf() %>%
   cbind(., st_coordinates(.))
 
+plot(grd_sf)
 
 #Clipping the gridded box by the reef bound
 bound_grid <- st_intersection(grd_sf, clipped_bound)
@@ -73,7 +74,7 @@ saveRDS(grd_sp, here("data", "krig_grid", "grd_sp"))
 
 
 
-plot(grd_sp)
+plot(bound_grid)
 ```
 
 # random ggplot for slides

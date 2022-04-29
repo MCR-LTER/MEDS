@@ -254,7 +254,7 @@ server <- function(input, output, session) {
          && input$Variable == "Percent Nitrogen"){
         proxy  %>%  clearImages() %>% clearControls() %>% 
           addRasterImage(jan_n(), colors = "plasma", group = "January N", opacity = 0.7, 
-                         layerId = "January") %>%
+                         layerId = "January", ) %>%
           addLegend(data = jan_data, title = 'Percent N', pal = pal_jan, 
                     position = "bottomright", values = ~X1, opacity = 1, 
                     group = "January N", labFormat = labelFormat(transform = function(X1) sort(X1, decreasing = TRUE)))

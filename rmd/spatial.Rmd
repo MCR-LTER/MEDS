@@ -46,6 +46,16 @@ bleach <- read_csv(here("data", "csv", "percent_bleach_2016.csv")) %>%
 #10x10 grid for kriging
 grd_sp <- readRDS(here("data", "krig_grid", "grd_sp"))
 
+# grd_sp <- st_as_sf(grd_sp) %>% 
+#   st_transform(crs=crs) %>% 
+#   cbind(., st_coordinates(.))
+# 
+# grd_sp <- as(bound_grid, "Spatial")
+# gridded(grd_sp) <- TRUE
+# grd_sp <- as(grd_sp, "SpatialPixels")
+# 
+# plot(grd_sp)
+
 #sewage data
 sewage_data <- read.csv(here("data/csv/Predicted_nuts.csv")) %>% 
   clean_names()
@@ -97,9 +107,7 @@ jan_np_data <- n_data %>%
 ## sf_jan_np_data -> Simple Feature January Nitrogen percent data
 sf_jan_np_data <- st_as_sf(jan_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
-  mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+  mutate(geometry = st_transform(geometry,
                                  crs = crs))
 
 
@@ -119,8 +127,11 @@ plot(v_mod_full_jan)
 jan_krig_p <- krige(percent_n~1, as(sf_jan_np_data, "Spatial"), 
                   grd_sp, model = v_mod_jan)
 
+
+
 #convert kriged data to raster  
 jan_ras <- raster(jan_krig_p)
+
 
 
 ```
@@ -139,8 +150,6 @@ may_np_data <- n_data %>%
 sf_may_np_data <- st_as_sf(may_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
   mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
                                  crs = crs))
 
 
@@ -179,8 +188,6 @@ july_np_data <- n_data %>%
 sf_july_np_data <- st_as_sf(july_np_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
   mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
                                  crs = crs))
 
 
@@ -222,9 +229,7 @@ jan_ni_data <- n_data %>%
 ## jan_ni_data -> Simple Feature January Nitrogen Isotopic data
 sf_jan_ni_data <- st_as_sf(jan_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
-  mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+  mutate(geometry = st_transform(geometry,
                                  crs = crs))
 
 
@@ -261,9 +266,7 @@ may_ni_data <- n_data %>%
 #converting may data to sf and changing lat long to UTM
 sf_may_ni_data <- st_as_sf(may_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
-  mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+  mutate(geometry = st_transform(geometry,
                                  crs = crs))
 
 
@@ -302,8 +305,6 @@ july_ni_data <- n_data %>%
 sf_july_ni_data <- st_as_sf(july_ni_data, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
   mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
                                  crs = crs))
 
 
@@ -342,8 +343,6 @@ bleaching_data <- bleach %>%
 sf_bleached_data <- st_as_sf(bleaching_data, coords = c('longitude', 'latitude'), crs = 4326) %>%
   cbind(st_coordinates(.)) %>%
   mutate(geometry = st_transform(geometry,
-                                 "+proj=utm +zone=6 +south +ellps=intl
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs",
                                  crs = crs))
 
 
@@ -377,9 +376,7 @@ sewage_2016 <- sewage_data %>%
 #converting sewage data to sf and changing lat long to UTM
 sf_sewage <- st_as_sf(sewage_2016, coords = c('longitude', 'latitude'), crs = 4326) %>% 
   cbind(st_coordinates(.)) %>% 
-  mutate(geometry = st_transform(geometry, 
-                                 "+proj=utm +zone=6 +south +ellps=intl 
-                                 +towgs84=162,117,154,0,0,0,0 +units=m +no_defs", 
+  mutate(geometry = st_transform(x = geometry,
                                  crs = crs))
 
 
@@ -402,7 +399,6 @@ sewage_krig <- krige(urb_nuts~1, as(sf_sewage, "Spatial"),
 
 #convert kriged data to raster  
 sewage_ras <- raster(sewage_krig)
-
 
 ```
 
@@ -442,8 +438,7 @@ bathy_raster_filtered <- raster(crs = crs, vals = 0, resolution = c(5, 5), ext =
 # Create Raster Brick of Spatial layers
 ```{r}
 
-spatial_brick <- brick(jan_ras, may_ras, july_ras, jan_ras_i, may_ras_i, july_ras_i, bleach_raster, sewage_ras, bathy_raster_filtered, crs = crs) 
-
+spatial_brick <- brick(jan_ras, may_ras, july_ras, jan_ras_i, may_ras_i, july_ras_i, bleach_raster, sewage_ras, bathy_raster_filtered, crs = crs)
 
 writeRaster(spatial_brick, here("data", "spatial_brick.nc"), format = "CDF", overwrite = T)
 ```

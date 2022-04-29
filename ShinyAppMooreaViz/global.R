@@ -106,11 +106,13 @@ jan_np_data <- n_data %>%
 #raster brick minus lidar
 spatial_brick <- here("data", "spatial_brick.nc")
 
-spatial_brick <- brick(spatial_brick)
+
+spatial_brick <- brick(spatial_brick) 
+
 
 
 #crs 
-crs <- 3297
+crs <- 2976
 
 # Tidy Nitrogen Data
 # n_data <- nitrogen_data %>% 
