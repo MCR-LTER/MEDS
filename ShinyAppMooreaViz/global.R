@@ -36,8 +36,6 @@ nitrogen_data <- read_csv(here("data", "csv", "N_summary_2016.csv")) %>%
 bleach <- read_csv(here("data", "csv", "percent_bleach_2016.csv")) %>% 
   clean_names()
 
-#site polygons
-#site_poly <- read_csv(here("data", "csv", "site_poly.csv"))
 
 #sewage data
 sewage_data <- read.csv(here("data/csv/Predicted_nuts.csv")) %>% 
@@ -50,7 +48,9 @@ sewage_2016 <- sewage_data %>%
   na.omit()
 
 #temporal data 
-temporal_data <- read.csv(here("data/csv/temporal_data_joined.csv"))
+temporal_data <- read.csv(here("data/csv/temporal_data_joined.csv")) %>% 
+  filter(!year == "2005") %>% 
+  group_by(habitat)
 
 #Select column bleach
 bleaching_data <- bleach %>%
@@ -106,8 +106,13 @@ jan_np_data <- n_data %>%
 #raster brick minus lidar
 spatial_brick <- here("data", "spatial_brick.nc")
 
+ext <- raster(xmn = 189139,
+              xmx = 207949,
+              ymn = 8051175,
+              ymx = 8066264)
 
-spatial_brick <- brick(spatial_brick) 
+spatial_brick <- brick(spatial_brick) %>% 
+  setExtent(ext = ext)
 
 
 
