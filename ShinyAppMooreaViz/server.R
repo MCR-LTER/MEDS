@@ -32,15 +32,18 @@ server <- function(input, output, session) {
     
   })
   
-  # temporal_reactive_df_variables <- reactive({
-  #     
-  #     temporal_data %>% 
-  #         dplyr::select(year, site, input$Variable)
-  # }) 
+  temp_reactive_df_1 <- reactive({
+
+      temporal_data %>%
+          dplyr::select(year, site, input$Temp_Variable, habitat) %>%
+      filter(habitat == input$habitat)
+      
+  })
+  
   
   #figures by variable output ----
   output$faceted_plot <- renderPlot({
-    ggplot(data = temporal_data, aes_string(x = "year", y = input$Temp_Variable)) +
+    ggplot(data = temp_reactive_df_1(), aes_string(x = "year", y = input$Temp_Variable)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       facet_wrap(~site) +
@@ -70,10 +73,10 @@ server <- function(input, output, session) {
   # plots for temporal option 2 tab 
   temporal_reactive_df_2_f <- reactive({validate(
     need(length(input$site_2) > 0, "Please select at least one site to visualize."),
-    need(length(input$habitat) > 0, "Please select one habitat")
+    need(length(input$habitat_2) > 0, "Please select one habitat")
   )
     a <-temporal_data %>%
-      dplyr::filter(habitat %in% input$habitat,
+      dplyr::filter(habitat %in% input$habitat_2,
              site %in% input$site_2)
 
   }) 
