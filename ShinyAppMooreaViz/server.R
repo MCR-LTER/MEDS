@@ -40,6 +40,7 @@ server <- function(input, output, session) {
       
   })
   
+  # fish_title <- expression(paste("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")"))))
   
   #figures by variable output ----
   output$faceted_plot <- renderPlot({
@@ -47,25 +48,28 @@ server <- function(input, output, session) {
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       facet_wrap(~site) +
-    labs(title = case_when(input$Temp_Variable == "mean_coral_cover" ~ "coral title",
-                           input$Temp_Variable == "mean_algae_cover" ~ "algae title",
-                           input$Temp_Variable == "mean_biomass_p_consumers" ~ "fish title",
-                           input$Temp_Variable == "cots_density" ~ "cots title"),
-         subtitle = 'Moorea, French Polynesia (2005 - 2018)',
-         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "coral axis",
-                       input$Temp_Variable == "mean_algae_cover" ~ "algae axis",
-                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "fish axis",
-                       input$Temp_Variable == "cots_density" ~ "cots axis"),
+    labs(title = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Percent Coral Cover",
+                           input$Temp_Variable == "mean_algae_cover" ~ "Percent Algae Cover",
+                           input$Temp_Variable == "mean_biomass_p_consumers" ~ "Herbivore Biomass",
+                           input$Temp_Variable == "cots_density" ~ "Crown of Thorns Density"),
+         subtitle = 'Moorea, French Polynesia (2006 - 2021)',
+         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Mean Percent Coral Cover",
+                       input$Temp_Variable == "mean_algae_cover" ~ "Mean Percent Algae Cover",
+                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass g per m^2",
+                       input$Temp_Variable == "cots_density" ~ "COTS Density (count per m^2)"),
          x = 'Year',
          color = 'Site') +
-    scale_color_manual(values = c('#40B5AD', '#87CEEB', '#4682B4', '#6F8FAF', '#9FE2BF', '#6495ED')) +
+      scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
+                                    "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887'))  +
     theme_bw() +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1),
-          panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          panel.grid.major.x = element_blank(), 
+          panel.grid.minor.x = element_blank(),
           panel.grid.minor.y = element_blank(),
           axis.title.x = element_text(size=14),
           axis.title.y = element_text(size = 14),
-          plot.title = element_text(size = 16))
+          plot.title = element_text(size = 16)) +
+      scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
   
@@ -88,11 +92,20 @@ server <- function(input, output, session) {
     ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_coral_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
-      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
-                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +            
-      labs(x = "",
+      scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
+                                    "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) + 
+      labs(x = "Year",
            y = expression("Mean Percent Coral Cover")) +
-      ylim(0, NA)
+      ylim(0, NA) +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+            panel.grid.major.x = element_blank(), 
+            panel.grid.minor.x = element_blank(),
+            panel.grid.minor.y = element_blank(),
+            axis.title.x = element_text(size=14),
+            axis.title.y = element_text(size = 14),
+            plot.title = element_text(size = 16)) +
+      scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
   # test_algae_plot 
@@ -100,11 +113,20 @@ server <- function(input, output, session) {
       ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_algae_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
-      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
-                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
+      scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
+                                    "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887'))  +
       labs(x = "Year",
            y = expression("Mean Percent Algae Cover")) +
-      ylim(0, NA)
+      ylim(0, NA) +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+            panel.grid.major.x = element_blank(), 
+            panel.grid.minor.x = element_blank(),
+            panel.grid.minor.y = element_blank(),
+            axis.title.x = element_text(size=14),
+            axis.title.y = element_text(size = 14),
+            plot.title = element_text(size = 16)) +
+      scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
 
@@ -114,10 +136,19 @@ server <- function(input, output, session) {
     ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_biomass_p_consumers)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
-      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
-                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
-      labs(x = "",
-           y = expression(atop("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")")))))
+      scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
+                                    "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) +
+      labs(x = "Year",
+           y = expression(atop("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")"))))) +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+            panel.grid.major.x = element_blank(), 
+            panel.grid.minor.x = element_blank(),
+            panel.grid.minor.y = element_blank(),
+            axis.title.x = element_text(size=14),
+            axis.title.y = element_text(size = 14),
+            plot.title = element_text(size = 16)) +
+      scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
   
@@ -127,10 +158,19 @@ server <- function(input, output, session) {
     ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = cots_density)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
-      scale_color_manual(values = c("LTER 1" = "blue", "LTER 2" = "red", "LTER 3" = "green", 
-                                    "LTER 4" = "purple", "LTER 5" = "orange", "LTER 6" = "pink")) +
-      labs(x = "",
-           y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")")))))
+      scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
+                                    "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) +
+      labs(x = "Year",
+           y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")"))))) +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+            panel.grid.major.x = element_blank(), 
+            panel.grid.minor.x = element_blank(),
+            panel.grid.minor.y = element_blank(),
+            axis.title.x = element_text(size=14),
+            axis.title.y = element_text(size = 14),
+            plot.title = element_text(size = 16)) +
+      scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
  
