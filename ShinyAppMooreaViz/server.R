@@ -58,7 +58,8 @@ server <- function(input, output, session) {
          subtitle = 'Moorea, French Polynesia (2006 - 2021)',
          y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Mean Percent Coral Cover",
                        input$Temp_Variable == "mean_algae_cover" ~ "Mean Percent Algae Cover",
-                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass g per m^2",
+                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass (g per m^2)",
+                       #input$TempVariable == "mean_biomass_p_consumers" ~ TeX(r'($\alpha  x^\alpha$, where $\alpha \in \{1 \ldots 5\}$)'), # uses latex2exp package 
                        input$Temp_Variable == "cots_density" ~ "COTS Density (count per m^2)"),
          x = 'Year',
          color = 'Site') +
