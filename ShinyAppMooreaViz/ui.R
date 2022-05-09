@@ -213,7 +213,7 @@ ui <- fluidPage(
 
                         tabPanel("Figures by Site",
                                  column(width = 4,
-                                        box(selectInput(inputId = "habitat",
+                                        box(selectInput(inputId = "habitat_2",
                                                          label = "Select a Habitat",
                                                          choices = c("Fringing",
                                                                      "Forereef"),
