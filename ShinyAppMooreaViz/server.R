@@ -31,8 +31,11 @@ server <- function(input, output, session) {
         completedColor = "#7D4479") 
     
   })
+ 
+  # temporal figures by variable ----
   
-  temp_reactive_df_1 <- reactive({
+  # reactive data frame 
+  temp_reactive_df <- reactive({
 
       temporal_data %>%
           dplyr::select(year, site, input$Temp_Variable, habitat) %>%
@@ -42,9 +45,9 @@ server <- function(input, output, session) {
   
   # fish_title <- expression(paste("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")"))))
   
-  #figures by variable output ----
+
   output$faceted_plot <- renderPlot({
-    ggplot(data = temp_reactive_df_1(), aes_string(x = "year", y = input$Temp_Variable)) +
+    ggplot(data = temp_reactive_df(), aes_string(x = "year", y = input$Temp_Variable)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       facet_wrap(~site) +
@@ -74,8 +77,10 @@ server <- function(input, output, session) {
   
   
   
-  # plots for temporal option 2 tab 
-  temporal_reactive_df_2_f <- reactive({validate(
+  # temporal figures by site ---- 
+  
+  # reactive data frame 
+  temporal_reactive_df_2 <- reactive({validate(
     need(length(input$site_2) > 0, "Please select at least one site to visualize."),
     need(length(input$habitat_2) > 0, "Please select one habitat")
   )
@@ -85,11 +90,10 @@ server <- function(input, output, session) {
 
   }) 
   
-
   
-  # test_coral_plot
-  output$test_coral_plot <- renderPlot({
-    ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_coral_cover)) +
+  # coral_plot
+  output$coral_plot <- renderPlot({
+    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_coral_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
@@ -108,9 +112,9 @@ server <- function(input, output, session) {
       scale_x_continuous(breaks = seq(2006, 2021, by = 2))
   })
   
-  # test_algae_plot 
-  output$test_algae_plot <- renderPlot({
-      ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_algae_cover)) +
+  # algae_plot 
+  output$algae_plot <- renderPlot({
+      ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_algae_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
@@ -131,9 +135,9 @@ server <- function(input, output, session) {
   
 
   
-  # test biomass plot 
-  output$test_biomass_plot <- renderPlot({
-    ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = mean_biomass_p_consumers)) +
+  # biomass_plot 
+  output$biomass_plot <- renderPlot({
+    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_biomass_p_consumers)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
@@ -153,9 +157,9 @@ server <- function(input, output, session) {
   
   
   
-  # test_cots_plot
-  output$test_cots_plot <- renderPlot({
-    ggplot(data = temporal_reactive_df_2_f(), aes(x = year, y = cots_density)) +
+  # cots_plot
+  output$cots_plot <- renderPlot({
+    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = cots_density)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
