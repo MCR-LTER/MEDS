@@ -5,15 +5,6 @@ source(here("ShinyAppMooreaViz", "global.R"))
 #function with instructions on how to build and rebuild the R objects displayed in the UI. (Runs the r code to make the visualizations and transform the data for your app to function)
 server <- function(input, output, session) {
   
-  #slickR outputs ----
-  
-#  output$slickr <- renderSlickR({
-#     imgs <- list.files(here("ShinyAppMooreaViz", "photos"), 
-#                        pattern=".pdf", 
- #                       full.names = TRUE)
- #  slickR(imgs)
-  #})
-  
   #leaflet outputs ----
   output$leaflet_base <- renderLeaflet({
     
