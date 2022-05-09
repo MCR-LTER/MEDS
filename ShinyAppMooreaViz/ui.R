@@ -3,9 +3,8 @@ source(here("ShinyAppMooreaViz", "global.R"))
 
 ui <- fluidPage(
   
- # tags$head(
- #   tags$link(rel = "stylesheet", type = "text/css", href = "theme.css")
- # ),
+  # Themeing!
+  includeCSS("theme.css"),
   
   # Application title ----
   titlePanel(""),
@@ -13,9 +12,18 @@ ui <- fluidPage(
     fluidRow(column(6, 
                     h1("Moorea Coral Reef LTER")),
              column(6, 
-                    img(src = "mcr_logo.png", height = 60, width = 140, align = "right"), 
-                    img(src = "lter_logo.png", height = 60, width = 70, align = "right"), 
-                    img(src = "nsf_logo.png", height = 60, width = 60, align = "right")))),
+                    img(src = "mcr_logo.png", 
+                        height = 60, 
+                        width = 140, 
+                        align = "right"), 
+                    img(src = "lter_logo.png", 
+                        height = 60, 
+                        width = 70, 
+                        align = "right"), 
+                    img(src = "nsf_logo.png", 
+                        height = 60, 
+                        width = 60, 
+                        align = "right")))),
   
 
   # Navigation bar ----
@@ -24,6 +32,7 @@ ui <- fluidPage(
              #home page ----
              tabPanel("Home", icon = icon("info-circle"), 
                       fluidPage(
+                        
                         fluidRow(
                         column(12, align="center",
                       div(style="display: inline-block;",
@@ -85,6 +94,7 @@ ui <- fluidPage(
                                                                       "Isotopic Nitrogen"),
                                                           options = pickerOptions(title = "Select Variable"),
                                                           width = 150),
+                                              
                                               checkboxGroupButtons(inputId = "Clear_2",
                                                                    label = "Remove Layers",
                                                                    choices = c("Clear")),
@@ -228,14 +238,17 @@ ui <- fluidPage(
                                      box(width = 12,
                                          title = "Percent Coral Cover",
                                          plotOutput(outputId = "test_coral_plot"))),
+                                   
                                    fluidRow(
                                      box(width = 12,
                                          title = "Percent Algae Cover",
                                          plotOutput(outputId = "test_algae_plot"))),
+                                   
                                    fluidRow(
                                      box(width = 12,
                                          title = "Crown of Thorns Density",
                                          plotOutput(outputId = "test_cots_plot"))),
+                                   
                                    fluidRow(
                                      box(width = 12,
                                          title = "Herbivore Biomass",
