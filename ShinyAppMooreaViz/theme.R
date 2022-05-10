@@ -1,5 +1,5 @@
 body {
-  background-color: "#C6E0F1";
+  background-color: 800080;
   color: black; # text color 
 }
 
