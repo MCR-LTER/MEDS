@@ -1,24 +1,16 @@
-
+#read R code from a the global.R file 
 source(here("ShinyAppMooreaViz", "global.R"))
 
 # Server ----
-# Runs the r code to make the visualizations and transform the data for your app to function
-
+#function with instructions on how to build and rebuild the R objects displayed in the UI. (Runs the r code to make the visualizations and transform the data for your app to function)
 server <- function(input, output, session) {
-  
-  #slickR outputs ----
-  
-#  output$slickr <- renderSlickR({
-#     imgs <- list.files(here("ShinyAppMooreaViz", "photos"), 
-#                        pattern=".pdf", 
- #                       full.names = TRUE)
- #  slickR(imgs)
-  #})
   
   #leaflet outputs ----
   output$leaflet_base <- renderLeaflet({
     
-    #base map
+    #create base map
+    #add mouse coordinate information at top of map
+    #add a measure control to the map
     leaflet(crs) %>% 
       addProviderTiles("Esri.WorldImagery") %>% 
       setView(-149.829529, -17.538843, zoom = 11.5) %>% 
@@ -34,8 +26,10 @@ server <- function(input, output, session) {
  
   # temporal figures by variable ----
   
+
   # reactive data frame 
   temp_reactive_df <- reactive({
+
 
       temporal_data %>%
           dplyr::select(year, site, input$Temp_Variable, habitat) %>%
