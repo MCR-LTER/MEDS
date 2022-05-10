@@ -264,22 +264,24 @@ ui <- fluidPage(
                                    fluidRow(
                                      box(width = 12,
                                          title = "Percent Coral Cover",
-                                         plotOutput(outputId = "test_coral_plot"))),
-                                   
+
+                                         plotOutput(outputId = "coral_plot"))),
                                    fluidRow(
                                      box(width = 12,
                                          title = "Percent Algae Cover",
-                                         plotOutput(outputId = "test_algae_plot"))),
-                                   
+                                         plotOutput(outputId = "algae_plot"))),
                                    fluidRow(
                                      box(width = 12,
                                          title = "Crown of Thorns Density",
-                                         plotOutput(outputId = "test_cots_plot"))),
+                                         plotOutput(outputId = "cots_plot"))),
+
+
                                    
+
                                    fluidRow(
                                      box(width = 12,
                                          title = "Herbivore Biomass",
-                                         plotOutput(outputId = "test_biomass_plot"))))
+                                         plotOutput(outputId = "biomass_plot"))))
                                    ), 
                         
                         #temporal metadata ----
