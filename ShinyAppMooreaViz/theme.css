@@ -1,9 +1,10 @@
-body {
-  background-color: black;
-  color: white }
+/* Same as above, but using the CSS 'background' property instead */
+body { 
+    background: #C6E0F1;
+    }
+    
+/* Setting the text color for the 'h1' element */    
+h1 { 
+    color: black;
+    }
 
-#Changeheadertexttoimportedfont 
-  h1 {
-    font-family: 'Yusei Magic';
-    background-color: "#OF4D76";
-    color: white }

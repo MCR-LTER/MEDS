@@ -1,11 +1,5 @@
 body {
-  background-color: black;
-  color: white; # text color 
+  background-color: "#C6E0F1";
+  color: black; # text color 
 }
 
-#Change header text to imported font 
-  h1 {
-    font-family: 'Yusei Magic';
-    background-color: "#OF4D76";
-    color: white; #text color
-  }

@@ -48,10 +48,37 @@ ui <- fluidPage(
                               height=300, 
                               width=300)))),
                       
+                      h1("Background"),
+                      
                       fluidRow(
                         column(12, p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
                                
-                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."))))), 
+                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."))), 
+                      
+                      h1("Outreach"), 
+                      
+                      fluidRow(
+                        column(6, 
+                               img(src="Local Outreach_Gump_071.jpg", 
+                                   height=400, 
+                                   width=500)),
+                        column(6, 
+                               p("The MCR likes to do outreach!"))),
+                      
+                      h1("A bit about the data used in this app"),
+                      
+                      fluidRow(
+                        column(6,
+                               p("woohoooo data!")), 
+                        column(6,
+                               img(src="Local Outreach_Gump_071.jpg", 
+                                   height=400, 
+                                   width=500))),
+                      
+                      h1("What this app is for??")
+                      
+                      
+                      )), 
                   
              
              #spatial page ----
@@ -189,7 +216,7 @@ ui <- fluidPage(
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60441.jpg", height = 400, width = 400)), ))))), 
+                                                        img(src = "MCR60441.jpg", height = 400, width = 400)) ))))), 
              
              #Temporal page ----
              navbarMenu("Temporal", icon = icon("chart-line"),
@@ -317,4 +344,5 @@ ui <- fluidPage(
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "Underwater_Gump_095.jpg", height = 400, width = 400)))))))))
+                                                        img(src = "Underwater_Gump_095.jpg", height = 400, width = 400))
+                                              )))))))
