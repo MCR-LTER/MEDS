@@ -180,7 +180,7 @@ server <- function(input, output, session) {
   
     
     n_data %>% 
-      dplyr::select(latitude, longitude)
+      dplyr::select(latitude, longitude) 
   })
   
   
@@ -301,7 +301,7 @@ server <- function(input, output, session) {
       if(!is.null(input$Month) && !is.null(input$Variable) && input$Month == "January" 
          && input$Variable == "Percent Nitrogen"){
         proxy  %>%  clearImages() %>% clearControls() %>% 
-          addRasterImage(jan_n(), colors = "plasma", group = "January N", opacity = 0.7, 
+          addRasterImage(jan_n(), colors = "viridis", group = "January N", opacity = 1, 
                          layerId = "January", ) %>%
           addLegend(data = jan_data, title = 'Percent N', pal = pal_jan, 
                     position = "bottomright", values = ~X1, opacity = 1, 
@@ -312,7 +312,7 @@ server <- function(input, output, session) {
       else if(!is.null(input$Month) && !is.null(input$Variable) && input$Month == "January" 
               && input$Variable == "Isotopic Nitrogen"){
         proxy  %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(jan_n_i(), colors = "plasma", group = "January N", opacity = 0.7, 
+          addRasterImage(jan_n_i(), colors = "viridis", group = "January N", opacity = 1, 
                          layerId = "January") %>% 
           addLegend(data = jan_i_data, title = 'Isotopic N', pal = pal_jan_i,
                     position = "bottomright",
@@ -323,7 +323,7 @@ server <- function(input, output, session) {
       else if(!is.null(input$Month) && !is.null(input$Variable) && input$Month == "May" 
               && input$Variable == "Percent Nitrogen"){
         proxy %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(may_n(), colors = "plasma", group = "May N", opacity = 0.7, 
+          addRasterImage(may_n(), colors = "viridis", group = "May N", opacity = 1, 
                          layerId = "May") %>% 
           addLegend(data = may_data, title = 'Percent N', pal = pal_may,
                     position = "bottomright",
@@ -334,7 +334,7 @@ server <- function(input, output, session) {
       else if(!is.null(input$Month) && !is.null(input$Variable) && input$Month == "May" 
               && input$Variable == "Isotopic Nitrogen"){
         proxy %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(may_n_i(), colors = "plasma", group = "May N", opacity = 0.7, 
+          addRasterImage(may_n_i(), colors = "viridis", group = "May N", opacity = 1, 
                          layerId = "May") %>% 
           addLegend(data = may_i_data, title = 'Isotopic N', pal = pal_may_i,
                     position = "bottomright",
@@ -345,7 +345,7 @@ server <- function(input, output, session) {
                && input$Variable == "Percent Nitrogen"){ 
         
         proxy %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(july_n(), colors = "plasma", group = "July N", opacity = 0.7, 
+          addRasterImage(july_n(), colors = "viridis", group = "July N", opacity = 1, 
                                  layerId = "July") %>% 
           addLegend(data = july_data, title = 'Percent N', pal = pal_july,
                     position = "bottomright",
@@ -356,7 +356,7 @@ server <- function(input, output, session) {
       else if(!is.null(input$Month) && !is.null(input$Variable) && input$Month == "July" 
               && input$Variable == "Isotopic Nitrogen"){
         proxy %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(july_n_i(), colors = "plasma", group = "May N", opacity = 0.7, 
+          addRasterImage(july_n_i(), colors = "viridis", group = "May N", opacity = 1, 
                          layerId = "July") %>% 
           addLegend(data = july_i_data, title = 'Isotopic N', pal = pal_july_i,
                     position = "bottomright",
@@ -433,7 +433,7 @@ server <- function(input, output, session) {
         
         proxy  %>% clearImages() %>%  clearControls() %>% 
           addRasterImage(bleach(), colors = "plasma", group = "Percent Coral Bleached",
-                                  opacity = 0.7, layerId = "Percent Coral Bleached") %>% 
+                                  opacity = 1, layerId = "Percent Coral Bleached") %>% 
           addLegend(data = bleach_data, title = 'Percent Bleached', pal = pal_bleach,
                     position = "bottomright",
                     values = ~X7, opacity = 1, group = "Percent Bleached",
@@ -442,8 +442,8 @@ server <- function(input, output, session) {
       else if (!is.null(input$Additional) && input$Additional == "Predicted Sewage" ){
         
         proxy  %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(sewage(), colors = "plasma", group = "Predicted Sewage",
-                                  opacity = 0.7, layerId = "Predicted Sewage") %>% 
+          addRasterImage(sewage(), colors = pal_image_sew(25), group = "Predicted Sewage",
+                                  opacity = 1, layerId = "Predicted Sewage") %>% 
           addLegend(data = sew_dat, title = 'Predicted Sewage', pal = pal_sewage,
                     position = "bottomright",
                     values = ~X8, opacity = 1, group = "Predicted Sewage Index",
@@ -451,8 +451,8 @@ server <- function(input, output, session) {
       else if (!is.null(input$Additional) && input$Additional == "Bathymetry" ){
         
         proxy  %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(bathy(), colors = "plasma", group = "Bathymetry",
-                                  opacity = 0.7, layerId = "Bathymetry") %>% 
+          addRasterImage(bathy(), colors = pal_image_bath(25), group = "Bathymetry",
+                                  opacity = 1, layerId = "Bathymetry") %>% 
           addLegend(data = bathy_df, title = 'Depth (ft)', pal = pal_bathy,
                     position = "bottomright",
                     values = ~X9, opacity = 1, group = 'Depth')}

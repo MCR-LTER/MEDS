@@ -25,6 +25,7 @@ library(shinydashboard)
 library(fontawesome)
 library(ncdf4)
 library(slickR)
+library(RColorBrewer)
 
 # Load Data ----
 
@@ -65,9 +66,6 @@ sewage_2016 <- sewage_data %>%
 
 #Tidy nitrogen data
 n_data <- nitrogen_data %>% 
-  mutate(percent_n_jan = percent_n_jan *100,
-         percent_n_may = percent_n_may *100,
-         percent_n_july = percent_n_july *100) %>% #turning them into % 
   pivot_longer(!1:5, names_to = "type", values_to = "percent_n") %>% 
   separate(type, into = c("method","random", "date"), sep = "_") %>% 
   dplyr::select(-random)
@@ -134,27 +132,30 @@ crs <- 2976
 
 # Rasters and Color Palettes ----
 
-#this code allows us to plot the raster data on our Leaflet map by turning them into points and a data frame. This code also creates all of the color palettes for the leaflet map. 
+#this code allows us to plot the raster data on our Leaflet map by turning them into points and a data frame. This code also creates all of the color palettes for the leaflet map legend. 
 
 #percent nitrogen 
-jan_data <- as.data.frame(rasterToPoints(spatial_brick[[1]]))
-pal_jan <- colorNumeric(palette = viridis((25), option = "plasma"), domain = jan_data$var1.pred, reverse = TRUE)
+jan_data <- as.data.frame(rasterToPoints(spatial_brick[[1]])) %>% 
+  mutate(X1 = X1/100)
+pal_jan <- colorNumeric(palette = viridis((25), option = "viridis"), domain = jan_data$var1.pred, reverse = TRUE)
 
-may_data <- as.data.frame(rasterToPoints(spatial_brick[[2]]))
-pal_may <- colorNumeric(palette = viridis((25), option = "plasma"), domain = may_data$var1.pred, reverse = TRUE)
+may_data <- as.data.frame(rasterToPoints(spatial_brick[[2]])) %>% 
+  mutate(X2 = X2/100)
+pal_may <- colorNumeric(palette = viridis((25), option = "viridis"), domain = may_data$var1.pred, reverse = TRUE)
 
-july_data <- as.data.frame(rasterToPoints(spatial_brick[[3]]))
-pal_july <- colorNumeric(palette = viridis((25), option = "plasma"), domain = july_data$var1.pred, reverse = TRUE)
+july_data <- as.data.frame(rasterToPoints(spatial_brick[[3]])) %>% 
+  mutate(X3 = X3/100)
+pal_july <- colorNumeric(palette = viridis((25), option = "viridis"), domain = july_data$var1.pred, reverse = TRUE)
 
 #isotopic nitrogen 
 jan_i_data <- as.data.frame(rasterToPoints(spatial_brick[[4]]))
-pal_jan_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = jan_i_data$var1.pred, reverse = TRUE)
+pal_jan_i <- colorNumeric(palette = viridis((25), option = "viridis"), domain = jan_i_data$var1.pred, reverse = TRUE)
 
 may_i_data <- as.data.frame(rasterToPoints(spatial_brick[[5]]))
-pal_may_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = may_i_data$var1.pred, reverse = TRUE)
+pal_may_i <- colorNumeric(palette = viridis((25), option = "viridis"), domain = may_i_data$var1.pred, reverse = TRUE)
 
 july_i_data <- as.data.frame(rasterToPoints(spatial_brick[[6]]))
-pal_july_i <- colorNumeric(palette = viridis((25), option = "plasma"), domain = july_i_data$var1.pred, reverse = TRUE)
+pal_july_i <- colorNumeric(palette = viridis((25), option = "viridis"), domain = july_i_data$var1.pred, reverse = TRUE)
 
 #coral bleaching 
 bleach_data <- as.data.frame(rasterToPoints(spatial_brick[[7]]))
@@ -162,11 +163,18 @@ pal_bleach <- colorNumeric(palette = viridis((25), option = "plasma"), domain = 
 
 #sewage 
 sew_dat <- as.data.frame(rasterToPoints(spatial_brick[[8]]))
-pal_sewage <- colorNumeric(palette = viridis((25), option = "plasma"), domain = sewage_data$var1.pred, reverse = TRUE)
+
+pal_image_sew <- colorRampPalette(c("#FEC44F", "#FE9929", "#EC7014", "#CC4C02", "#993404", "#662506"))
+
+pal_sewage <- colorNumeric(rev(pal_image_sew(25)), domain = sew_dat$X8)
 
 #lidar 
 bathy_df <- as.data.frame(rasterToPoints(spatial_brick[[9]]))
-pal_bathy <- colorNumeric(palette = viridis((25), option = "plasma"), domain = bathy_df$layer, reverse = TRUE)
+
+pal_image_bath <- colorRampPalette(c("#807DBA", "#6A51A3", "#54278F", "#3F007D"))
+
+pal_bathy <- colorNumeric(pal_image_bath(25), domain = bathy_df$X9)
+
 
 
 # LTER Sites ----
