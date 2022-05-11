@@ -164,7 +164,7 @@ ggplot(data = biomass_summary, aes(x = year, y = mean_biomass_p_consumers)) +
 
 # updated algae subset and plot 
 ```{r}
-# wrangle using coral_cover framework 
+# wrangle using coral_cover framework, filter for "macroalgae" 
 algae_cover <- coral_cover_raw %>%
   as.data.frame() %>% 
   select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat) %>% 
@@ -178,10 +178,9 @@ algae_cover <- coral_cover_raw %>%
 algae_cover$habitat <- str_replace(algae_cover$habitat, "Outer 17", "Forereef")
 algae_cover$habitat <- str_replace(algae_cover$habitat, "Outer 10", "Forereef")
 
-# rename date to year? 
 
 sum_algae_cover <- algae_cover %>%
-  mutate(year = date) %>% 
+  mutate(year = date) %>% # rename date to year 
   group_by(site, year, habitat) %>% 
   summarize(mean_algae_cover = (mean(percent_cover)))
 ```
