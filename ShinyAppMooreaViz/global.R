@@ -46,6 +46,8 @@ temporal_data <- read.csv(here("data/csv/temporal_data_joined.csv")) %>%
   filter(!year == "2005") %>% 
   group_by(habitat)
 
+trophic_corals <- read.csv(here("data/csv/sum_trophic_corals.csv"))
+
 
 # Prepare data ----
 

@@ -37,6 +37,8 @@ server <- function(input, output, session) {
       
   })
   
+
+  
   # fish_title <- expression(paste("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")"))))
   
 
@@ -79,11 +81,13 @@ server <- function(input, output, session) {
     need(length(input$site_2) > 0, "Please select at least one site to visualize."),
     need(length(input$habitat_2) > 0, "Please select one habitat")
   )
-    a <-temporal_data %>%
+    temporal_data %>%
       dplyr::filter(habitat %in% input$habitat_2,
              site %in% input$site_2)
 
   }) 
+  
+
   
   
   # coral_plot
