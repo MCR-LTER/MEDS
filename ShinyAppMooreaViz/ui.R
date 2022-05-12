@@ -267,24 +267,20 @@ ui <- fluidPage(
                                  mainPanel(
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Percent Coral Cover",
+                                         title = "Mean Percent Coral Cover",
 
                                          plotOutput(outputId = "coral_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Percent Algae Cover",
+                                         title = "Mean Percent Algae Cover (Macroalgae)",
                                          plotOutput(outputId = "algae_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Crown of Thorns Density",
+                                         title = "Crown-of-Thorns Density",
                                          plotOutput(outputId = "cots_plot"))),
-
-
-                                   
-
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Herbivore Biomass",
+                                         title = "Mean Herbivore Fish Biomass",
                                          plotOutput(outputId = "biomass_plot"))))
                                    ), 
                         

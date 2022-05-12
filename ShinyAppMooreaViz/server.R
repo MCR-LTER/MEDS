@@ -106,7 +106,7 @@ server <- function(input, output, session) {
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) + 
       labs(x = "Year",
-           y = expression("Mean Percent Coral Cover")) +
+           y = "Percent") +
       ylim(0, NA) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
@@ -127,7 +127,7 @@ server <- function(input, output, session) {
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887'))  +
       labs(x = "Year",
-           y = expression("Mean Percent Algae Cover")) +
+           y = "Percent") +
       ylim(0, NA) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
