@@ -204,15 +204,26 @@ sum_algae_cover <- algae_cover %>%
 # join data sets on site, and year
 ```{r}
 
+sum_corals <- read_csv(here("data", "csv", "sum_trophic_corals.csv"))
+temp <- read_csv(here("data/csv/temporal_data_joined.csv"))
+
 algae_coral <- left_join(sum_coral_cover, sum_algae_cover, on = c(year, site, habitat))
 ag_c <- left_join(algae_coral, cots_density, on = c(year,site, habitat))
 
 temporal_data <- left_join(ag_c, biomass_summary, on = c(year,site, habitat)) %>% 
   rename(cots_density = density)
 
+sum_coral <- pivot_wider(sum_corals, names_from = taxonomy_substrate_or_functional_group, values_from = mean_coral_cover ) %>% 
+  group_by(site, year, habitat)
+
+temporal_d <- temp %>% 
+  dplyr::select(!c(1)) %>% 
+  left_join(sum_coral, on = c(year, site, habitat)) %>% 
+  dplyr::select(!c(8))
+
 
 # make new csv to easily source in the shiny app 
-write.csv(temporal_data, here("data/csv/temporal_data_joined.csv")) 
+write.csv(temporal_d, here("data/csv/temporal_data.csv")) 
 
 #trohpic group corals
 write.csv(sum_trophic_corals, here("data", "csv", "sum_trophic_corals.csv"))
