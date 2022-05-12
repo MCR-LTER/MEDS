@@ -47,16 +47,22 @@ server <- function(input, output, session) {
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       facet_wrap(~site) +
-    labs(title = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Percent Coral Cover",
-                           input$Temp_Variable == "mean_algae_cover" ~ "Percent Algae Cover",
-                           input$Temp_Variable == "mean_biomass_p_consumers" ~ "Herbivore Biomass",
-                           input$Temp_Variable == "cots_density" ~ "Crown of Thorns Density"),
+    labs(title = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Mean Percent Coral Cover",
+                           input$Temp_Variable == "Pocillopora" ~ "Mean Percent Coral Cover (Pocillopora)",
+                           input$Temp_Variable == "Porites" ~ "Mean Percent Coral Cover (Porites)",
+                           input$Temp_Variable == "Acropora" ~ "Mean Percent Coral Cover (Acropora)",
+                           input$Temp_Variable == "mean_algae_cover" ~ "Mean Percent Algae Cover (Macroaglgae)",
+                           input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass",
+                           input$Temp_Variable == "cots_density" ~ "Crown-of-Thorns Density"),
          subtitle = 'Moorea, French Polynesia (2006 - 2021)',
-         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Mean Percent Coral Cover",
-                       input$Temp_Variable == "mean_algae_cover" ~ "Mean Percent Algae Cover",
-                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass (g per m^2)",
+         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Percent",
+                       input$Temp_Variable == "Pocillopora" ~ "Percent",
+                       input$Temp_Variable == "Porites" ~ "Percent",
+                       input$Temp_Variable == "Acropora" ~ "Percent",
+                       input$Temp_Variable == "mean_algae_cover" ~ "Percent",
+                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Biomass (g per m^2)",
                        #input$TempVariable == "mean_biomass_p_consumers" ~ TeX(r'($\alpha  x^\alpha$, where $\alpha \in \{1 \ldots 5\}$)'), # uses latex2exp package 
-                       input$Temp_Variable == "cots_density" ~ "COTS Density (count per m^2)"),
+                       input$Temp_Variable == "cots_density" ~ "Density (count per m^2)"),
          x = 'Year',
          color = 'Site') +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
