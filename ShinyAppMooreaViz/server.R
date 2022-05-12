@@ -51,7 +51,8 @@ server <- function(input, output, session) {
                            input$Temp_Variable == "Pocillopora" ~ "Mean Percent Coral Cover (Pocillopora)",
                            input$Temp_Variable == "Porites" ~ "Mean Percent Coral Cover (Porites)",
                            input$Temp_Variable == "Acropora" ~ "Mean Percent Coral Cover (Acropora)",
-                           input$Temp_Variable == "mean_algae_cover" ~ "Mean Percent Algae Cover (Macroaglgae)",
+                           input$Temp_Variable == "mean_macroalgae_cover" ~ "Mean Percent Algae Cover (Macroalgae)",
+                           input$Temp_Variable == "mean_CTB_algae_cover" ~ "Mean Percent Algae Cover (CTB)", 
                            input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass",
                            input$Temp_Variable == "cots_density" ~ "Crown-of-Thorns Density"),
          subtitle = 'Moorea, French Polynesia (2006 - 2021)',
@@ -59,7 +60,8 @@ server <- function(input, output, session) {
                        input$Temp_Variable == "Pocillopora" ~ "Percent",
                        input$Temp_Variable == "Porites" ~ "Percent",
                        input$Temp_Variable == "Acropora" ~ "Percent",
-                       input$Temp_Variable == "mean_algae_cover" ~ "Percent",
+                       input$Temp_Variable == "mean_macroalgae_cover" ~ "Percent",
+                       input$Temp_Variable == "mean_CTB_algae_cover" ~ "Percent",
                        input$Temp_Variable == "mean_biomass_p_consumers" ~ "Biomass (g per m^2)",
                        #input$TempVariable == "mean_biomass_p_consumers" ~ TeX(r'($\alpha  x^\alpha$, where $\alpha \in \{1 \ldots 5\}$)'), # uses latex2exp package 
                        input$Temp_Variable == "cots_density" ~ "Density (count per m^2)"),
@@ -119,7 +121,7 @@ server <- function(input, output, session) {
   
   # algae_plot 
   output$algae_plot <- renderPlot({
-      ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_algae_cover)) +
+      ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_macroalgae_cover)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
