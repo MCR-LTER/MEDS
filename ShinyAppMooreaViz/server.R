@@ -428,9 +428,16 @@ server <- function(input, output, session) {
   })
   
   # reactive lidar
+  
+  lidar_ext <- raster(xmn = 189179,
+                xmx = 207999,
+                ymn = 8051055,
+                ymx = 8066054)
+  
   bathy <- reactive({
     
-    spatial_brick[[9]]
+    spatial_brick[[9]] %>% 
+      setExtent(lidar_ext)
   })
   
   
