@@ -5,6 +5,25 @@ ui <- fluidPage(
   
   # Themeing!
   includeCSS("theme.css"),
+  tags$style(type = 'text/css', 
+             '.navbar { background-color: #2084C9; color: #0076A8}',
+             '.navbar-nav li a:hover, .navbar-nav > .active > a { color: #2084C9;
+             background-color:#0076A8}'
+  ),
+  
+  #tried these to get the active part to change with no luck
+  #.tabbable > .nav > li[class=active]    > a {background-color: black; color:white}
+  
+  #.navbar-nav li a:hover, .navbar-nav > .active > a {
+  # color: #fff !important;
+  #  background-color:#2b8cc4 !important;
+  #  background-image: none !important;
+  #}
+  
+  #'.tabs-above > .nav > li[class=active] > a {
+  #background-color: red;
+  #color: green;
+  #}'
   
   # Application title ----
   titlePanel(""),
@@ -12,18 +31,9 @@ ui <- fluidPage(
     fluidRow(column(6, 
                     h1("Moorea Coral Reef LTER")),
              column(6, 
-                    img(src = "mcr_logo.png", 
-                        height = 60, 
-                        width = 140, 
-                        align = "right"), 
-                    img(src = "lter_logo.png", 
-                        height = 60, 
-                        width = 70, 
-                        align = "right"), 
-                    img(src = "nsf_logo.png", 
-                        height = 60, 
-                        width = 60, 
-                        align = "right")))),
+                    HTML("<a href='http://mcr.lternet.edu/'><img src='mcr_logo.png' align= 'right' height= '60' width = '150' /></a>"),
+                    HTML("<a href='https://lternet.edu/'><img src='lter_logo.png' align= 'right' height= '60' width = '70' /></a>"),
+                    HTML("<a href='https://www.nsf.gov/'><img src='nsf_logo.png' align= 'right' height= '60' width = '60' /></a>")))),
   
 
   # Navigation bar ----
