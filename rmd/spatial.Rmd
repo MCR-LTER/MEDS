@@ -46,16 +46,6 @@ bleach <- read_csv(here("data", "csv", "percent_bleach_2016.csv")) %>%
 #10x10 grid for kriging
 grd_sp <- readRDS(here("data", "krig_grid", "grd_sp"))
 
-# grd_sp <- st_as_sf(grd_sp) %>% 
-#   st_transform(crs=crs) %>% 
-#   cbind(., st_coordinates(.))
-# 
-# grd_sp <- as(bound_grid, "Spatial")
-# gridded(grd_sp) <- TRUE
-# grd_sp <- as(grd_sp, "SpatialPixels")
-# 
-# plot(grd_sp)
-
 #sewage data
 sewage_data <- read.csv(here("data/csv/Predicted_nuts.csv")) %>% 
   clean_names()
@@ -557,7 +547,7 @@ pal_bathy <- colorNumeric(palette = viridis((25), option = "plasma"), domain = b
 
 
 # leaflet map 
-This is the code for our leaflet map 
+This is the code for our leaflet map. If all the kriged layers are in the environment, this code chunk will run 
 ```{r}
 
 leaflet(crs) %>%
@@ -583,18 +573,18 @@ leaflet(crs) %>%
   addRasterImage(bleach_raster, colors = "plasma", group = "Percent Bleached", opacity = 0.7) %>%
   addRasterImage(sewage_ras, colors = "plasma", group = "Predicted Sewage", opacity = 0.7) %>%
   addRasterImage(bathy_raster_filtered, colors = "plasma", group = "Depth", opacity = 0.7) %>%
-  # addPolygons(lng = lter_1$longitude, lat = lter_1$latitude, group = "LTER Sites",
-  #             popup = "LTER 1") %>%
-  # addPolygons(lng = lter_2$longitude, lat = lter_2$latitude, group = "LTER Sites",
-  #             popup = "LTER 2") %>%
-  # addPolygons(lng = lter_3$longitude, lat = lter_3$latitude, group = "LTER Sites",
-  #             popup = "LTER 3") %>%
-  # addPolygons(lng = lter_4$longitude, lat = lter_4$latitude, group = "LTER Sites",
-  #             popup = "LTER 4") %>%
-  # addPolygons(lng = lter_5$longitude, lat = lter_5$latitude, group = "LTER Sites",
-  #             popup = "LTER 5") %>%
-  # addPolygons(lng = lter_6$longitude, lat = lter_6$latitude, group = "LTER Sites",
-  #             popup = "LTER 6") %>%
+  addPolygons(lng = lter_1$longitude, lat = lter_1$latitude, group = "LTER Sites",
+              popup = "LTER 1") %>%
+  addPolygons(lng = lter_2$longitude, lat = lter_2$latitude, group = "LTER Sites",
+              popup = "LTER 2") %>%
+  addPolygons(lng = lter_3$longitude, lat = lter_3$latitude, group = "LTER Sites",
+              popup = "LTER 3") %>%
+  addPolygons(lng = lter_4$longitude, lat = lter_4$latitude, group = "LTER Sites",
+              popup = "LTER 4") %>%
+  addPolygons(lng = lter_5$longitude, lat = lter_5$latitude, group = "LTER Sites",
+              popup = "LTER 5") %>%
+  addPolygons(lng = lter_6$longitude, lat = lter_6$latitude, group = "LTER Sites",
+              popup = "LTER 6") %>%
   addLayersControl(
     baseGroups = c("January N",
                    "May N",
