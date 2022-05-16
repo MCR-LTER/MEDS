@@ -78,7 +78,7 @@ coral_cover_raw <- read_csv(here("data", "csv", "percent_coral_cover.csv")) %>%
 
 coral_cover <- coral_cover_raw %>%
   as.data.frame() %>% 
-  select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat) %>% 
+  dplyr::select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat) %>% 
   filter(!str_detect(percent_cover, "ND")) %>% 
   filter(!str_detect(percent_cover, "0.0")) %>% 
   filter(!taxonomy_substrate_or_functional_group %in% 
@@ -221,9 +221,9 @@ write.csv(sum_trophic_corals, here("data", "csv", "sum_trophic_corals.csv")) # m
 sum_trophic_corals <- read_csv(here("data", "csv", "sum_trophic_corals.csv")) # read in csv
 
 # pivot_wider so trophic groups have their own columns
-sum_trophic_corals <- pivot_wider(sum_trophic_corals, names_from = taxonomy_substrate_or_functional_group, values_from = mean_coral_cover ) %>% 
-  group_by(site, year, habitat) %>% 
-    dplyr::select(!c(1)) 
+wide_corals <- sum_trophic_corals %>% 
+  dplyr::filter(habitat == "Forereef") %>% 
+  pivot_wider(id_cols = c(site, year, habitat), names_from = taxonomy_substrate_or_functional_group, values_from = mean_coral_cover )
 
 # join sum_trophic_corals and sum_coral_cover
 sum_all_corals <- left_join(sum_coral_cover, sum_trophic_corals, on = c(year, site, habitat))
@@ -239,16 +239,15 @@ algae_coral_cots <- left_join(algae_coral, cots_density, on = c(year, site, habi
 # join biomass_summary 
 temporal_data <- left_join(algae_coral_cots, biomass_summary, on = c(year, site, habitat)) 
 
-# temp <- read_csv(here("data/csv/temporal_data_joined.csv"))
+ # temp <- read_csv(here("data/csv/temporal_data_joined.csv")) %>% 
+ #   dplyr::select(-c(Acropora, Pocillopora, Porites))
 
-# temporal_d <- temporal_data %>% 
-#   dplyr::select(!c(1)) %>% 
-#   left_join(sum_coral, on = c(year, site, habitat)) %>% 
-#   dplyr::select(!c(8))
+temporal_d <- temporal_data %>%
+  left_join(wide_corals, on = c(year, site, habitat)) 
 
 
 # write fully joined csv to easily source in the shiny app global.R file
-write.csv(temporal_data, here("data/csv/temporal_data_joined.csv")) 
+write.csv(temporal_d, here("data/csv/temporal_data_joined.csv")) 
 ```
 
 using the joined df to make a faceted plot based on variable choice (4 plots to be included on app)
