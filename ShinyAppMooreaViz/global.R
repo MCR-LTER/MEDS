@@ -166,9 +166,10 @@ pal_bleach <- colorNumeric(palette = viridis((25), option = "plasma"), domain = 
 #sewage 
 sew_dat <- as.data.frame(rasterToPoints(spatial_brick[[8]]))
 
-pal_image_sew <- colorRampPalette(c("#FEC44F", "#FE9929", "#EC7014", "#CC4C02", "#993404", "#662506"))
+pal_image_sew <- colorRampPalette(c("#FEC44F", "#FE9929","#EC7014","#CC4C02","#993404", "#662506"))
 
-pal_sewage <- colorNumeric(rev(pal_image_sew(25)), domain = sew_dat$X8)
+pal_sewage <- colorNumeric(pal_image_sew(25), domain = sew_dat$X8)
+
 
 #lidar 
 bathy_df <- as.data.frame(rasterToPoints(spatial_brick[[9]]))

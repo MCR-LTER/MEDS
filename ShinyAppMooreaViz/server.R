@@ -461,7 +461,7 @@ server <- function(input, output, session) {
       else if (!is.null(input$Additional) && input$Additional == "Predicted Sewage" ){
         
         proxy  %>% clearImages() %>% clearControls() %>% 
-          addRasterImage(sewage(), colors = pal_image_sew(25), group = "Predicted Sewage",
+          addRasterImage(sewage(), colors = rev(pal_image_sew(25)), group = "Predicted Sewage",
                                   opacity = 1, layerId = "Predicted Sewage") %>% 
           addLegend(data = sew_dat, title = 'Predicted Sewage', pal = pal_sewage,
                     position = "bottomright",
