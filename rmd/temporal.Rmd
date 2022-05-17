@@ -1,5 +1,5 @@
 ---
-title: "temporal"
+title: "Temporal"
 author: "Allie Cole, Felicia Cruz, Charles Hendrickson, Jake Eisaguirre"
 date: "3/30/2022"
 output: html_document
@@ -42,7 +42,7 @@ cots_summary <- cots %>%
 
 cots_density <- cots %>%
   group_by(site, year, habitat) %>%
-  summarize(density = (sum(cots)/1000)) # this should give annual site density/ m^2
+  summarize(density = (sum(cots)/1000)) # this should give annual site density / m^2
 
 cots_density$habitat <- str_replace(cots_density$habitat, "Fringing Reef", "Fringing")
 
@@ -262,8 +262,8 @@ ggplot(data = temporal_data, aes(x = year, y = mean_coral_cover)) +
         axis.title.y = element_text(size = 14),
         plot.title = element_text(size = 16))
 
-# mean algae cover 
-ggplot(data = temporal_data, aes(x = year, y = mean_algae_cover)) +
+# mean macroalgae cover 
+ggplot(data = temporal_data, aes(x = year, y = mean_macroalgae_cover)) +
   geom_point(aes(color = site)) +
   geom_line(aes(group = site, color = site)) +
   facet_wrap(~site) +
@@ -302,35 +302,3 @@ ggplot(data = temporal_data, aes(x = year, y = mean_biomass_p_consumers)) +
 ```
 
 
-Patchwork plot for all 4 variables for a user's chosen LTER site 
-```{r}
-coral_plot <- ggplot(data = temporal_data, aes(x = year, y = mean_coral_cover)) +
-  geom_point(aes(color = site)) +
-  geom_line(aes(group = site, color = site)) +
-  labs(x = "Year",
-       y = expression(atop("Mean Coral Cover", paste(paste("(% per 0.25 ", m^{2}, ")"))))) 
-
-cots_plot <- ggplot(data = temporal_data, aes(x = year, y = cots_density)) +
-  geom_point(aes(color = site)) +
-  geom_line(aes(group = site, color = site)) +
-  labs(x = "Year",
-       y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")")))))
-        
-biomass_plot <- ggplot(data = temporal_data, aes(x = year, y = mean_biomass_p_consumers)) +
-  geom_point(aes(color = site)) +
-  geom_line(aes(group = site, color = site)) +
-  labs(x = "Year",
-       y = expression(atop("Mean Fish Biomass", paste(paste("(% per 0.25 ", m^{2}, ")"))))) # need to check these units
-
-algae_plot <- ggplot(data = temporal_data, aes(x = year, y = mean_algae_cover)) +
-  geom_point(aes(color = site)) +
-  geom_line(aes(group = site, color = site)) +
-  labs(x = "Year",
-       y = expression(atop("Mean Algae Cover", paste(paste("(% per 0.25", m^{2}, ")")))))
-
-temporal_patchwork <- coral_plot/cots_plot/biomass_plot/algae_plot +
-  plot_layout(guides = 'collect') 
-  # plot_layout(heights = unit(c(5, 5, 5, 5), c('cm', 'null')))# combines the legends 
-
-temporal_patchwork
-```
