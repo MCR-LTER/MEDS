@@ -27,10 +27,23 @@ server <- function(input, output, session) {
   # temporal figures by variable ----
   
 
-  # reactive data frame 
-  temp_reactive_df <- reactive({
-
-
+  # create reactive data frame 
+  temp_reactive_df <- reactive({validate(
+    need((input$habitat == "Forereef" & input$Temp_Variable %in% c("mean_coral_cover", 
+                                                                  "mean_macroalgae_cover",
+                                                                  "mean_biomass_p_consumers",
+                                                                  "cots_density",
+                                                                  "Pocillopora",
+                                                                  "Porites",
+                                                                  "Acropora",
+                                                                  "mean_CTB_algae_cover")) |
+           (input$habitat == "Fringing" & input$Temp_Variable %in% c("mean_coral_cover", 
+                                                                    "mean_macroalgae_cover",
+                                                                    "mean_biomass_p_consumers",
+                                                                    "cots_density",
+                                                                    "mean_CTB_algae_cover")), 
+         "Please select Forereef to visualize this variable.")
+  )
       temporal_data %>%
           dplyr::select(year, site, input$Temp_Variable, habitat) %>%
       filter(habitat == input$habitat)
@@ -84,7 +97,7 @@ server <- function(input, output, session) {
   
   # temporal figures by site ---- 
   
-  # reactive data frame 
+  # create reactive data frame 
   temporal_reactive_df_2 <- reactive({validate(
     need(length(input$site_2) > 0, "Please select at least one site to visualize."),
     need(length(input$habitat_2) > 0, "Please select one habitat")
