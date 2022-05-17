@@ -5,25 +5,9 @@ ui <- fluidPage(
   
   # Themeing!
   includeCSS("theme.css"),
-  tags$style(type = 'text/css', 
-             '.navbar { background-color: #2084C9; color: #0076A8}',
-             '.navbar-nav li a:hover, .navbar-nav > .active > a { color: #2084C9;
-             background-color:#0076A8}'
-  ),
-  
-  #tried these to get the active part to change with no luck
-  #.tabbable > .nav > li[class=active]    > a {background-color: black; color:white}
-  
-  #.navbar-nav li a:hover, .navbar-nav > .active > a {
-  # color: #fff !important;
-  #  background-color:#2b8cc4 !important;
-  #  background-image: none !important;
-  #}
-  
-  #'.tabs-above > .nav > li[class=active] > a {
-  #background-color: red;
-  #color: green;
-  #}'
+  tags$head(tags$style(HTML('.navbar {background-color: #6ebee0; color:#0f4d76}',
+             '.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {color: #2084C9; background-color: #d6e7f1;}'
+                            ))),
   
   # Application title ----
   titlePanel(""),
@@ -42,15 +26,14 @@ ui <- fluidPage(
              #home page ----
              tabPanel("Home", icon = icon("info-circle"), 
                       fluidPage(
-                        
                         fluidRow(
                         column(12, align="center",
                       div(style="display: inline-block;",
-                          img(src="Moorea Scenery_197.jpg", 
+                          img(src="Underwater_Gump_095.jpg", 
                               height=300, 
                               width=300)),
                       div(style="display: inline-block;",
-                          img(src="MCR60441.jpg", 
+                          img(src="Moorea Scenery_197.jpg", 
                               height=300, 
                               width=300)),
                       div(style="display: inline-block;",
@@ -63,32 +46,53 @@ ui <- fluidPage(
                       fluidRow(
                         column(12, p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
                                
-                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."))), 
+                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."), 
+                               
+                               p("The Moorea Coral Reef LTER site became the 26th node in the U.S. Long-Term Ecological Research (LTER) program in September of 2004. The Moorea Coral Reef LTER site encompasses the coral reef complex that surrounds the island of Moorea, French Polynesia (17°30'S, 149°50'W). Moorea is a small, triangular volcanic island 20 km west of Tahiti in the Society Islands of French Polynesia."))), 
                       
                       h1("Outreach"), 
                       
                       fluidRow(
-                        column(6, 
+                        column(4, 
                                img(src="Local Outreach_Gump_071.jpg", 
-                                   height=400, 
-                                   width=500)),
-                        column(6, 
-                               p("The MCR likes to do outreach!"))),
+                                   height=300, 
+                                   width=400)),
+                        column(8, 
+                               p("The MCR likes to do outreach!
+                                 The Coral Reefs of Moorea Education is an educational resource of the Moorea Coral Reef Long Term Ecological Research (LTER) program. A website was created in an effort to inform students and the public about the ocean, corals reefs, and the research of the MCR LTER program. An exciting feature of this website is the Marine Life of Moorea Encyclopedia, where visitors can learn about the organisms that make up Moorea’s coral reef ecosystem. Our Lesson Plan Library contains FREE standards-based curricula available for download that focus on the coral reef ecosystem and current MCR LTER research. These hands-on activities are a great way for educators to teach Life Science and Investigation content standards in their classrooms."), 
+                               p("Undergraduate students at universities affiliated with the MCR LTER have the opportunity to get hands-on research experience in the lab and in the field. Check out the Undergraduate Education page for more information."))),
+                      
+                      
+                      h1("What this app is for??"), 
+                      
+                      fluidRow(
+                        column(12, p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
+                               
+                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."))),
+                      
                       
                       h1("A bit about the data used in this app"),
                       
                       fluidRow(
                         column(6,
-                               p("woohoooo data!")), 
-                        column(6,
-                               img(src="Local Outreach_Gump_071.jpg", 
+                               p("Data collected at MCR LTER are released under the", 
+                                 tags$a(href="https://creativecommons.org/licenses/by/4.0/", 
+                                        "Creative Commons license Attribution 4.0 International."),
+                                 "This license states that consumers (Data Users herein) may distribute, adapt, reuse, remix, and build upon this work, as long as they give appropriate credit, provide a link to the license, and indicate if changes were made. If redistributed, a Data User may not apply additional restrictions or technological measures that prevent access."), 
+                               
+                               p("The Data User has an ethical obligation to cite the data source appropriately in any publication or product that results from its use, and notify the data contact or creator. Communication, collaboration, or co-authorship (as appropriate) with the creators of this data package is encouraged to prevent duplicate research or publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplication or inappropriate use. The Data User should realize that misinterpretation may occur if data are used outside of the context of the original study. The Data User should be aware that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data."), 
+                               
+                               p("While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. This data package (with its components) is made available as is and with no warranty of accuracy or fitness for use. The creators of this data package and the repository where these data were obtained shall not be liable for any damages resulting from misinterpretation, use or misuse of the data package or its components."),
+                                 
+                                 p("The user agrees to cite the data set author and MCR LTER in all publications in which the data are used, as per the instructions in the data documentation.")), 
+                      
+                        column(6,align="center",
+                               img(src="Work Around Gump_011.jpg", 
                                    height=400, 
                                    width=500))),
                       
-                      h1("What this app is for??")
-                      
-                      
-                      )), 
+                      h1("About the creators of this app?")
+                  )), 
                   
              
              #spatial page ----
@@ -183,7 +187,9 @@ ui <- fluidPage(
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "Underwater_Gump_063.jpg", height = 400, width = 400)))),
+                                                        img(src = "Underwater_Gump_063.jpg", 
+                                                            height = 400, 
+                                                            width = 400)))),
                                    
                                    tabPanel("Percent Nitrogen", 
                                             sidebarLayout(
@@ -197,7 +203,9 @@ ui <- fluidPage(
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60369.jpg", height = 400, width = 400)))),
+                                                        img(src = "MCR60369.jpg", 
+                                                            height = 400, 
+                                                            width = 400)))),
                                    
                                    tabPanel("Coral Bleaching", 
                                             sidebarLayout(
@@ -211,22 +219,25 @@ ui <- fluidPage(
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60402.jpg", height = 400, width = 400)))),
+                                                        img(src = "MCR60402.jpg", 
+                                                            height = 400, 
+                                                            width = 400)))),
                                    
                                    tabPanel("Predicted Sewage", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           p("Modeled N enrichment based on locations of septic systems and sources of untreated sewage.
-"),
+                                                           p("dhhdehfl3"),
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
-                                                           p("Here is the link to download this", 
-                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.1039", 
-                                                                    "dataset"))),
+                                                           p("Sewage"), 
+                                                           p("This dataset is not avaible 
+                                                             for download through the MCR as 
+                                                             the data was collected by....")),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60441.jpg", height = 400, width = 400)) ))))), 
+                                                        img(src = "MCR60441.jpg", 
+                                                            height = 400, 
+                                                            width = 400))))))), 
              
              #Temporal page ----
              navbarMenu("Temporal", icon = icon("chart-line"),
@@ -320,13 +331,13 @@ ui <- fluidPage(
                                                            h4("Isotopic Nitrogen"), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("There is misisng data values for 2020 as during covid the camera used to collect the data could not decifer between the different algae types, turf, and sand. "), 
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.8", 
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60441.jpg", height = 400, width = 400)))),
+                                                        img(src = "Work Around Gump_044.jpg", height = 400, width = 400)))),
                                    
                                    tabPanel("Mean Fish Biomass", 
                                             sidebarLayout(
@@ -346,8 +357,7 @@ ui <- fluidPage(
                                    tabPanel("Crown of Thorns Density", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
-                                                           h3("Background"), 
-                                                           h4("Isotopic Nitrogen"), 
+                                                           h3("Background"),
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
