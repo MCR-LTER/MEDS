@@ -46,6 +46,7 @@ temporal_data <- read.csv(here("data/csv/temporal_data_joined.csv")) %>%
   filter(!year == "2005") %>% 
   group_by(habitat)
 
+#coral trophic groups
 trophic_corals <- read.csv(here("data/csv/sum_trophic_corals.csv"))
 
 
@@ -114,7 +115,7 @@ jan_np_data <- n_data %>%
 
 # Raster Brick ----
 
-#name object called raster brick (no lidar data in it)
+#name object called 'spatial_brick' within the data folder (no lidar data in it)
 spatial_brick <- here("data", "spatial_brick.nc")
 
 #define min and max for both x and y coordinates 
