@@ -313,10 +313,15 @@ ui <- fluidPage(
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           h4("Isotopic Nitrogen"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           p("This dataset contains the percentage cover of the stony corals (Scleractinia) and other major groups analyzed from 0.5 x 0.5 m photographic quadrats in several reef habitats at the Moorea Coral Reef LTER, French Polynesia. This survey has been repeated annually in April since 2005. Functional groups (i.e., dependent variables) counted are: Scleractinian Corals (by genus where appropriate, see methods), Macroalgae, Crustose Coralline Algae / Bare Space, Soft Corals, Hydrocorals (Millepora), Algal Turf and Sand. For the purposes of this app, Scleractinian Corals included ... and all other functional groups were not included in the temporal figures. The coral community was sampled photographically in all habitats surrounding the island: Fringing Reef, Lagoon (Backreef), and Outer Reef (Forereef.) Figures were further broken down to show trends of three specific genera of coral, Porities, Acropora, Pocillopora."),
+                                                           
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           p("The sampling strategy was designed to facilitate tests of the effect of time, shore, and depth on the coral community structure of the fringing, and outer reef habitats of Moorea. For the purpose of this analysis, fringing communities were defined as reefs adjacent to the shore and within ca. 50 m of the land. Outer reef habitats were censused at 10 and 17 m depth in order to sample habitats that are representative of the outer reefs of Moorea, and within the depth range tractable to diving research. For teh purposes of this app only the depths of 10m were used in the vizualizations. The project was designed with 40 quadrats at each site/depth combination, but sometimes this number was not achieved because all quadrats did not fit in the space measured between markers (a perpetual effect once the site was established in 2005), or quadrats were missed in error on the sampling day (unique to each year). To facilitate field sampling, the 40m transect was recorded in 5 contiguous sectors that are not independent (one begins where the previous ends) and are not intended to be a factor in the statistical design. All census methods were designed to quantify coral community structure in terms of the dominant constituents of the benthic community - scleractinian corals, macroalgae, crustose coralline algae, algal turf, Millepora, and sand. In addition to establishing an orthogonal contrast of coral community structure, a subset of the sites and habitats were selected for more detailed analyses of the population density of coral recruits and juvenile corals, as well as the demographic analysis of selected coral species. The time-consuming nature of these analyses prevented them from being measured in all site/habitat combinations."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the amount of coral found on the reef is invaluable to researchers as tracking the amount of corals can be directly related to the health of the reef. The three coral genera we visualized seperately are important reef building corals, and some of the more common corlas found."),
+                                                           
+                                                           
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
                                                                     "dataset"))),
@@ -327,13 +332,17 @@ ui <- fluidPage(
                                    tabPanel("Mean Algae Cover", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
-                                                           h3("Background"), 
-                                                           h4("Isotopic Nitrogen"), 
+                                                           h3("Background"),
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           
                                                            h3("Data Collection"), 
-                                                           p("There is misisng data values for 2020 as during covid the camera used to collect the data could not decifer between the different algae types, turf, and sand. "), 
+                                                           p("There is misisng data values for 2020 as during covid the camera used to collect the data could not decifer between the different algae types, turf, and sand. "),
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the amount of coral found on the reef is invaluable to researchers as tracking the amount of corals can be directly related to the health of the reef. The three coral genera we visualized seperately are important reef building corals, and some of the more common corlas found."),
+                                                           
                                                            p("Here is the link to download this", 
-                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.8", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
@@ -347,6 +356,10 @@ ui <- fluidPage(
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the amount of coral found on the reef is invaluable to researchers as tracking the amount of corals can be directly related to the health of the reef. The three coral genera we visualized seperately are important reef building corals, and some of the more common corlas found."),
+                                                           
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.6", 
                                                                     "dataset"))),
@@ -361,6 +374,10 @@ ui <- fluidPage(
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the amount of coral found on the reef is invaluable to researchers as tracking the amount of corals can be directly related to the health of the reef. The three coral genera we visualized seperately are important reef building corals, and some of the more common corlas found."),
+                                                           
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.1039", 
                                                                     "dataset"))),
