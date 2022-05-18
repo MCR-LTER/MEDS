@@ -1,26 +1,29 @@
 # Load Packages ----
-library(shiny)
-library(leaflet)
-library(tidyverse)
-library(shinyWidgets)
-library(here)
-library(janitor)
-library(raster)
-library(viridis)
-library(sf)
+if (!require(librarian)){
+  install.packages("librarian")
+  library(librarian)
+}
+
+# librarian downloads, if not already downloaded, and reads in needed packages
+
+librarian::shelf(shiny, leaflet, tidyverse, shinyWidgets, here, 
+                 janitor, raster,viridis, sf, leafem, sp, patchwork, 
+                 shinydashboard)
+
+
+
 #library(gstat)
-library(sp)
+
 #library(automap)
 #library(testthat)
 #library(htmlwidgets)
 #library(car)
 #library(dismo)
 #library(spatstat)
-library(leafem)
+
 #library(mapview)
 #library(ggplot2)
-library(patchwork)
-library(shinydashboard)
+
 #library(fontawesome)
 #library(ncdf4)
 #library(slickR)
