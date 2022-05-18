@@ -1,10 +1,10 @@
 /* Same as above, but using the CSS 'background' property instead */
 body { 
-    background: #c6e0f1;
+    background: #e3f1fa;
     }
     
 /* Setting the text color for the 'h1' element */    
 h1 { 
-    color: black;
+    color: #0f4d76;
     }
 
