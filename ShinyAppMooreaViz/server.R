@@ -485,7 +485,7 @@ server <- function(input, output, session) {
         proxy  %>% clearImages() %>% clearControls() %>% 
           addRasterImage(bathy(), colors = pal_image_bath(25), group = "Bathymetry",
                                   opacity = 1, layerId = "Bathymetry") %>% 
-          addLegend(data = bathy_df, title = 'Depth (ft)', pal = pal_bathy,
+          addLegend(data = bathy_df, title = 'Depth (m)', pal = pal_bathy,
                     position = "bottomright",
                     values = ~X9, opacity = 1, group = 'Depth')}
       
