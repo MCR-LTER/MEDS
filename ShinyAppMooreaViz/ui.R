@@ -277,12 +277,12 @@ ui <- fluidPage(
                                           checkboxGroupInput(inputId = "site_2",
                                                                label = h4("Choose your Site"),
                                                                selected = "LTER 1",
-                                                               choices = list("Site 1" = "LTER 1",
-                                                                              "Site 2" = "LTER 2",
-                                                                              "Site 3" = "LTER 3",
-                                                                              "Site 4" = "LTER 4",
-                                                                              "Site 5" = "LTER 5",
-                                                                              "Site 6" = "LTER 6")))
+                                                               choices = list("LTER 1",
+                                                                              "LTER 2",
+                                                                              "LTER 3",
+                                                                              "LTER 4",
+                                                                              "LTER 5",
+                                                                              "LTER 6")))
                                    ),
 
                                  mainPanel(
