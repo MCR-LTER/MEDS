@@ -10,25 +10,33 @@ This is the code for the Spatial Tab on the Moorea Shiny App. Each chuck has a s
 # Load Packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(here)
-library(tidyverse)
-library(janitor)
-library(raster)
-library(viridis)
-library(sf)
-library(gstat)
-library(sp)
-library(leaflet)
-library(automap)
-library(shiny)
-library(testthat)
-library(htmlwidgets)
-library(ggvoronoi)
-library(car)
-library(dismo)
-library(spatstat)
-library(rgdal)
-library(ncdf4)
+
+if (!require(librarian)){
+  install.packages("librarian")
+  library(librarian)
+}
+
+librarian::shelf(here, tidyverse, janitor, raster, viridis, sf,  gstat, sp, leaflet, automap, htmlwidgets, spatstat, dismo, rgdal)
+
+# library(here)
+# library(tidyverse)
+# library(janitor)
+# library(raster)
+# library(viridis)
+# library(sf)
+# library(gstat)
+# library(sp)
+# library(leaflet)
+# library(automap)
+# library(shiny)
+# library(testthat)
+# library(htmlwidgets)
+# library(ggvoronoi)
+# library(car)
+# library(dismo)
+# library(spatstat)
+# library(rgdal)
+# library(ncdf4)
 
 ```
 
