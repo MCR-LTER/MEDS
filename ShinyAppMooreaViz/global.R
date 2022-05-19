@@ -32,24 +32,24 @@ librarian::shelf(shiny, leaflet, tidyverse, shinyWidgets, here,
 # Load Data ----
 
 #bleaching data
-bleach <- read_csv(here("data", "csv", "percent_bleach_2016.csv")) %>% 
+bleach <- read_csv(here("ShinyAppMooreaViz/data/csv/percent_bleach_2016.csv")) %>% 
   clean_names()
 
 #nitrogen data
-nitrogen_data <- read_csv(here("data", "csv", "N_summary_2016.csv")) %>% 
+nitrogen_data <- read_csv(here("ShinyAppMooreaViz/data/csv/N_summary_2016.csv")) %>% 
   clean_names()
 
 #sewage data
-sewage_data <- read.csv(here("data/csv/Predicted_nuts.csv")) %>% 
+sewage_data <- read.csv(here("ShinyAppMooreaViz/data/csv/Predicted_nuts.csv")) %>% 
   clean_names()
 
 #temporal data 
-temporal_data <- read.csv(here("data/csv/temporal_data_joined.csv")) %>% 
+temporal_data <- read.csv(here("ShinyAppMooreaViz/data/csv/temporal_data_joined.csv")) %>% 
   filter(!year == "2005") %>% 
   group_by(habitat)
 
 #coral trophic groups
-trophic_corals <- read.csv(here("data/csv/sum_trophic_corals.csv"))
+trophic_corals <- read.csv(here("ShinyAppMooreaViz/data/csv/sum_trophic_corals.csv"))
 
 
 # Prepare data ----
@@ -118,7 +118,7 @@ jan_np_data <- n_data %>%
 # Raster Brick ----
 
 #name object called 'spatial_brick' within the data folder (no lidar data in it)
-spatial_brick <- here("data", "spatial_brick.nc")
+spatial_brick <- here("ShinyAppMooreaViz/data/spatial_brick.nc")
 
 #define min and max for both x and y coordinates 
 ext <- raster(xmn = 189139,
