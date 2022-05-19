@@ -28,22 +28,7 @@ server <- function(input, output, session) {
   
 
   # create reactive data frame 
-  temp_reactive_df <- reactive({validate(
-    need((input$habitat == "Forereef" & input$Temp_Variable %in% c("mean_coral_cover", 
-                                                                  "mean_macroalgae_cover",
-                                                                  "mean_biomass_p_consumers",
-                                                                  "cots_density",
-                                                                  "Pocillopora",
-                                                                  "Porites",
-                                                                  "Acropora",
-                                                                  "mean_CTB_algae_cover")) |
-           (input$habitat == "Fringing" & input$Temp_Variable %in% c("mean_coral_cover", 
-                                                                    "mean_macroalgae_cover",
-                                                                    "mean_biomass_p_consumers",
-                                                                    "cots_density",
-                                                                    "mean_CTB_algae_cover")), 
-         "Please select Forereef to visualize this variable.")
-  )
+  temp_reactive_df <- reactive({
       temporal_data %>%
           dplyr::select(year, site, input$Temp_Variable, habitat) %>%
       filter(habitat == input$habitat)
@@ -220,12 +205,12 @@ server <- function(input, output, session) {
     
     if (!is.null(input$Other) && input$Other == "LTER Sites") { 
       proxy %>% clearGroup("LTER Sites") %>% clearGroup("Observations") %>% 
-        addPolygons(data = lter_1, group = "LTER Sites", popup = "LTER Site 1", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_2, group = "LTER Sites", popup = "LTER Site 2", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_3, group = "LTER Sites", popup = "LTER Site 3", fillOpacity = 0.1, weight = 0.5) %>%
-        addPolygons(data = lter_4, group = "LTER Sites", popup = "LTER Site 4", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_5, group = "LTER Sites", popup = "LTER Site 5", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_6, group = "LTER Sites", popup = "LTER Site 6", fillOpacity = 0.1, weight = 0.5)}
+        addPolygons(data = lter_1, group = "LTER Sites", popup = "LTER 1", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_2, group = "LTER Sites", popup = "LTER 2", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_3, group = "LTER Sites", popup = "LTER 3", fillOpacity = 0.1, weight = 0.5) %>%
+        addPolygons(data = lter_4, group = "LTER Sites", popup = "LTER 4", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_5, group = "LTER Sites", popup = "LTER 5", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_6, group = "LTER Sites", popup = "LTER 6", fillOpacity = 0.1, weight = 0.5)}
       
     else if (!is.null(input$Other) && input$Other == "Observations") { 
       proxy  %>%  clearGroup("Observations") %>% 
@@ -255,12 +240,12 @@ server <- function(input, output, session) {
                                  "July Isotopic N:", july_ni_data$percent_n,"δ15N", "<br>",
                                  "Percent Coral Bleached:", round(bleaching_data$percent_bleached, 2),"%", "<br>",
                                  "Predicted Sewage Index:", round(sewage_2016$urb_nuts, 4), "<br>")) %>% 
-        addPolygons(data = lter_1, group = "LTER Sites", popup = "LTER Site 1", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_2, group = "LTER Sites", popup = "LTER Site 2", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_3, group = "LTER Sites", popup = "LTER Site 3", fillOpacity = 0.1, weight = 0.5) %>%
-        addPolygons(data = lter_4, group = "LTER Sites", popup = "LTER Site 4", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_5, group = "LTER Sites", popup = "LTER Site 5", fillOpacity = 0.1, weight = 0.5) %>% 
-        addPolygons(data = lter_6, group = "LTER Sites", popup = "LTER Site 6", fillOpacity = 0.1, weight = 0.5)}
+        addPolygons(data = lter_1, group = "LTER Sites", popup = "LTER 1", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_2, group = "LTER Sites", popup = "LTER 2", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_3, group = "LTER Sites", popup = "LTER 3", fillOpacity = 0.1, weight = 0.5) %>%
+        addPolygons(data = lter_4, group = "LTER Sites", popup = "LTER 4", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_5, group = "LTER Sites", popup = "LTER 5", fillOpacity = 0.1, weight = 0.5) %>% 
+        addPolygons(data = lter_6, group = "LTER Sites", popup = "LTER 6", fillOpacity = 0.1, weight = 0.5)}
 
 
     else {

@@ -73,20 +73,37 @@ ui <- fluidPage(
                                    width=400, 
                                    alt = "")),
                         column(8, 
-                               p("The MCR likes to do outreach!
-                                 The Coral Reefs of Moorea Education is an educational resource of the Moorea Coral Reef Long Term Ecological Research (LTER) program. A website was created in an effort to inform students and the public about the ocean, corals reefs, and the research of the MCR LTER program. An exciting feature of this website is the Marine Life of Moorea Encyclopedia, where visitors can learn about the organisms that make up Moorea’s coral reef ecosystem. Our Lesson Plan Library contains FREE standards-based curricula available for download that focus on the coral reef ecosystem and current MCR LTER research. These hands-on activities are a great way for educators to teach Life Science and Investigation content standards in their classrooms."), 
-                               p("Undergraduate students at universities affiliated with the MCR LTER have the opportunity to get hands-on research experience in the lab and in the field. Check out the Undergraduate Education page for more information."))),
+                               p("The MCR LTER supports many different outreach and educational efforts. The",
+                                 tags$a(href = "http://mcrlter.msi.ucsb.edu/education/", 
+                                        "Coral Reefs of Moorea Education"),
+                                 "is an educational resource of the Moorea Coral Reef Long Term Ecological Research (LTER) program. A website was created in an effort to inform students and the public about the ocean, corals reefs, and the research of the MCR LTER program. An exciting feature of this website is the", 
+                                 tags$a(href = "http://mcrlter.msi.ucsb.edu/education/encyclopedia/",
+                                        "Marine Life of Moorea Encyclopedia"),", where visitors can learn about the organisms that make up Moorea’s coral reef ecosystem. Our",
+                                 tags$a(href = "http://mcrlter.msi.ucsb.edu/education/lessonplans.html",
+                                        "Lesson Plan Library"), "contains FREE standards-based curricula available for download that focus on the coral reef ecosystem and current MCR LTER research. These hands-on activities are a great way for educators to teach Life Science and Investigation content standards in their classrooms."), 
+                               p("Undergraduate students at universities affiliated with the MCR LTER have the opportunity to get hands-on research experience in the lab and in the field. Check out the",
+                                 tags$a(href = "http://mcr.lternet.edu/education/undergraduate-education", 
+                                        "Undergraduate Education") ,
+                                 "page for more information."),
+                               p("Many of the important discoveries made by MCR LTER scientists are the result of graduate student research. Our", 
+                                 tags$a(href = "http://mcrlter.msi.ucsb.edu/education/gradresearch.html", 
+                                        "Graduate Education"), 
+                                 "page describes some of the exciting projects being conducted by MCR LTER graduate students."))),
                       
-                      
-                      h1("What this app is for??"), 
+                      h1("App Purpose"), 
                       
                       fluidRow(
-                        column(12, p("The Moorea Coral Reef (MCR) LTER site, established in 2004, is an interdisciplinary, landscape-scale program whose goal is to advance understanding of key mechanisms that modulate ecosystem processes and community structure of coral reefs through integrated research, education and outreach. Our site is the coral reef complex that encircles the 60 km perimeter of Moorea (17°30'S, 149°50'W), French Polynesia."), 
+                        column(12, p("Every year, MCR researchers collect data on a wide variety of biotic and abiotic variables at different spatial and temporal resolutions, but there has been no easy way for researchers to quickly visualize changes across space and time. To address this issue, this interactive web application has been developed for MCR LTER researchers to visually explore ecological changes, anthropogenic stressors, and community dynamics affecting the coral reefs surrounding Moorea. Built using the Shiny package in R, this web app allows users to hone in on certain locations or variables of interest in order to identify vulnerable coral reefs and explore coral reef ecosystem dynamics. Additionally, this app will act as a research and outreach tool to bring awareness to the status of coral reefs and allow for better management and protection of Moorea’s coral reefs. 
+"), 
                                
-                               p("A fundamental goal of the the Moorea Coral Reef (MCR) LTER site is to advance understanding that enables accurate forecasts of the behavior of coral reef ecosystems to environmental forcing. To this end we seek to understand the mechanistic basis of change in coral reefs by: (i) elucidating major controls over reef dynamics, and (ii) determining how they are influenced by the major pulse disturbances (e.g., cyclones, coral bleaching, coral predator outbreaks) and local press drivers (e.g., fishing, nutrient enrichment) to which they are increasingly being subjected, against a background of slowly changing environmental drivers associated with global climate change and ocean acidification."))),
+                               p("In the navigation bar you will find two tabs, one to explore spatial data and one to explore temporal data. This Shiny application currently uses 2016 spatial data with layers for nitrogen from Turbinaria ornata, isotopic nitrogen, coral bleaching, predicted sewage, and bathymetry. After spatially interpolating the original data points to produce individual raster layers for each variable, these layers were all combined into an interactive map where the user can choose to explore whichever variables they might be interested in. The second main component of this app includes temporal visualizations produced from 2006-2022 LTER datasets for coral cover, algae cover, herbivore fish biomass, and Crown-of-Thorns density. With two options within the app, the user can choose between visualizations by variable and visualizations by site. Visualizations by variable can be helpful for a user to explore the trends of a single variable across all sites. Visualizations by site can be helpful for a user to compare trends across the four variables for their chosen sites of interest. For more information on spatial and temporal data collection, importance, and download, please see the corresponding Metadata tabs."),
+
+                                p("The GitHub repository including all files and code associated with the creation of this Shiny app can be found",
+                                  tags$a(href = "https://github.com/MCR-LTER/MEDS",
+                                         "here"),"."))),
                       
                       
-                      h1("A bit about the data used in this app"),
+                      h1("Data Use Policy"),
                       
                       fluidRow(
                         column(6,
@@ -106,7 +123,12 @@ ui <- fluidPage(
                                    height=400, 
                                    width=500))),
                       
-                      h1("About the creators of this app?")
+                      h1("About the Creators"),
+                      fluidRow(
+                        column(12, p("This application was created by students in the 2022 Master of Environmental Data Science program at UCSB's Bren School of Environmental Science & Management as the focus of their Master's Capstone Project."), 
+                               
+                               p("The creators include Allie Cole, Felicia Cruz, Jake Eisaguirre, and Charles Hendrickson."))),
+                      
                   )), 
                   
              
@@ -226,11 +248,11 @@ ui <- fluidPage(
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           p("Here is why this is important"),
+                                                           p("Coral Bleaching is the whitening of corals due to loss of symbiotic algae and/or their pigments, which can lead to coral mortality (Brown 1997). Bleaching events are increasing in frequency and magnitude due to climate change causing maximum water temperatures to exceed corals' threshold for heat stress. Additionally, nutrient pollution from coastal development can interact with heat stress to increase coral bleaching (Donovan et al. 2020). This data set was collected from coral bleaching surveys that were conducted to test the hypothesis that bleaching prevalence and severity were correlated with differences in heat stress and nutrient availability."),
                                                            h3("Data Collection"), 
-                                                           p("We surveyed 167 sites around Moorea and recorded bleaching on colonies of Pocillopora and Acropora, which were present at 149 of the sites. Sites were at least 0.5 km apart, and at each site two snorkelers conducted 10-minute swims in opposite directions recording all observed colonies of Pocillopora and Acropora. Sites were distributed around the entire island, and were categorized by habitat (fringing reef and back reef) and by the dominant cardinal direction of the coastline (North, East, West). We surveyed the two most common and widespread genera of branching corals in the system, Acropora and Pocillopora."), 
+                                                           p("167 sites were surveyed around Moorea and bleaching on colonies of Pocillopora and Acropora were recorded, which were present at 149 of the sites. Sites were at least 0.5 km apart, and at each site two snorkelers conducted 10-minute swims in opposite directions recording all observed colonies of Pocillopora and Acropora. Sites were distributed around the entire island, and were categorized by habitat (fringing reef and back reef) and by the dominant cardinal direction of the coastline (North, East, West). Acropora and Pocillopora were surveyed, which are the two most common and widespread genera of branching corals in the system."), 
                                                            p("Here is the link to download this", 
-                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.6", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.5033", 
                                                                     "dataset"))),
                                               
                                               mainPanel(width = 6, 
@@ -293,12 +315,12 @@ ui <- fluidPage(
                                           checkboxGroupInput(inputId = "site_2",
                                                                label = h4("Choose your Site"),
                                                                selected = "LTER 1",
-                                                               choices = list("Site 1" = "LTER 1",
-                                                                              "Site 2" = "LTER 2",
-                                                                              "Site 3" = "LTER 3",
-                                                                              "Site 4" = "LTER 4",
-                                                                              "Site 5" = "LTER 5",
-                                                                              "Site 6" = "LTER 6")))),
+                                                               choices = list("LTER 1",
+                                                                              "LTER 2",
+                                                                              "LTER 3",
+                                                                              "LTER 4",
+                                                                              "LTER 5",
+                                                                              "LTER 6")))),
 
                                  column(width = 8,
                                    fluidRow(

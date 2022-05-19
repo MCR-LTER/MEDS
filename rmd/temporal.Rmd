@@ -11,14 +11,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # load libraries 
 ```{r}
-library(tidyverse)
-library(ggplot2)
-library(here)
-library(janitor)
-library(lubridate)
-library(stringr)
-library(plotly)
-library(patchwork)
+if (!require(librarian)){
+  install.packages("librarian")
+  library(librarian)
+}
+
+librarian::shelf(tidyverse, here, janitor, lubridate, stringr, 
+                 plotly, patchwork)
+
+# library(tidyverse)
+# library(ggplot2)
+# library(here)
+# library(janitor)
+# library(lubridate)
+# library(stringr)
+# library(plotly)
+# library(patchwork)
  
 ```
 
@@ -82,10 +90,12 @@ coral_cover <- coral_cover_raw %>%
              "CTB", "Macroalgae", "NA", "Millepora", "Soft Coral")) %>% 
   mutate(date = str_sub(date, 1, -4)) %>% 
   mutate(date = as.numeric(date),
-         percent_cover = as.numeric(percent_cover))
+         percent_cover = as.numeric(percent_cover)) %>% 
+  filter(!habitat == "Outer 17")
 
-# rename Outer 17 and Outer 10 to Forereef
-coral_cover$habitat <- str_replace(coral_cover$habitat, "Outer 17", "Forereef")
+
+# rename Outer 10 to Forereef
+
 coral_cover$habitat <- str_replace(coral_cover$habitat, "Outer 10", "Forereef")
 
 # make Porites labels uniform 
@@ -132,13 +142,14 @@ fish_biomass$substring_location =
 # Create ‘year’, ‘site’, and ‘biomass’ column
 biomass_summary <- fish_biomass %>%
   filter(coarse_trophic == "Primary Consumer") %>%
+  filter(!habitat == "BA") %>% 
   select(year, "site" = substring_location, biomass, habitat) %>%
   mutate(year = as.numeric(year)) %>% 
   group_by(year, site, habitat) %>%
   summarize(mean_biomass_p_consumers = (mean(biomass)/1000)) #5 x 50 meter transect * 4 = 1000 total meters
 
 # make habitat labels consistent  
-biomass_summary$habitat <- str_replace(biomass_summary$habitat, "BA", "Backreef")
+# biomass_summary$habitat <- str_replace(biomass_summary$habitat, "BA", "Backreef")
 biomass_summary$habitat <- str_replace(biomass_summary$habitat, "FO", "Forereef")
 biomass_summary$habitat <- str_replace(biomass_summary$habitat, "FR", "Fringing")
 
@@ -157,12 +168,13 @@ algae_cover <- coral_cover_raw %>%
   filter(taxonomy_substrate_or_functional_group %in% c("Macroalgae", "CTB")) %>% 
   filter(!str_detect(percent_cover, "ND")) %>%
   filter(!str_detect(percent_cover, "0.0")) %>%
+  filter(!habitat == "Outer 17") %>% 
   mutate(date = str_sub(date, 1, -4)) %>%
   mutate(date = as.numeric(date),
          percent_cover = as.numeric(percent_cover))
 
 # rename Outer 17 and Outer 10 to Forereef
-algae_cover$habitat <- str_replace(algae_cover$habitat, "Outer 17", "Forereef")
+
 algae_cover$habitat <- str_replace(algae_cover$habitat, "Outer 10", "Forereef")
 
 # summary df for macroalgae
@@ -194,11 +206,10 @@ sum_trophic_corals <- read_csv(here("data", "csv", "sum_trophic_corals.csv")) # 
 
 # pivot_wider so trophic groups have their own columns
 wide_corals <- sum_trophic_corals %>% 
-  dplyr::filter(habitat == "Forereef") %>% 
-  pivot_wider(id_cols = c(site, year, habitat), names_from = taxonomy_substrate_or_functional_group, values_from = mean_coral_cover )
+  pivot_wider(id_cols = c(site, year, habitat), names_from = taxonomy_substrate_or_functional_group, values_from = mean_coral_cover, values_fill = 0 )
 
 # join sum_trophic_corals and sum_coral_cover
-sum_all_corals <- left_join(sum_coral_cover, sum_trophic_corals, on = c(year, site, habitat))
+sum_all_corals <- left_join(wide_corals, sum_coral_cover, on = c(year, site, habitat))
 
 # join sum_algae_cover and sum_all_corals 
 algae_coral <- left_join(sum_all_corals, sum_algae_cover, on = c(year, site, habitat))
@@ -210,15 +221,10 @@ algae_coral_cots <- left_join(algae_coral, cots_density, on = c(year, site, habi
 # join algae_coral and biomass_summary 
 temporal_data <- left_join(algae_coral_cots, biomass_summary, on = c(year, site, habitat)) 
 
- # temp <- read_csv(here("data/csv/temporal_data_joined.csv")) %>% 
- #   dplyr::select(-c(Acropora, Pocillopora, Porites))
 
-temporal_d <- temporal_data %>%
-  left_join(wide_corals, on = c(year, site, habitat)) 
-
-
+ 
 # write fully joined csv to easily source in the shiny app global.R file
-write.csv(temporal_d, here("data/csv/temporal_data_joined.csv")) 
+write.csv(temporal_data, here("data/csv/temporal_data_joined.csv")) 
 ```
 
 using the joined df to make a faceted plot based on variable choice (4 plots to be included on app)
