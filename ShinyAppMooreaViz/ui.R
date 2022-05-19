@@ -3,11 +3,22 @@ source(here("ShinyAppMooreaViz", "global.R"))
 
 ui <- fluidPage(
   
-  # Themeing!
+  # Themeing! ----
   includeCSS("theme.css"),
-  tags$head(tags$style(HTML('.navbar {background-color: #6ebee0; color:#0f4d76}',
-             '.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {color: #2084C9; background-color: #d6e7f1;}'
-                            ))),
+  
+  # set theme 
+  theme = bs_theme(bootswatch = "sandstone",
+                   bg = "#e3f1fa", # light blue
+                   fg = "#0076a0", # MCR dark blue from bottom of page
+                   primary = "#0f4d76", # MCR dark blue font
+                   secondary = "#0f4d76", # blue controls the clear buttons
+                   success = "#397B1E", # light green
+                   info = "#97D4EA", # light blue from bar
+                   warning = "#C3512C",# yellow
+                   danger = "#FACE00", # orange red
+                   base_font = font_google("Open Sans"),
+                   heading_font = font_google("Source Sans Pro")), 
+
   
   # Application title ----
   titlePanel(""),
@@ -15,9 +26,9 @@ ui <- fluidPage(
     fluidRow(column(6, 
                     h1("Moorea Coral Reef LTER")),
              column(6, 
-                    HTML("<a href='http://mcr.lternet.edu/'><img src='mcr_logo.png' align= 'right' height= '60' width = '150' /></a>"),
-                    HTML("<a href='https://lternet.edu/'><img src='lter_logo.png' align= 'right' height= '60' width = '70' /></a>"),
-                    HTML("<a href='https://www.nsf.gov/'><img src='nsf_logo.png' align= 'right' height= '60' width = '60' /></a>")))),
+                    HTML("<a href='http://mcr.lternet.edu/'><img src='mcr_logo.png' align= 'right' height= '60' width = '150' alt='This is the Moorea Coral Reef logo' /></a>"),
+                    HTML("<a href='https://lternet.edu/'><img src='lter_logo.png' align= 'right' height= '60' width = '70' alt='This is the Long Term Ecological Research Program logo' /></a>"),
+                    HTML("<a href='https://www.nsf.gov/'><img src='nsf_logo.png' align= 'right' height= '60' width = '60' alt='This is the National Science Foundation logo'/></a>")))),
   
 
   # Navigation bar ----
@@ -30,16 +41,19 @@ ui <- fluidPage(
                         column(12, align="center",
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_095.jpg", 
-                              height=300, 
-                              width=300)),
+                              height = 300, 
+                              width = 300, 
+                              alt = "")),
                       div(style="display: inline-block;",
                           img(src="Moorea Scenery_197.jpg", 
                               height=300, 
-                              width=300)),
+                              width=300, 
+                              alt = "")),
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_080.jpg", 
                               height=300, 
-                              width=300)))),
+                              width=300, 
+                              alt = "")))),
                       
                       h1("Background"),
                       
@@ -56,7 +70,8 @@ ui <- fluidPage(
                         column(4, 
                                img(src="Local Outreach_Gump_071.jpg", 
                                    height=300, 
-                                   width=400)),
+                                   width=400, 
+                                   alt = "")),
                         column(8, 
                                p("The MCR likes to do outreach!
                                  The Coral Reefs of Moorea Education is an educational resource of the Moorea Coral Reef Long Term Ecological Research (LTER) program. A website was created in an effort to inform students and the public about the ocean, corals reefs, and the research of the MCR LTER program. An exciting feature of this website is the Marine Life of Moorea Encyclopedia, where visitors can learn about the organisms that make up Moorea’s coral reef ecosystem. Our Lesson Plan Library contains FREE standards-based curricula available for download that focus on the coral reef ecosystem and current MCR LTER research. These hands-on activities are a great way for educators to teach Life Science and Investigation content standards in their classrooms."), 
@@ -268,6 +283,7 @@ ui <- fluidPage(
                         useShinydashboard(),
 
                         tabPanel("Figures by Site",
+                                 fluidRow(
                                  column(width = 4,
                                         box(selectInput(inputId = "habitat_2",
                                                          label = "Select a Habitat",
@@ -282,10 +298,9 @@ ui <- fluidPage(
                                                                               "Site 3" = "LTER 3",
                                                                               "Site 4" = "LTER 4",
                                                                               "Site 5" = "LTER 5",
-                                                                              "Site 6" = "LTER 6")))
-                                   ),
+                                                                              "Site 6" = "LTER 6")))),
 
-                                 mainPanel(
+                                 column(width = 8,
                                    fluidRow(
                                      box(width = 12,
                                          title = "Mean Percent Coral Cover",
@@ -303,7 +318,7 @@ ui <- fluidPage(
                                      box(width = 12,
                                          title = "Mean Herbivore Fish Biomass",
                                          plotOutput(outputId = "biomass_plot"))))
-                                   ), 
+                                   )), 
                         
                         #temporal metadata ----
 

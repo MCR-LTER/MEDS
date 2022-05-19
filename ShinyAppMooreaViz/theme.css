@@ -1,4 +1,4 @@
-/* Same as above, but using the CSS 'background' property instead */
+/* background page color */
 body { 
     background: #e3f1fa;
     }
@@ -7,4 +7,19 @@ body {
 h1 { 
     color: #0f4d76;
     }
+
+/* color change when tabPanel is selected in navbarMenu */
+
+.navbar {background-color: #6ebee0;
+    
+}
+
+.nav-link.active {
+    background-color:  #2084c9;
+}
+ 
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    background-color: #0f4d76;
+}
+
 

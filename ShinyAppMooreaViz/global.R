@@ -8,7 +8,7 @@ if (!require(librarian)){
 
 librarian::shelf(shiny, leaflet, tidyverse, shinyWidgets, here, 
                  janitor, raster,viridis, sf, leafem, sp, patchwork, 
-                 shinydashboard)
+                 shinydashboard, bslib)
 
 
 
