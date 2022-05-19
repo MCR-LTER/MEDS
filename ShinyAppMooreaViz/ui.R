@@ -3,11 +3,22 @@ source(here("ShinyAppMooreaViz", "global.R"))
 
 ui <- fluidPage(
   
-  # Themeing!
+  # Themeing! ----
   includeCSS("theme.css"),
-  tags$head(tags$style(HTML('.navbar {background-color: #6ebee0; color:#0f4d76}',
-             '.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {color: #2084C9; background-color: #d6e7f1;}'
-                            ))),
+  
+  # set theme 
+  theme = bs_theme(bootswatch = "sandstone",
+                   bg = "#e3f1fa", # light blue
+                   fg = "#0076a0", # MCR dark blue from bottom of page
+                   primary = "#0f4d76", # MCR dark blue font
+                   secondary = "#0f4d76", # blue controls the clear buttons
+                   success = "#397B1E", # light green
+                   info = "#97D4EA", # light blue from bar
+                   warning = "#C3512C",# yellow
+                   danger = "#FACE00", # orange red
+                   base_font = font_google("Open Sans"),
+                   heading_font = font_google("Source Sans Pro")), 
+
   
   # Application title ----
   titlePanel(""),
@@ -15,9 +26,9 @@ ui <- fluidPage(
     fluidRow(column(6, 
                     h1("Moorea Coral Reef LTER")),
              column(6, 
-                    HTML("<a href='http://mcr.lternet.edu/'><img src='mcr_logo.png' align= 'right' height= '60' width = '150' /></a>"),
-                    HTML("<a href='https://lternet.edu/'><img src='lter_logo.png' align= 'right' height= '60' width = '70' /></a>"),
-                    HTML("<a href='https://www.nsf.gov/'><img src='nsf_logo.png' align= 'right' height= '60' width = '60' /></a>")))),
+                    HTML("<a href='http://mcr.lternet.edu/'><img src='mcr_logo.png' align= 'right' height= '60' width = '150' alt='This is the Moorea Coral Reef logo' /></a>"),
+                    HTML("<a href='https://lternet.edu/'><img src='lter_logo.png' align= 'right' height= '60' width = '70' alt='This is the Long Term Ecological Research Program logo' /></a>"),
+                    HTML("<a href='https://www.nsf.gov/'><img src='nsf_logo.png' align= 'right' height= '60' width = '60' alt='This is the National Science Foundation logo'/></a>")))),
   
 
   # Navigation bar ----
@@ -30,16 +41,19 @@ ui <- fluidPage(
                         column(12, align="center",
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_095.jpg", 
-                              height=300, 
-                              width=300)),
+                              height = 300, 
+                              width = 300, 
+                              alt = "")),
                       div(style="display: inline-block;",
                           img(src="Moorea Scenery_197.jpg", 
                               height=300, 
-                              width=300)),
+                              width=300, 
+                              alt = "")),
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_080.jpg", 
                               height=300, 
-                              width=300)))),
+                              width=300, 
+                              alt = "")))),
                       
                       h1("Background"),
                       
@@ -56,7 +70,8 @@ ui <- fluidPage(
                         column(4, 
                                img(src="Local Outreach_Gump_071.jpg", 
                                    height=300, 
-                                   width=400)),
+                                   width=400, 
+                                   alt = "")),
                         column(8, 
                                p("The MCR LTER supports many different outreach and educational efforts. The",
                                  tags$a(href = "http://mcrlter.msi.ucsb.edu/education/", 
@@ -290,6 +305,7 @@ ui <- fluidPage(
                         useShinydashboard(),
 
                         tabPanel("Figures by Site",
+                                 fluidRow(
                                  column(width = 4,
                                         box(selectInput(inputId = "habitat_2",
                                                          label = "Select a Habitat",
@@ -304,10 +320,9 @@ ui <- fluidPage(
                                                                               "LTER 3",
                                                                               "LTER 4",
                                                                               "LTER 5",
-                                                                              "LTER 6")))
-                                   ),
+                                                                              "LTER 6")))),
 
-                                 mainPanel(
+                                 column(width = 8,
                                    fluidRow(
                                      box(width = 12,
                                          title = "Mean Percent Coral Cover",
@@ -325,7 +340,7 @@ ui <- fluidPage(
                                      box(width = 12,
                                          title = "Mean Herbivore Fish Biomass",
                                          plotOutput(outputId = "biomass_plot"))))
-                                   ), 
+                                   )), 
                         
                         #temporal metadata ----
 
@@ -335,13 +350,18 @@ ui <- fluidPage(
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           h4("Isotopic Nitrogen"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           p("This dataset contains the percentage cover of the stony corals (Scleractinia) and other major groups analyzed from 0.5 x 0.5 m photographic quadrats in several reef habitats at the Moorea Coral Reef LTER, French Polynesia. This survey has been repeated annually in April since 2005. Functional groups (i.e., dependent variables) counted are: Scleractinian Corals (by genus where appropriate, see methods), Macroalgae, Crustose Coralline Algae / Bare Space, Soft Corals, Hydrocorals (Millepora), Algal Turf and Sand. For the purposes of this app, Scleractinian Corals included ... and all other functional groups were not included in the temporal figures. The coral community was sampled photographically in all habitats surrounding the island: Fringing Reef, Lagoon (Backreef), and Outer Reef (Forereef.) Figures were further broken down to show trends of three specific genera of coral, Porities, Acropora, Pocillopora."),
+                                                           
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
-                                                           p("Here is the link to download this", 
+                                                           p("The sampling strategy was designed to facilitate tests of the effect of time, shore, and depth on the coral community structure of the fringing, and outer reef habitats of Moorea. For the purpose of this analysis, fringing communities were defined as reefs adjacent to the shore and within ca. 50 m of the land. Outer reef habitats were censused at 10 and 17 m depth in order to sample habitats that are representative of the outer reefs of Moorea, and within the depth range tractable to diving research. For the purposes of this app only the depths of 10 m were used in the vizualizations. The project was designed with 40 quadrats at each site/depth combination, but sometimes this number was not achieved because all quadrats did not fit in the space measured between markers (a perpetual effect once the site was established in 2005), or quadrats were missed in error on the sampling day (unique to each year). To facilitate field sampling, the 40 m transect was recorded in 5 contiguous sectors that are not independent (one begins where the previous ends) and are not intended to be a factor in the statistical design. All census methods were designed to quantify coral community structure in terms of the dominant constituents of the benthic community - scleractinian corals, macroalgae, crustose coralline algae, algal turf, Millepora, and sand. In addition to establishing an orthogonal contrast of coral community structure, a subset of the sites and habitats were selected for more detailed analyses of the population density of coral recruits and juvenile corals, as well as the demographic analysis of selected coral species. The time-consuming nature of these analyses prevented them from being measured in all site/habitat combinations."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the amount of coral found on the reef is invaluable to researchers as tracking the amount of corals can be directly related to the health of the reef. The three coral genera we visualized seperately are important reef building corals, and some of the more common corlas found."),
+                                                           
+                                                           
+                                                           p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
-                                                                    "dataset"))),
+                                                                    "dataset."))),
                                               
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60366.jpg", height = 400, width = 400)))),
@@ -349,14 +369,19 @@ ui <- fluidPage(
                                    tabPanel("Mean Algae Cover", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
-                                                           h3("Background"), 
-                                                           h4("Isotopic Nitrogen"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           h3("Background"),
+                                                           p("The visualizations for Macroalgae and CTB were created using observations for these functional groups recorded in the coral dataset. This dataset contains the percentage cover of the stony corals (Scleractinia) and other major groups analyzed from 0.5 x 0.5 m photographic quadrats in several reef habitats at the Moorea Coral Reef LTER, French Polynesia. This survey has been repeated annually in April since 2005. Functional groups (i.e., dependent variables) counted are: Scleractinian Corals (by genus where appropriate, see methods), Macroalgae, Crustose Coralline Algae / Bare Space, Soft Corals, Hydrocorals (Millepora), Algal Turf and Sand. The coral community was sampled photographically in all habitats surrounding the island: Fringing Reef, Lagoon (Backreef), and Outer Reef (Forereef.) Temporal Figures by Variable were broken down to show trends of Macroalgae and CTB, while the Temporal Figures by Site just show Macroalgae trends."),
+                                                           
                                                            h3("Data Collection"), 
-                                                           p("There is misisng data values for 2020 as during covid the camera used to collect the data could not decifer between the different algae types, turf, and sand. "), 
-                                                           p("Here is the link to download this", 
-                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.8", 
-                                                                    "dataset"))),
+                                                           p("The sampling strategy was designed to facilitate tests of the effect of time, shore, and depth on the coral community structure of the fringing, and outer reef habitats of Moorea. For the purpose of this analysis, fringing communities were defined as reefs adjacent to the shore and within ca. 50 m of the land. Outer reef habitats were censused at 10 and 17 m depth in order to sample habitats that are representative of the outer reefs of Moorea, and within the depth range tractable to diving research. For the purposes of this app only the depths of 10 m were used in the vizualizations. The project was designed with 40 quadrats at each site/depth combination, but sometimes this number was not achieved because all quadrats did not fit in the space measured between markers (a perpetual effect once the site was established in 2005), or quadrats were missed in error on the sampling day (unique to each year). To facilitate field sampling, the 40 m transect was recorded in 5 contiguous sectors that are not independent (one begins where the previous ends) and are not intended to be a factor in the statistical design. All census methods were designed to quantify coral community structure in terms of the dominant constituents of the benthic community - scleractinian corals, macroalgae, crustose coralline algae, algal turf, Millepora, and sand. In addition to establishing an orthogonal contrast of coral community structure, a subset of the sites and habitats were selected for more detailed analyses of the population density of coral recruits and juvenile corals, as well as the demographic analysis of selected coral species. The time-consuming nature of these analyses prevented them from being measured in all site/habitat combinations."),
+                                                           p("Note: There are missing data values for CTB in 2020 during the Covid-19 pandemic, as the camera used to collect the data could not decipher between the different algae types, turf, and sand." ),
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Tracking the percent algae cover found on the reef is useful to researchers because the presence of macroalgae and CTB can affect the health of the reef. NEEDS TO BE EDITED."),
+                                                           
+                                                           p("Here is the link to download the original", 
+                                                             tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
+                                                                    "dataset."))),
                                               
                                               mainPanel(width = 6, 
                                                         img(src = "Work Around Gump_044.jpg", height = 400, width = 400)))),
@@ -368,10 +393,14 @@ ui <- fluidPage(
                                                            h4(""), 
                                                            p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
-                                                           p("Here is the link to download this", 
+                                                           p("The abundances of all mobile taxa of fishes (Scarids, Labrids, Acanthurids, Serranids, etc.) observed on a five by fifty meter transect which extends from the bottom to the surface of the water column are recorded by a diver using SCUBA. The diver then swims back along a one by fifty meter section of the original transect line and records the abundances of all non-mobile or cryptic taxa of fishes (Pomacentids, Gobiids, Cirrhitids, Holocentrids etc). Surveys are conducted between 0900 and 1600 hours (Moorea time) during late July or early August each year. In 2006, divers also began to estimate the size (length) of each fish observed to the nearest half cm. Four replicate transects are surveyed in each of six locations on the forereef (two on each of Moorea's three sides), six locations on the backreef (two on each of Moorea's three sides) and on six locations on the fringing reef (two on each of Moorea's three sides) for a total of 72 individual transects. Transects are permanently marked using a series of small, stainless steel posts affixed to the reef. Transects on the forereef are located at a depth of approximately 12m, those on the backreef are located at a depth of approximately 1.5m and those on the fringing reef are located at a depth of approximately 10m. In addition to the biotic data collected, divers also record data on the date and time each transect was surveyed, wind speed and sea state, swell height in m, amount of cloud cover in % and horizontal visability in m."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("INSERT IMPORTANCE HERE"),
+                                                           
+                                                           p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.6", 
-                                                                    "dataset"))),
+                                                                    "dataset."))),
                                               
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60459.jpg", height = 400, width = 400)))),
@@ -380,12 +409,16 @@ ui <- fluidPage(
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"),
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           p("These data describe the abundance of Acanthaster planci, Crown of Thorns Sea stars, surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
-                                                           p("These data describe the species abundance and size distributions of fishes surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."), 
-                                                           p("Here is the link to download this", 
+                                                           p("The abundances of A. planci observed on a five by fifty meter transect are recorded by a diver using SCUBA. Surveys are conducted between 0900 and 1600 hours (Moorea time) during late July or early August each year. Four replicate transects are surveyed in each of three habitats (forereef, backreef and fringing reef) at six locations, two on each of Moorea's three sides, on the forereef, six locations on the backreef (two on each of Moorea's three sides for a total of 72 individual transects. Transects are permanently marked using a series of small, stainless steel posts affixed to the reef. Transects on the forereef are located at a depth of approximately 12m, those on the backreef are located at a depth of approximately 1.5m and those on the fringing reef are located at a depth of approximately 10m."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("INSERT IMPORTANCE HERE"),
+                                                           
+                                                           p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.1039", 
-                                                                    "dataset"))),
+                                                                    "dataset."))),
                                               
                                               mainPanel(width = 6, 
                                                         img(src = "Underwater_Gump_095.jpg", height = 400, width = 400))
