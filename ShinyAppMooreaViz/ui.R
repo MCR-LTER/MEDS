@@ -4,12 +4,13 @@ source(here("ShinyAppMooreaViz", "global.R"))
 ui <- fluidPage(
   
   # Themeing! ----
+  source(here("ShinyAppMooreaViz", "theme.css")),
   
   # set theme 
   theme = bs_theme(bootswatch = "sandstone",
                    bg = "#e3f1fa", # light blue
                    fg = "#0076a0", # MCR dark blue from bottom of page
-                   primary = "#0f4d76", # MCR dark blue font
+                   primary = "#a9a9a9", # MCR dark blue font
                    secondary = "#0f4d76", # blue controls the clear buttons
                    success = "#397B1E", # light green
                    info = "#97D4EA", # light blue from bar
@@ -18,26 +19,6 @@ ui <- fluidPage(
                    base_font = font_google("Open Sans"),
                    heading_font = font_google("Source Sans Pro")), 
 
-  tags$head(tags$style(HTML(".navbar {background-color: #6ebee0;
-      
-  }",
-  
- " .nav-link.active {
-    background-color:  #2084c9;
-  }",
-  
-  ".navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-    background-color: #0f4d76;
-  }", 
- "h1 { 
-    color: #0f4d76;
-    }", 
- 
- "body { 
-    background: #e3f1fa;
-    }"
- 
-    ))),
   
   # Application title ----
   titlePanel(""),
