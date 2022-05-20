@@ -11,9 +11,9 @@
   .navbar {background-color: #6ebee0;
   }
 
-.nav-link.active {background-color:  #2084c9;
+ .nav-link.active {background-color:  #2084c9;
 }
 
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+ .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
   background-color: #0f4d76;
 }
