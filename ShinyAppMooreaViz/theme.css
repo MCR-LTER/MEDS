@@ -16,6 +16,10 @@
  .nav-link.active {background-color:  #2084c9;
 }
 
- .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+ .navbar-dark .navbar-nav>li>a:focus, .navbar-dark .navbar-nav>li>a:hover {
   background-color: #0f4d76;
+}
+
+.navbar-custom .navbar-text {
+    color: #0076a0;
 }
