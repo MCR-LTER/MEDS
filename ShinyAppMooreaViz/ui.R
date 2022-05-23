@@ -280,7 +280,11 @@ ui <- fluidPage(
              navbarMenu("Temporal", icon = icon("chart-line"),
                         
                         #figures by variable panel ----
-                        tabPanel("Figures by Variable",
+                        tabPanel("Figures by Variable", 
+                                 
+                                 sidebarLayout(
+                                   sidebarPanel( width = 3,
+                                 
                                  (pickerInput(inputId = "habitat",
                                               label = "Select a Habitat",
                                               choices = c("Fringing Reef" = "Fringing",
@@ -296,18 +300,20 @@ ui <- fluidPage(
                                                           "Mean Percent Coral Cover (Porites)" = "Porites",
                                                           "Mean Percent Coral Cover (Acropora)" = "Acropora",
                                                           "Mean Percent Algae Cover (CTB)" = "mean_CTB_algae_cover"), 
-                                              multiple = FALSE)),
-                                 plotOutput(outputId = "faceted_plot")),
+                                              multiple = FALSE))),
+                                 
+                                 mainPanel(plotOutput(outputId = "faceted_plot")))),
 
                         
 
                         #figures by site option 2 ----
-                        useShinydashboard(),
-
+    
                         tabPanel("Figures by Site",
-                                 fluidRow(
-                                 column(width = 4,
-                                        box(selectInput(inputId = "habitat_2",
+                                 
+                                 sidebarLayout(
+                                   
+                                 sidebarPanel(width = 3,
+                                        selectInput(inputId = "habitat_2",
                                                          label = "Select a Habitat",
                                                          choices = c("Fringing",
                                                                      "Forereef"),
@@ -320,9 +326,9 @@ ui <- fluidPage(
                                                                               "LTER 3",
                                                                               "LTER 4",
                                                                               "LTER 5",
-                                                                              "LTER 6")))),
+                                                                              "LTER 6"))),
 
-                                 column(width = 8,
+                                 mainPanel(
                                    fluidRow(
                                      box(width = 12,
                                          title = "Mean Percent Coral Cover",
