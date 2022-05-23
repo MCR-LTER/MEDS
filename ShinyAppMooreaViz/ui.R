@@ -121,7 +121,8 @@ ui <- fluidPage(
                         column(6,align="center",
                                img(src="Work Around Gump_011.jpg", 
                                    height=400, 
-                                   width=500))),
+                                   width=500, 
+                                   alt = ""))),
                       
                       h1("About the Creators"),
                       fluidRow(
@@ -219,6 +220,8 @@ ui <- fluidPage(
                                                            p("The use of naturally occurring stable isotopes of N (15N: 14N, expressed as δ 15N) is particularly useful for distinguishing between natural and sewage-derived nitrogen because natural sources generally have low signatures while sewage-derived N is high in 15N (with δ 15N values ranging from ~ 5% to 20%) (Risk et al. 2009, Kendall et al. 2012). In the lagoons of Moorea, nitrogen likely comes from a mix of oceanic and terrestrial sources, the latter including synthetic and organic fertilizers, livestock, and human sewage. Because synthetic fertilizers tend to have δ 15N signatures that are similar to or lower than natural sources (generally ranging from -4 to 4%) (Dailer et al. 2010), elevated δ 15N values would indicate that human sewage or animal waste are important sources of nitrogen but would not rule out the importance of fertilizers or other sources."),
                                                            h3("Data Collection"), 
                                                            p(" To map nitrogen levels in the lagoons of Moorea, samples were collected of Turbinaria at ~ 180 sites around the island during three different sampling periods, corresponding with different rainfall and wave regimes (January 2016, May 2016, and August 2016) (Burkepile and Adam 2020). Sites were at least 0.5 km apart and were spaced to maximize coverage of the different reef habitats within the lagoons, including the fringing reefs, mid-lagoon/back reef, reef crest, reef passes, and bays. Sampling was conducted over ~ 3 weeks during each of the three sampling periods; due to logistic constraints, some sites were not sampled in all three sampling periods (January n = 184, May n = 171, August n = 173). At each of the sites, thalli was collected from 10 different patches of Turbinaria across an area of ~ 500 m2. Isotopic analysis on dried and ground algal tissue was conducted using a Thermo Finnigan Delta-Plus Advantage isotope mass spectrometer with a Costech EAS elemental analyzer at the University of California, Santa Barbara, Marine Science Institute Analytical Laboratory. "), 
+                                                           h3("Importance"), 
+                                                           p("Fill this in!"),
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
                                                                     "dataset"))),
@@ -226,7 +229,8 @@ ui <- fluidPage(
                                               mainPanel(width = 6, 
                                                         img(src = "Underwater_Gump_063.jpg", 
                                                             height = 400, 
-                                                            width = 400)))),
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Percent Nitrogen", 
                                             sidebarLayout(
@@ -235,6 +239,10 @@ ui <- fluidPage(
                                                            p(" Like other macroalgae, Turbinaria responds to nitrogen pulses by storing surplus nitrogen (Schaffelke 1999) and consequently nitrogen tissue content is believed to be an excellent time-integrated indicator of nitrogen availability"), 
                                                            h3("Data Collection"), 
                                                            p("To map N availability in the lagoons of Moorea, samples were collected of Turbinaria at ~ 180 sites around the island during three different sampling periods, corresponding with different rainfall and wave regimes (January 2016, May 2016, and August 2016) (Burkepile and Adam 2020). Sites were at least 0.5 km apart and were spaced to maximize coverage of the different reef habitats within the lagoons, including the fringing reefs, mid-lagoon/back reef, reef crest, reef passes, and bays. Sampling was conducted over ~ 3 weeks during each of the three sampling periods; due to logistic constraints, some sites were not sampled in all three sampling periods (January n = 184, May n = 171, August n = 173). At each of the sites, thalli was collected from 10 different patches of Turbinaria across an area of ~ 500 m2. Samples were immediately placed on ice and transported to the laboratory. One blade from each of 10 thalli was sampled at 5 cm below the apical tip. Blades were scrubbed of epiphytes and rinsed with fresh water before being dried at 60° C to a constant weight and ground to a fine powder. Total nitrogen content was determined via elemental analysis using a CHN Carlo-Erba elemental analyzer (NA1500) at the University of Georgia, Center for Applied Isotope Studies."), 
+                                                           
+                                                           h3("Importance"), 
+                                                           p("Fill this in!"),
+                                                           
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.8", 
                                                                     "dataset"))),
@@ -242,7 +250,8 @@ ui <- fluidPage(
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60369.jpg", 
                                                             height = 400, 
-                                                            width = 400)))),
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Coral Bleaching", 
                                             sidebarLayout(
@@ -251,6 +260,8 @@ ui <- fluidPage(
                                                            p("Coral Bleaching is the whitening of corals due to expulsion of symbiotic algae and/or their pigments, which can lead to coral mortality (Brown 1997). Bleaching events are increasing in frequency and magnitude due to climate change causing increases in maximum water temperatures that exceed coral heat stress thresholds. Additionally, nutrient pollution from coastal development can act synergistically with heat stress to increase coral bleaching (Donovan et al. 2020). This data set was collected from coral bleaching surveys that were conducted to test the hypothesis that bleaching prevalence and severity were correlated with differences in heat stress and nutrient availability."),
                                                            h3("Data Collection"), 
                                                            p("167 sites were surveyed around Moorea and bleaching on colonies of Pocillopora and Acropora were recorded, which were present at 149 of the sites. Sites were at least 0.5 km apart, and at each site two snorkelers conducted 10-minute swims in opposite directions recording all observed colonies of Pocillopora and Acropora. Sites were distributed around the entire island, and were categorized by habitat (fringing reef and back reef) and by the dominant cardinal direction of the coastline (North, East, West). Acropora and Pocillopora were surveyed, which are the two most common and widespread genera of branching corals in the system."), 
+                                                           h3("Importance"), 
+                                                           p("Fill this in!"),
                                                            p("Here is the link to download this", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.5033", 
                                                                     "dataset"))),
@@ -258,15 +269,16 @@ ui <- fluidPage(
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60402.jpg", 
                                                             height = 400, 
-                                                            width = 400)))),
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Predicted Sewage", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           p("dhhdehfl3"),
+                                                           p("FILL IN"),
                                                            h3("Data Collection"), 
-                                                           p("Sewage"), 
+                                                           p("FILL IN"), 
                                                            p("This dataset is not avaible 
                                                              for download through the MCR as 
                                                              the data was collected by....")),
@@ -274,7 +286,8 @@ ui <- fluidPage(
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60441.jpg", 
                                                             height = 400, 
-                                                            width = 400))))))), 
+                                                            width = 400, 
+                                                            alt = ""))))))), 
              
              #Temporal page ----
              navbarMenu("Temporal", icon = icon("chart-line"),
@@ -370,7 +383,10 @@ ui <- fluidPage(
                                                                     "dataset."))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60366.jpg", height = 400, width = 400)))),
+                                                        img(src = "MCR60366.jpg", 
+                                                            height = 400, 
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Mean Algae Cover", 
                                             sidebarLayout(
@@ -383,14 +399,17 @@ ui <- fluidPage(
                                                            p("Note: There are missing data values for CTB in 2020 during the Covid-19 pandemic, as the camera used to collect the data could not decipher between the different algae types, turf, and sand." ),
                                                            
                                                            h3("Importance"), 
-                                                           p("Tracking the percent algae cover found on the reef is useful to researchers because the presence of macroalgae and CTB can affect the health of the reef. NEEDS TO BE EDITED."),
+                                                           p("Tracking the percent algae cover found on the reef is useful to researchers because the presence of macroalgae and CTB can affect the health of the reef. Macroalgae cover is important to researchers as algae can outcompete coral for space and light due to its fast growing nature relative to corals, ultimately leading to decreased coral densities."),
                                                            
                                                            p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.4", 
                                                                     "dataset."))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "Work Around Gump_044.jpg", height = 400, width = 400)))),
+                                                        img(src = "Work Around Gump_044.jpg", 
+                                                            height = 400, 
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Mean Fish Biomass", 
                                             sidebarLayout(
@@ -402,30 +421,37 @@ ui <- fluidPage(
                                                            p("The abundances of all mobile taxa of fishes (Scarids, Labrids, Acanthurids, Serranids, etc.) observed on a five by fifty meter transect which extends from the bottom to the surface of the water column are recorded by a diver using SCUBA. The diver then swims back along a one by fifty meter section of the original transect line and records the abundances of all non-mobile or cryptic taxa of fishes (Pomacentids, Gobiids, Cirrhitids, Holocentrids etc). Surveys are conducted between 0900 and 1600 hours (Moorea time) during late July or early August each year. In 2006, divers also began to estimate the size (length) of each fish observed to the nearest half cm. Four replicate transects are surveyed in each of six locations on the forereef (two on each of Moorea's three sides), six locations on the backreef (two on each of Moorea's three sides) and on six locations on the fringing reef (two on each of Moorea's three sides) for a total of 72 individual transects. Transects are permanently marked using a series of small, stainless steel posts affixed to the reef. Transects on the forereef are located at a depth of approximately 12m, those on the backreef are located at a depth of approximately 1.5m and those on the fringing reef are located at a depth of approximately 10m. In addition to the biotic data collected, divers also record data on the date and time each transect was surveyed, wind speed and sea state, swell height in m, amount of cloud cover in % and horizontal visability in m."), 
                                                            
                                                            h3("Importance"), 
-                                                           p("INSERT IMPORTANCE HERE"),
+                                                           p("Herbivore fish biomass is important to a researcher because if Herbivore densities are at a high enough threshold they can suppress algae populations leading to the persistence of corals."),
                                                            
                                                            p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.6", 
                                                                     "dataset."))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "MCR60459.jpg", height = 400, width = 400)))),
+                                                        img(src = "MCR60459.jpg", 
+                                                            height = 400, 
+                                                            width = 400, 
+                                                            alt = "")))),
                                    
                                    tabPanel("Crown of Thorns Density", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"),
-                                                           p("These data describe the abundance of Acanthaster planci, Crown of Thorns Sea stars, surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
+                                                           p("These data describe the abundance of Acanthaster planci, Crown of Thorns Sea stars (COTS), surveyed as part of MCR LTER's annual reef fish monitoring program. This study began in 2005 and the dataset is updated annually."),
                                                            h3("Data Collection"), 
                                                            p("The abundances of A. planci observed on a five by fifty meter transect are recorded by a diver using SCUBA. Surveys are conducted between 0900 and 1600 hours (Moorea time) during late July or early August each year. Four replicate transects are surveyed in each of three habitats (forereef, backreef and fringing reef) at six locations, two on each of Moorea's three sides, on the forereef, six locations on the backreef (two on each of Moorea's three sides for a total of 72 individual transects. Transects are permanently marked using a series of small, stainless steel posts affixed to the reef. Transects on the forereef are located at a depth of approximately 12m, those on the backreef are located at a depth of approximately 1.5m and those on the fringing reef are located at a depth of approximately 10m."), 
                                                            
                                                            h3("Importance"), 
-                                                           p("INSERT IMPORTANCE HERE"),
+                                                           p("COTS density is important to a researcher because they are a corilivore and if their populations are left unchecked they can consume all the corals on a reef leading to the coral reef collapsing. 
+"),
                                                            
                                                            p("Here is the link to download the original", 
                                                              tags$a(href="http://mcrlter.msi.ucsb.edu/cgi-bin/showDataset.cgi?docid=knb-lter-mcr.1039", 
                                                                     "dataset."))),
                                               
                                               mainPanel(width = 6, 
-                                                        img(src = "Underwater_Gump_095.jpg", height = 400, width = 400))
+                                                        img(src = "Underwater_Gump_095.jpg", 
+                                                            height = 400, 
+                                                            width = 400, 
+                                                            alt = ""))
                                               )))))))

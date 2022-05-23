@@ -2,6 +2,8 @@
   body { background: #e3f1fa;
   color: black;
   }
+  
+  p { color: black;}
 
 /* Setting the text color for the 'h1' element */    
   h1 { color: #0f4d76;
@@ -16,10 +18,22 @@
  .nav-link.active {background-color:  #2084c9;
 }
 
- .navbar-dark .navbar-nav>li>a:focus, .navbar-dark .navbar-nav>li>a:hover {
+ .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
   background-color: #0f4d76;
 }
 
 .navbar-custom .navbar-text {
     color: #0076a0;
+}
+
+.well {
+    display: block;
+    background-color: rgba(182,216,232,0.25);
+    color: #000000;
+    padding: 1.25rem;
+    border-radius: .25rem;
+}
+
+p {
+  color: black; !important;
 }
