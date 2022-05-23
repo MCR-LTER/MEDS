@@ -1,9 +1,11 @@
 /* background page color */
   body { background: #e3f1fa;
   color: black;
+      font-size: 1rem;
   }
   
-  p { color: black;}
+  p { color: black;
+  }
 
 /* Setting the text color for the 'h1' element */    
   h1 { color: #0f4d76;
@@ -11,29 +13,21 @@
 
 /* color change when tabPanel is selected in navbarMenu */
   
-  .navbar {background-color: #6ebee0;
-  color: black;
-  }
+.navbar.navbar-default {
+    background-color: #0d485d !important;
+}
 
  .nav-link.active {background-color:  #2084c9;
+ color: #FFFFFF;
 }
 
  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
   background-color: #0f4d76;
 }
 
-.navbar-custom .navbar-text {
-    color: #0076a0;
-}
 
-.well {
-    display: block;
-    background-color: rgba(182,216,232,0.25);
-    color: #000000;
-    padding: 1.25rem;
-    border-radius: .25rem;
-}
+
 
 p {
-  color: black; !important;
+  color: black !important;
 }
