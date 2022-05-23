@@ -1,5 +1,6 @@
 /* background page color */
   body { background: #e3f1fa;
+  color: black;
   }
 
 /* Setting the text color for the 'h1' element */    
@@ -9,6 +10,7 @@
 /* color change when tabPanel is selected in navbarMenu */
   
   .navbar {background-color: #6ebee0;
+  color: black;
   }
 
  .nav-link.active {background-color:  #2084c9;
