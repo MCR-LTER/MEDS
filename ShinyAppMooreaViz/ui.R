@@ -20,7 +20,7 @@ ui <- fluidPage(
                    heading_font = font_google("Source Sans Pro")), 
   
   
-  # SO footer ----
+  # footer ----
   footer = tags$div(
     class = "footer",
     span(
@@ -34,9 +34,7 @@ ui <- fluidPage(
          #    href = "https://www.nceas.ucsb.edu/", 
         #     target = "_blank")
     ), 
-    tags$p("The Outdoor Equity App is not paid for by Recreation One Stop. 
-             Any plots or visuals created here are not intended for publication 
-             and require further analysis before making any determinations.")
+    tags$p("does this work?")
   ), 
 
   
@@ -235,7 +233,7 @@ ui <- fluidPage(
                                  tabsetPanel(
                                    tabPanel("Isotopic Nitrogen", 
                                             sidebarLayout(
-                                              sidebarPanel(width = 5, 
+                                              sidebarPanel(width = 6, 
                                                            h3("Background"),
                                                            p("The use of naturally occurring stable isotopes of N (15N: 14N, expressed as δ 15N) is particularly useful for distinguishing between natural and sewage-derived nitrogen because natural sources generally have low signatures while sewage-derived N is high in 15N (with δ 15N values ranging from ~ 5% to 20%) (Risk et al. 2009, Kendall et al. 2012). In the lagoons of Moorea, nitrogen likely comes from a mix of oceanic and terrestrial sources, the latter including synthetic and organic fertilizers, livestock, and human sewage. Because synthetic fertilizers tend to have δ 15N signatures that are similar to or lower than natural sources (generally ranging from -4 to 4%) (Dailer et al. 2010), elevated δ 15N values would indicate that human sewage or animal waste are important sources of nitrogen but would not rule out the importance of fertilizers or other sources."),
                                                            h3("Data Collection"), 
@@ -254,7 +252,7 @@ ui <- fluidPage(
                                    
                                    tabPanel("Percent Nitrogen", 
                                             sidebarLayout(
-                                              sidebarPanel(width = 5, 
+                                              sidebarPanel(width = 6, 
                                                            h3("Background"), 
                                                            p(" Like other macroalgae, Turbinaria responds to nitrogen pulses by storing surplus nitrogen (Schaffelke 1999) and consequently nitrogen tissue content is believed to be an excellent time-integrated indicator of nitrogen availability"), 
                                                            h3("Data Collection"), 
@@ -275,7 +273,7 @@ ui <- fluidPage(
                                    
                                    tabPanel("Coral Bleaching", 
                                             sidebarLayout(
-                                              sidebarPanel(width = 5, 
+                                              sidebarPanel(width = 6, 
                                                            h3("Background"), 
                                                            p("Coral Bleaching is the whitening of corals due to expulsion of symbiotic algae and/or their pigments, which can lead to coral mortality (Brown 1997). Bleaching events are increasing in frequency and magnitude due to climate change causing increases in maximum water temperatures that exceed coral heat stress thresholds. Additionally, nutrient pollution from coastal development can act synergistically with heat stress to increase coral bleaching (Donovan et al. 2020). This data set was collected from coral bleaching surveys that were conducted to test the hypothesis that bleaching prevalence and severity were correlated with differences in heat stress and nutrient availability."),
                                                            h3("Data Collection"), 
@@ -294,7 +292,7 @@ ui <- fluidPage(
                                    
                                    tabPanel("Predicted Sewage", 
                                             sidebarLayout(
-                                              sidebarPanel(width = 5, 
+                                              sidebarPanel(width = 6, 
                                                            h3("Background"), 
 
                                                            p("Spatial patterns of nitrogen (N) enrichment are found to be associated with  anthropogenic N inputs into Moorea's lagoons, such as sewage. Additionally, isotopic nitrogen (δ 15N) signatures were well predicted by modeled sewage input, particularly during the rainy season when waste treatment systems may be overwhelmed, suggesting that δ 15N is a good proxy for anthropogenic nutrients (Adam et al. 2021). Overall, Nitrogen enrichment in the form of sewage can damage the health of coral reefs, making it an important variable to map around Moorea's lagoons."),

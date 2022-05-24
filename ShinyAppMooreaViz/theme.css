@@ -32,7 +32,7 @@
 
 /* IMAGE STYLING*/ 
 /* resize banner images dynamically */  
-img.banner {
+.banner {
   display:block;
   max-width: 100%;
   width: auto; 
