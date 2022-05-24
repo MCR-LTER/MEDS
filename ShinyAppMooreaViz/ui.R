@@ -276,12 +276,11 @@ ui <- fluidPage(
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
-                                                           p("FILL IN"),
+                                                           p("Spatial patterns of nitrogen (N) enrichment are found to be associated with  anthropogenic N inputs into Moorea's lagoons, such as sewage. Additionally, isotopic nitrogen (δ 15N) signatures were well predicted by modeled sewage input, particularly during the rainy season when waste treatment systems may be overwhelmed, suggesting that δ 15N is a good proxy for anthropogenic nutrients (Adam et al. 2021). Overall, Nitrogen enrichment in the form of sewage can damage the health of coral reefs, making it an important variable to map around Moorea's lagoons."),
                                                            h3("Data Collection"), 
-                                                           p("FILL IN"), 
+                                                           p("The relative sewage discharge was mapped by combining household density along the coast and the water treatment system used in each individual household (n = 8,614). Each treatment system was assigned a value based on its overall environmental impact (no treatment = 2; treatment with a sump = 1; and treatment with a plant = 0; data from ISPF), which was subsequently used as a weighting component of household density. Then this was extrapolated onto the reef using linear decay, assuming that pollution from sewage discharge spread linearly into the lagoon from the source. Kernel estimation was completed using the Heatmap plugin in QGIS v2.18.14 (QGIS Development Team 2016) (Adam et al. 2021)."), 
                                                            p("This dataset is not avaible 
-                                                             for download through the MCR as 
-                                                             the data was collected by....")),
+                                                             for download through the MCR.")),
                                               
                                               mainPanel(width = 6, 
                                                         img(src = "MCR60441.jpg", 
