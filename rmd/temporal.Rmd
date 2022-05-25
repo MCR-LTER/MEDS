@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # load libraries 
 ```{r}
 if (!require(librarian)){
-  install.packages("librarian")
+  install.packages("librarian")      
   library(librarian)
 }
 
