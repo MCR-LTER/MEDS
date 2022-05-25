@@ -51,18 +51,18 @@ server <- function(input, output, session) {
                            input$Temp_Variable == "Acropora" ~ "Mean Percent Coral Cover (Acropora)",
                            input$Temp_Variable == "mean_macroalgae_cover" ~ "Mean Percent Algae Cover (Macroalgae)",
                            input$Temp_Variable == "mean_CTB_algae_cover" ~ "Mean Percent Algae Cover (CTB)", 
-                           input$Temp_Variable == "mean_biomass_p_consumers" ~ "Mean Herbivore Fish Biomass",
+                           input$Temp_Variable == "total_biomass_p_consumers" ~ "Total Herbivore Fish Biomass Density",
                            input$Temp_Variable == "cots_density" ~ "Crown-of-Thorns Density"),
          subtitle = 'Moorea, French Polynesia (2006 - 2021)',
-         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Percent",
-                       input$Temp_Variable == "Pocillopora" ~ "Percent",
-                       input$Temp_Variable == "Porites" ~ "Percent",
-                       input$Temp_Variable == "Acropora" ~ "Percent",
-                       input$Temp_Variable == "mean_macroalgae_cover" ~ "Percent",
-                       input$Temp_Variable == "mean_CTB_algae_cover" ~ "Percent",
-                       input$Temp_Variable == "mean_biomass_p_consumers" ~ "Biomass (g per m^2)",
-                       #input$TempVariable == "mean_biomass_p_consumers" ~ TeX(r'($\alpha  x^\alpha$, where $\alpha \in \{1 \ldots 5\}$)'), # uses latex2exp package 
-                       input$Temp_Variable == "cots_density" ~ "Density (count per m^2)"),
+         y = case_when(input$Temp_Variable == "mean_coral_cover" ~ "Mean Coral Cover (%)",
+                       input$Temp_Variable == "Pocillopora" ~ "Mean Coral Cover (%)",
+                       input$Temp_Variable == "Porites" ~ "Mean Coral Cover (%)",
+                       input$Temp_Variable == "Acropora" ~ "Mean Coral Cover (%)",
+                       input$Temp_Variable == "mean_macroalgae_cover" ~ "Mean Macroalgae Cover (%)",
+                       input$Temp_Variable == "mean_CTB_algae_cover" ~ "Mean CTB Cover (%)",
+                       input$Temp_Variable == "total_biomass_p_consumers" ~ "Herbivore Fish Biomass Density (g/m^2)",
+                       #input$TempVariable == "total_biomass_p_consumers" ~ TeX(r'($\alpha  x^\alpha$, where $\alpha \in \{1 \ldots 5\}$)'), # uses latex2exp package 
+                       input$Temp_Variable == "cots_density" ~ "COTS Density (count/m^2)"),
          x = 'Year',
          color = 'Site') +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
@@ -104,7 +104,8 @@ server <- function(input, output, session) {
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) + 
       labs(x = "Year",
-           y = "Percent") +
+           y = "Mean Coral Cover (%)",
+           color = "Site") +
       ylim(0, NA) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
@@ -125,7 +126,8 @@ server <- function(input, output, session) {
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887'))  +
       labs(x = "Year",
-           y = "Percent") +
+           y = "Mean Algae Cover (%)",
+           color = "Site") +
       ylim(0, NA) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
@@ -142,13 +144,14 @@ server <- function(input, output, session) {
   
   # biomass_plot 
   output$biomass_plot <- renderPlot({
-    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = mean_biomass_p_consumers)) +
+    ggplot(data = temporal_reactive_df_2(), aes(x = year, y = total_biomass_p_consumers)) +
       geom_point(aes(color = site)) +
       geom_line(aes(group = site, color = site)) +
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) +
       labs(x = "Year",
-           y = expression(atop("Mean Herbivore Fish Biomass", paste(paste("(grams per ", m^{2}, ")"))))) +
+           y = expression(atop("Total Herbivore Fish Biomass Density", paste(paste("(g/", m^{2}, ")")))),
+           color = "Site") +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
             panel.grid.major.x = element_blank(), 
@@ -170,7 +173,8 @@ server <- function(input, output, session) {
       scale_color_manual(values = c("LTER 1" = '#fcd225', "LTER 2" = '#f68d45', "LTER 3" = '#d5546e', 
                                     "LTER 4" = '#a62098', "LTER 5" = '#6300a7', "LTER 6" = '#0d0887')) +
       labs(x = "Year",
-           y = expression(atop("COTS Density", paste(paste("(Count per ", m^{2}, ")"))))) +
+           y = expression(atop("COTS Density", paste(paste("(count/", m^{2}, ")")))),
+           color = "Site") +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
             panel.grid.major.x = element_blank(), 

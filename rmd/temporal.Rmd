@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # load libraries 
 ```{r}
 if (!require(librarian)){
-  install.packages("librarian")
+  install.packages("librarian")      
   library(librarian)
 }
 
@@ -82,7 +82,7 @@ coral_cover_raw <- read_csv(here("data", "csv", "percent_coral_cover.csv")) %>%
 
 coral_cover <- coral_cover_raw %>%
   as.data.frame() %>% 
-  dplyr::select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat) %>% 
+  dplyr::select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat, quad40) %>% 
   filter(!str_detect(percent_cover, "ND")) %>% 
   filter(!str_detect(percent_cover, "0.0")) %>% 
   filter(!taxonomy_substrate_or_functional_group %in% 
@@ -111,7 +111,8 @@ coral_corals <- coral_cover %>%
 sum_coral_cover <- coral_cover %>%
   mutate(year = date) %>% 
   group_by(site, year, habitat) %>% 
-  summarize(mean_coral_cover = (mean(percent_cover)))
+  summarize(mean_coral_cover = (sum(percent_cover)) / n_distinct((quad40))) # Take the sum across the grouping first, then divide by 40 because there are 40 quadrants. This will give us the mean percent coral cover over all quadrants for a given year, site, and habitat. 
+
 
 # summary df for coral_corals
 sum_trophic_corals <- coral_corals %>% 
@@ -127,7 +128,7 @@ ggplot(sum_coral_cover) +
   theme_classic()
 ```
 
-# Herbivore Fish Biomass
+# Total Herbivore Fish Biomass
 ```{r}
 # read in data 
 fish_biomass <- read_csv(here("data/csv/fish.csv")) %>%
@@ -143,10 +144,10 @@ fish_biomass$substring_location =
 biomass_summary <- fish_biomass %>%
   filter(coarse_trophic == "Primary Consumer") %>%
   filter(!habitat == "BA") %>% 
-  select(year, "site" = substring_location, biomass, habitat) %>%
+  dplyr::select(year, "site" = substring_location, biomass, habitat) %>%
   mutate(year = as.numeric(year)) %>% 
   group_by(year, site, habitat) %>%
-  summarize(mean_biomass_p_consumers = (mean(biomass)/1000)) #5 x 50 meter transect * 4 = 1000 total meters
+  summarize(total_biomass_p_consumers = (sum(biomass)/1000)) #5 x 50 meter transect * 4 = 1000 total meters
 
 # make habitat labels consistent  
 # biomass_summary$habitat <- str_replace(biomass_summary$habitat, "BA", "Backreef")
@@ -154,7 +155,7 @@ biomass_summary$habitat <- str_replace(biomass_summary$habitat, "FO", "Forereef"
 biomass_summary$habitat <- str_replace(biomass_summary$habitat, "FR", "Fringing")
 
 
-ggplot(data = biomass_summary, aes(x = year, y = mean_biomass_p_consumers)) +
+ggplot(data = biomass_summary, aes(x = year, y = total_biomass_p_consumers)) +
   geom_point(aes(color = site)) +
   geom_line(aes(group = site, color = site))
 ```
@@ -164,7 +165,7 @@ ggplot(data = biomass_summary, aes(x = year, y = mean_biomass_p_consumers)) +
 # use coral_cover framework, filter for "macroalgae" 
 algae_cover <- coral_cover_raw %>%
   as.data.frame() %>% 
-  select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat) %>% 
+  dplyr::select(date, site, taxonomy_substrate_or_functional_group, percent_cover, habitat, quad40) %>% 
   filter(taxonomy_substrate_or_functional_group %in% c("Macroalgae", "CTB")) %>% 
   filter(!str_detect(percent_cover, "ND")) %>%
   filter(!str_detect(percent_cover, "0.0")) %>%
@@ -182,7 +183,7 @@ sum_macroalgae_cover <- algae_cover %>%
   filter(taxonomy_substrate_or_functional_group == "Macroalgae") %>% 
   mutate(year = date) %>% # rename date to year 
   group_by(site, year, habitat) %>% 
-  summarize(mean_macroalgae_cover = (mean(percent_cover)))
+  summarize(mean_macroalgae_cover = (mean(percent_cover))) 
 
 # summary df for CTB
 sum_CTB_algae_cover <- algae_cover %>% 
@@ -289,7 +290,7 @@ ggplot(data = temporal_data, aes(x = year, y = mean_macroalgae_cover)) +
 
 # fish biomass 
 # no data for 2005
-ggplot(data = temporal_data, aes(x = year, y = mean_biomass_p_consumers)) +
+ggplot(data = temporal_data, aes(x = year, y = total_biomass_p_consumers)) +
   geom_point(aes(color = site)) +
   geom_line(aes(group = site, color = site)) +
   facet_wrap(~site) +

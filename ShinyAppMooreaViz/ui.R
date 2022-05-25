@@ -330,7 +330,7 @@ ui <- fluidPage(
                                               label = "Select a Variable",
                                               choices = c("Mean Percent Coral Cover" = "mean_coral_cover",
                                                           "Mean Percent Algae Cover (Macroalgae)" = "mean_macroalgae_cover",
-                                                          "Mean Herbivore Fish Biomass" = "mean_biomass_p_consumers",
+                                                          "Total Herbivore Fish Biomass Density" = "total_biomass_p_consumers",
                                                           "Crown-of-Thorns Density" = "cots_density",
                                                           "Mean Percent Coral Cover (Pocillopora)" = "Pocillopora",
                                                           "Mean Percent Coral Cover (Porites)" = "Porites",
@@ -380,7 +380,7 @@ ui <- fluidPage(
                                          plotOutput(outputId = "cots_plot"))),
                                    fluidRow(
                                      box(width = 12,
-                                         title = "Mean Herbivore Fish Biomass",
+                                         title = "Total Herbivore Fish Biomass Density",
                                          plotOutput(outputId = "biomass_plot"))))
                                    )), 
                         
@@ -388,7 +388,7 @@ ui <- fluidPage(
 
                         tabPanel("Metadata",
                                  tabsetPanel(
-                                   tabPanel("Mean Coral Cover", 
+                                   tabPanel("Mean Percent Coral Cover", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
@@ -411,7 +411,7 @@ ui <- fluidPage(
                                                             width = 400, 
                                                             alt = "")))),
                                    
-                                   tabPanel("Mean Algae Cover", 
+                                   tabPanel("Mean Percent Algae Cover", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"),
@@ -434,7 +434,7 @@ ui <- fluidPage(
                                                             width = 400, 
                                                             alt = "")))),
                                    
-                                   tabPanel("Mean Fish Biomass", 
+                                   tabPanel("Total Herbivore Fish Biomass Density", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"), 
@@ -456,7 +456,7 @@ ui <- fluidPage(
                                                             width = 400, 
                                                             alt = "")))),
                                    
-                                   tabPanel("Crown of Thorns Density", 
+                                   tabPanel("Crown-of-Thorns Density", 
                                             sidebarLayout(
                                               sidebarPanel(width = 5, 
                                                            h3("Background"),
