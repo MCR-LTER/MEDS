@@ -111,7 +111,7 @@ coral_corals <- coral_cover %>%
 sum_coral_cover <- coral_cover %>%
   mutate(year = date) %>% 
   group_by(site, year, habitat) %>% 
-  summarize(mean_coral_cover = (sum(percent_cover)) / n_distinct((quad40))) # Take the sum across the grouping first, then divide by 40 because there are 40 quadrants. This will give us the mean percent coral cover over all quadrants for a given year, site, and habitat. 
+  summarize(mean_coral_cover = (sum(percent_cover)) / n_distinct((quad40))) # Take the sum across the grouping first, then divide by the number of distinct quadrats because not every year had 40 according to the metadata. This will give us the mean percent coral cover over all quadrats for a given year, site, and habitat. 
 
 
 # summary df for coral_corals
