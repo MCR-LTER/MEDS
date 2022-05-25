@@ -290,7 +290,7 @@ ggplot(data = temporal_data, aes(x = year, y = mean_macroalgae_cover)) +
 
 # fish biomass 
 # no data for 2005
-ggplot(data = temporal_data, aes(x = year, y = mean_biomass_p_consumers)) +
+ggplot(data = temporal_data, aes(x = year, y = total_biomass_p_consumers)) +
   geom_point(aes(color = site)) +
   geom_line(aes(group = site, color = site)) +
   facet_wrap(~site) +
