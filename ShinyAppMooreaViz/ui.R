@@ -126,10 +126,14 @@ ui <- fluidPage(
                       
                       h1("About the Creators"),
                       fluidRow(
-                        column(12, p("This application was created by students in the 2022 Master of Environmental Data Science program at UCSB's Bren School of Environmental Science & Management as the focus of their Master's Capstone Project."), 
+                        column(6, p("This application was created by students in the 2022 Master of Environmental Data Science program at UCSB's Bren School of Environmental Science & Management as the focus of their Master's Capstone Project."), 
                                
-                               p("The creators include Allie Cole, Felicia Cruz, Jake Eisaguirre, and Charles Hendrickson."))),
-                      
+                               p("The creators include Charles Hendrickson, Jake Eisaguirre, Allie Cole, and Felicia Cruz (in order of photo).")),
+                        column(6, align = "center",
+                               img(src = "MooreaViz.jpg",
+                                   height=300,
+                                   width=300,
+                                   alt = "The four MEDS students who created this Shiny application."))),
                   )), 
                   
              
