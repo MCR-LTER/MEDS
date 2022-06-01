@@ -61,17 +61,17 @@ ui <- fluidPage(
                           img(src="Underwater_Gump_095.jpg", 
                               height = 300, 
                               width = 300, 
-                              alt = "")),
+                              alt = "Photo of one brown coral head in the middle of the picture surrounded by blue water")),
                       div(style="display: inline-block;",
                           img(src="Moorea Scenery_197.jpg", 
                               height=300, 
                               width=300, 
-                              alt = "")),
+                              alt = "Photo of Moorea scenery, with tall green mountians, blue sky with white clounds and the bottom half of the page the blue ocean. ")),
                       div(style="display: inline-block;",
                           img(src="Underwater_Gump_080.jpg", 
                               height=300, 
                               width=300, 
-                              alt = "")))),
+                              alt = "A shot of the coral reef and water column, with sreaks from the sun shining through the water")))),
                       
                       h1("Background"),
                       
@@ -89,7 +89,7 @@ ui <- fluidPage(
                                img(src="Local Outreach_Gump_071.jpg", 
                                    height=300, 
                                    width=400, 
-                                   alt = "")),
+                                   alt = "A photo of some MCR staff and young children looking at animals in touch tanks")),
                         column(8, 
                                p("The MCR LTER supports many different outreach and educational efforts. The",
                                  tags$a(href = "http://mcrlter.msi.ucsb.edu/education/", 
@@ -140,7 +140,7 @@ ui <- fluidPage(
                                img(src="Work Around Gump_011.jpg", 
                                    height=400, 
                                    width=500, 
-                                   alt = ""))),
+                                   alt = "A picture of two women working in a boat, one reaching towards the otehr who is in the water"))),
                       
                       h1("About the Creators"),
                       fluidRow(
@@ -248,7 +248,7 @@ ui <- fluidPage(
                                                         img(src = "Underwater_Gump_063.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of a scuba diver holding tools and algae")))),
                                    
                                    tabPanel("Percent Nitrogen", 
                                             sidebarLayout(
@@ -269,7 +269,7 @@ ui <- fluidPage(
                                                         img(src = "MCR60369.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of a scuba diver holding tools")))),
                                    
                                    tabPanel("Coral Bleaching", 
                                             sidebarLayout(
@@ -288,7 +288,7 @@ ui <- fluidPage(
                                                         img(src = "MCR60402.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of white coral that had been bleached, with purple tips")))),
                                    
                                    tabPanel("Predicted Sewage", 
                                             sidebarLayout(
@@ -409,7 +409,7 @@ ui <- fluidPage(
                                                         img(src = "MCR60366.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of a snorkler holding tools")))),
                                    
                                    tabPanel("Mean Algae Cover", 
                                             sidebarLayout(
@@ -432,7 +432,7 @@ ui <- fluidPage(
                                                         img(src = "Work Around Gump_044.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of two women driving a boat with mountians in the background")))),
                                    
                                    tabPanel("Mean Fish Biomass", 
                                             sidebarLayout(
@@ -454,7 +454,7 @@ ui <- fluidPage(
                                                         img(src = "MCR60459.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = "")))),
+                                                            alt = "Photo of a snorkler holding tools swimming right above a reef with a school of fish to the left of them")))),
                                    
                                    tabPanel("Crown of Thorns Density", 
                                             sidebarLayout(
@@ -476,5 +476,5 @@ ui <- fluidPage(
                                                         img(src = "Underwater_Gump_095.jpg", 
                                                             height = 400, 
                                                             width = 400, 
-                                                            alt = ""))
+                                                            alt = "Photo of a large brown coral with blue water in the background"))
                                               )))))))
