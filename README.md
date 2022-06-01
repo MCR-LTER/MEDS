@@ -3,7 +3,7 @@
 
 # Moorea Coral Reef LTER Shiny Application <a href='http://mcr.lternet.edu/'><img src='ShinyAppMooreaViz/www/mcr_logo.png' align="right" height="138.5" /></a>
 
-This repository contains all necessary files, data, and code used for the development of the MCR LTER Shiny application created by the MEDS 2022 Capstone group, MooreaViz. This application serves as an easy-to-use interactive platform to visualize various spatial and temporal data collected by the MCR LTER since 2005. Please see the User Guide file which contains code and data management and information on app maintenance.   
+This repository contains all necessary files, data, and code used for the development of the MCR LTER Shiny application created by the MEDS 2022 Capstone group, MooreaViz. This application serves as an easy-to-use interactive platform to visualize various spatial and temporal data collected by the MCR LTER since 2006. Please see the User Guide file which contains code and data management and information on app maintenance.   
 
 ## About the data
 
@@ -18,3 +18,5 @@ The second main component of this app includes temporal visualizations produced 
 ## References
 
 **Data originally published in:**
+
+## The Shiny app can be accessed here: https://shinyapps.bren.ucsb.edu/ShinyAppMooreaViz/ 
