@@ -17,25 +17,7 @@ ui <- fluidPage(
                    warning = "#C3512C",# yellow
                    danger = "#FACE00", # orange red
                    base_font = font_google("Open Sans"), 
-                   heading_font = font_google("Source Sans Pro")), 
-  
-  
-  # footer ----
-  footer = tags$div(
-    class = "footer",
-    span(
-      tags$a(img(src = "bren_meds_hex.png"), 
-             href = "https://ucsb-meds.github.io/", 
-             target = "_blank"),
-      tags$a(img(src = "bren_full.png"),
-             href = "https://bren.ucsb.edu/", 
-             target = "_blank"),
-      #tags$a(img(src = "logos/NCEAS-square-logo.png"),
-         #    href = "https://www.nceas.ucsb.edu/", 
-        #     target = "_blank")
-    ), 
-    tags$p("does this work?")
-  ), 
+                   heading_font = font_google("Source Sans Pro")),
 
   
   # Application title ----
