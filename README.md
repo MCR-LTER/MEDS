@@ -15,8 +15,4 @@ This Shiny application currently uses 2016 spatial data with layers for nitrogen
 
 The second main component of this app includes temporal visualizations produced from 2006-2022 LTER datasets for coral cover, algae cover, herbivore fish biomass, and Crown-of-Thorns density. With two options within the app, the user can choose between visualizations by variable and visualizations by site. Visualizations by variable can be helpful for a user to explore the trends of a single variable across all sites. Visualizations by site can be helpful for a user to compare trends across the four variables for their chosen sites of interest. 
 
-## References
-
-**Data originally published in:**
-
-## The Shiny app can be accessed here: https://shinyapps.bren.ucsb.edu/ShinyAppMooreaViz/ 
+### The Shiny app can be accessed here: https://shinyapps.bren.ucsb.edu/ShinyAppMooreaViz/ 

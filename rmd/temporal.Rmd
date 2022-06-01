@@ -228,7 +228,7 @@ temporal_data <- left_join(algae_coral_cots, biomass_summary, on = c(year, site,
 write.csv(temporal_data, here("data/csv/temporal_data_joined.csv")) 
 ```
 
-using the joined df to make a faceted plot based on variable choice (4 plots to be included on app)
+# Using the joined df to make a faceted plot based on variable choice (4 plots to be included on app)
 ```{r}
 # cots 
 ggplot(data = temporal_data, aes(x = year, y = cots_density)) +
