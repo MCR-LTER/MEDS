@@ -9,7 +9,7 @@ This is the code for the Spatial Tab on the Moorea Shiny App. Each chuck has a s
 
 # Load Packages 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE) 
 
 if (!require(librarian)){
   install.packages("librarian")
